@@ -1,7 +1,13 @@
 package Model;
 
-import Listas.ListaDoble;
+import Estructuras.Lista.ListaDoble;
+import lombok.*;
 
+@ToString
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Artista {
     private int codigoArtista;
     private String nombreArtista;

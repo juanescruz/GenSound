@@ -1,4 +1,4 @@
-package Listas;
+package Estructuras.Arbol;
 
 public class ArbolBinario {
 }
