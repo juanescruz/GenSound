@@ -13,19 +13,19 @@ public class ArbolBinario {
         this.raiz=null;
     }
     public void agregarArtista(Artista artista) {
-        raiz = agregarArtCancion(raiz, artista);
+        raiz = agregarArtistaNodo(raiz, artista);
     }
 
-    private Nodo agregarArtCancion(Nodo nodo, Artista artista) {
+    private Nodo agregarArtistaNodo(Nodo nodo, Artista artista) {
         if (nodo == null) {
             return new Nodo(artista);
         }
 
         if (artista.getNombreArtista().compareTo(nodo.artista.getNombreArtista()) < 0) {
-            nodo.izquierdo = agregarArtCancion(nodo.izquierdo, artista);
+            nodo.izquierdo = agregarArtistaNodo(nodo.izquierdo, artista);
         }
         else if (artista.getNombreArtista().compareTo(nodo.artista.getNombreArtista()) > 0) {
-            nodo.derecho = agregarArtCancion(nodo.derecho, artista);
+            nodo.derecho = agregarArtistaNodo(nodo.derecho, artista);
         }
         // Si el artista ya existe en el arbol entonces:
         else {
@@ -59,6 +59,24 @@ public class ArbolBinario {
         return canciones;
     }
 
+    public List<Cancion> buscarCancionesO0(String atributo1, String atributo2) {
+
+        List<Cancion> canciones = new ArrayList<>();
+        Thread hiloIzquierdo = new Thread(() -> buscarCancionesORec(raiz.izquierdo, atributo1, atributo2, canciones));
+        Thread hiloDerecho = new Thread(() -> buscarCancionesORec(raiz.derecho, atributo1, atributo2, canciones));
+
+        hiloIzquierdo.start();
+        hiloDerecho.start();
+
+        try {
+            hiloIzquierdo.join();
+            hiloDerecho.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return canciones;
+    }
     //Toma
     private void buscarCancionesORec(Nodo nodo, String atributo1, String atributo2, List<Cancion> canciones) {
         if (nodo != null) {
@@ -76,8 +94,6 @@ public class ArbolBinario {
             buscarCancionesORec(nodo.derecho, atributo1, atributo2, canciones);
         }
     }
-
-
     public List<Cancion> buscarCancionesY(String atributo1, String atributo2) {
         List<Cancion> canciones = new ArrayList<>();
         buscarCancionesYRec(raiz, atributo1, atributo2, canciones);
