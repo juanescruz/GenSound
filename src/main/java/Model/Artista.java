@@ -14,4 +14,5 @@ public class Artista {
     private String nacionalidad;
     private boolean esGrupo;
     private ListaDoble canciones;
+
 }

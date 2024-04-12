@@ -2,6 +2,8 @@ package Model;
 
 import Archivos.ArchivoUtils;
 import Estructuras.Arbol.ArbolBinario;
+import Estructuras.Lista.ListaIterador;
+import Estructuras.ListaCircular.IteradorCircular;
 
 import java.io.File;
 import java.io.IOException;
@@ -85,7 +87,7 @@ public class Tienda {
 
                 }else{
                     String [] valores= linea.split(";");
-                    guardarCancionArtista();
+                    guardarCancionArtista(valores);
 
                 }
             }
@@ -94,7 +96,30 @@ public class Tienda {
         }
 
     }
-
-    private void guardarCancionArtista() {
+    private void guardarCancionArtista(String[] valores) {
+        /*for (int i=0;i<artistas.getTamanio();i++){
+            if(artistas.getArtista.getCodigoArtista.equals(valores[0]){
+                Cancion cancion= new Cancion(valores[1],valores[2],valores[3],valores[4],valores[5],valores[6]);
+                artistas.getArtista.getCanciones.agregarFinal(cancion);
+            }
+        }*/
     }
+    public boolean existeUsuario(String username){
+        boolean flag=false;
+        for(int i=0;i<usuarios.size() && !flag;i++){
+            flag= usuarios.containsKey(username);
+        }
+        return flag;
+    }
+    public void eliminarCancion(Usuario usuario, Cancion cancion){
+        usuario.getCancionesFav().eliminar(cancion);
+
+    }
+    public void agregarCancion(Usuario usuario, Cancion cancion){
+        usuario.getCancionesFav().agregarfinal(cancion);
+    }
+    public void ordenarCancionesAnio(Usuario usuario, Cancion cancion){
+
+    }
+
 }

@@ -14,5 +14,5 @@ public class Usuario  implements Serializable {
     private String username;
     private String contrasenia;
     private String email;
-    private ListaCircular cancionesFav;
+    private ListaCircular<Cancion> cancionesFav;
 }

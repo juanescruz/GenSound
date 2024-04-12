@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0"
+            prefWidth="585.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="Controller.CancionController">
+   <left>
+      <VBox alignment="CENTER" prefHeight="180.0" prefWidth="173.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="caratulaCancion" fitHeight="147.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="180.0" prefWidth="254.0">
+               <children>
+                  <Label fx:id="nombreCancion" text="Nombre de la canción">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin></Label>
+                  <Label fx:id="nombreAlbum" text="Album">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin></Label>
+                  <Label fx:id="generoCancion" text="Género">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin></Label>
+                  <Label fx:id="anioCancion" text="Año">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin></Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="180.0" prefWidth="162.0">
+               <children>
+                  <SVGPath fx:id="reproducirCancion" content="M18.54,9,8.88,3.46a3.42,3.42,0,0,0-5.13,3V17.58A3.42,3.42,0,0,0,7.17,21a3.43,3.43,0,0,0,1.71-.46L18.54,15a3.42,3.42,0,0,0,0-5.92Zm-1,4.19L7.88,18.81a1.44,1.44,0,0,1-1.42,0,1.42,1.42,0,0,1-.71-1.23V6.42a1.42,1.42,0,0,1,.71-1.23A1.51,1.51,0,0,1,7.17,5a1.54,1.54,0,0,1,.71.19l9.66,5.58a1.42,1.42,0,0,1,0,2.46Z" fill="#4e0967" scaleX="3.0" scaleY="3.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></SVGPath>
+                  <Label fx:id="duracionCancion" text="Duración">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>
