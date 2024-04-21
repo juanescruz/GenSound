@@ -1,6 +1,9 @@
 package Estructuras.Arbol;
 
 import Model.Artista;
+import lombok.Getter;
+
+@Getter
 
 public class Nodo {
     Artista artista;
