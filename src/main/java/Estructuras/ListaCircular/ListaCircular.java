@@ -1,55 +1,107 @@
 package Estructuras.ListaCircular;
 
+import java.util.Stack;
+
 public class ListaCircular<T> implements Iterable<T> {
 
+    private Nodo<T> cabeza;
     private Nodo<T> nodoPrimero;
     private Nodo<T> nodoUltimo;
     private int tamanio;
+    private final Stack<Deshacer<T>> pilaDeshacer;
+    private final Stack<Rehacer<T>> pilaRehacer;
 
 
     public ListaCircular() {
-        nodoPrimero = null;
-        nodoPrimero = null;
-        tamanio = 0;
+        this.nodoPrimero = null;
+        this.nodoUltimo = null;
+        this.cabeza = null;
+        this.tamanio = 0;
+        this.pilaDeshacer = new Stack<>();
+        this.pilaRehacer = new Stack<>();
     }
 
-    public void agregarInicio(T valorNodo) {
+    public Nodo<T> getCabeza(){
+        return cabeza;
+    }
 
-        Nodo<T> nuevoNodo = new Nodo<>(valorNodo);
+    public void setCabeza(Nodo<T> nuevaCabeza){
+        this.cabeza = nuevaCabeza;
+    }
 
-        if(estaVacia())
-        {
-            nodoPrimero = nuevoNodo;
+    public int getTamanio(){
+        return tamanio;
+    }
+
+    public void setTamanio(int tamanio){
+        this.tamanio = tamanio;
+    }
+
+    public void deshacer() {
+        if (!pilaDeshacer.isEmpty()) {
+            Deshacer<T> operacionDeshacer = pilaDeshacer.pop();
+            operacionDeshacer.deshacer(this, pilaRehacer);
         }
-        else
-        {
-            Nodo<T> aux = nodoUltimo.getSiguienteNodo();
-            nodoUltimo.setSiguienteNodo(nuevoNodo);
-            nuevoNodo.setSiguienteNodo(aux);
-            nodoUltimo = nuevoNodo;
+    }
+
+    public void rehacer(){
+        if (!pilaRehacer.isEmpty()){
+            Rehacer<T> operacionRehacer = pilaRehacer.pop();
+            operacionRehacer.rehacer(this);
+        }
+    }
+
+    // Método para insertar un elemento en la lista
+    public void insertar(T dato) {
+
+        Nodo<T> nuevoNodo = new Nodo<>(dato);
+        if (cabeza == null) {
+            cabeza = nuevoNodo;
+            cabeza.setSiguienteNodo(cabeza);
+        } else {
+            Nodo<T> actual = cabeza;
+            while (actual.getSiguienteNodo() != cabeza) {
+                actual = actual.getSiguienteNodo();
+            }
+            actual.setSiguienteNodo(nuevoNodo);
+            nuevoNodo.setSiguienteNodo(cabeza);
         }
         tamanio++;
+
+        pilaDeshacer.push(new Deshacer<>(null, nuevoNodo));
+        pilaRehacer.clear();
     }
 
+    public void borrar(T dato) {
 
-    public void agregarfinal(T valorNodo) {
-
-        Nodo<T> nuevoNodo = new Nodo<>(valorNodo);
-
-        if(estaVacia())
-        {
-            nodoPrimero = nodoUltimo = nuevoNodo;
+        if (cabeza == null) {
+            return;
         }
-        else
-        {
-            Nodo<T> aux = nodoUltimo.getSiguienteNodo();
-            nodoUltimo.setSiguienteNodo(nuevoNodo);
-            nuevoNodo.setSiguienteNodo(aux);
-            nodoUltimo = nuevoNodo;
-        }
-        tamanio++;
+
+        Nodo<T> actual = cabeza;
+        Nodo<T> anterior = null;
+
+        do {
+            if (actual.getValorNodo().equals(dato)) {
+
+                if (anterior != null) {
+                    anterior.setSiguienteNodo(actual.getSiguienteNodo());
+                } else {
+                    cabeza = actual.getSiguienteNodo();
+                }
+                tamanio--;
+
+                pilaDeshacer.push(new Deshacer<>(anterior, actual));
+                pilaRehacer.clear();
+
+                return;
+            }
+            anterior = actual;
+            actual = actual.getSiguienteNodo();
+
+        } while (actual != cabeza);
     }
-
+ //
     //Obtener Nodo el valor de un Nodo
     public T obtenerValorNodo(int indice) {
 
@@ -85,60 +137,22 @@ public class ListaCircular<T> implements Iterable<T> {
 
     //Verificar si la lista esta vacia
     public boolean estaVacia() {
-        return(nodoPrimero == null)?true:false;
+        return nodoPrimero == null;
     }
 
 
     public void imprimirLista() {
-
-        Nodo<T> aux = nodoPrimero;
-
-        while(aux!=null) {
-            System.out.print( aux.getValorNodo()+"\t" );
-            aux = aux.getSiguienteNodo();
+        if (cabeza == null) {
+            System.out.println("La lista está vacía.");
+            return;
         }
-
+        Nodo<T> actual = cabeza;
+        do {
+            System.out.print(actual.getValorNodo() + " ");
+            actual = actual.getSiguienteNodo();
+        } while (actual != cabeza);
         System.out.println();
     }
-
-    //Eliminar dado el valor de un nodo
-    public T eliminar(T dato){
-        Nodo<T> nodo = nodoPrimero;
-        Nodo<T> previo = null;
-        Nodo<T> siguiente = null;
-        boolean encontrado = false;
-
-        //buscar el nodo previo
-        while(nodo!=null) {
-            if( nodo.getValorNodo() == dato ) {
-                encontrado = true;
-                break;
-            }
-            previo = nodo;
-            nodo = nodo.getSiguienteNodo();
-        }
-
-        if(encontrado) {
-            siguiente = nodo.getSiguienteNodo();
-            if( previo==null ) {
-                nodoPrimero = siguiente;
-            }else {
-                previo.setSiguienteNodo(siguiente);
-            }
-
-            if(siguiente==null) {
-//				nodoUltimo = previo;
-            }else {
-                nodo.setSiguienteNodo(null);
-            }
-
-            nodo = null;
-            tamanio--;
-            return dato;
-        }
-        throw new RuntimeException("El elemento no existe");
-    }
-
 
     //Elimina el primer nodo de la lista
     public T eliminarPrimero() {
