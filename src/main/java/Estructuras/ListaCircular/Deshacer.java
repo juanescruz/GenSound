@@ -1,4 +1,4 @@
-package example.listaCircular;
+package Estructuras.ListaCircular;
 
 import java.util.Stack;
 

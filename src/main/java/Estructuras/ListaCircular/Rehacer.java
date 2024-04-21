@@ -1,4 +1,4 @@
-package example.listaCircular;
+package Estructuras.ListaCircular;
 
 public class Rehacer<T> {
     private final Nodo<T> nodoAnterior;
