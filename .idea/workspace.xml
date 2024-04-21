@@ -5,21 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a665eb67-1670-4135-8fe6-021964ae9367" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/CancionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Excepciones/ClaveIncorrectaException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Excepciones/UsuarioExistenteException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Excepciones/UsuarioNoExistenteException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/View/cancion.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/View/Artista.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioPrincipalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioPrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioPrincipalController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/Arbol/ArbolBinario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/Arbol/ArbolBinario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Artista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Artista.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Cancion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Cancion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/View/inicio.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/inicioPrincipal.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/inicioPrincipal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/inicioPrincipal.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +98,12 @@
       <workItem from="1712233571417" duration="649000" />
       <workItem from="1712530386118" duration="1716000" />
       <workItem from="1712612636133" duration="13295000" />
-      <workItem from="1712924112500" duration="1636000" />
+      <workItem from="1712924112500" duration="3564000" />
+      <workItem from="1713129003955" duration="1726000" />
+      <workItem from="1713204956388" duration="53000" />
+      <workItem from="1713207263023" duration="496000" />
+      <workItem from="1713442127172" duration="2034000" />
+      <workItem from="1713530908342" duration="2948000" />
     </task>
     <servers />
   </component>

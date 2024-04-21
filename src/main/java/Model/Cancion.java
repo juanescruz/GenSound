@@ -2,13 +2,12 @@ package Model;
 
 import lombok.*;
 
-@ToString
-@Getter
-@Setter
-@NoArgsConstructor
+import java.util.UUID;
+
+@Data
 @AllArgsConstructor
 public class Cancion {
-    private int codigoCancion;
+    private final String codigoCancion;
     private String nombreCancion;
     private String nombreAlbum;
     private int anio;

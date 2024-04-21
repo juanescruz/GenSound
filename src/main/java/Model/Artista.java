@@ -3,10 +3,7 @@ package Model;
 import Estructuras.Lista.ListaDoble;
 import lombok.*;
 
-@ToString
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
 public class Artista {
     private int codigoArtista;

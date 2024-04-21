@@ -35,7 +35,7 @@ public class InicioPrincipalController implements Initializable {
 
         try {
             for (int i = 0; i < 3; i++) {
-                gridCanciones.getChildren().add(cargarCancion( new Cancion(1, "Cancion prueba", "", 2021, 20, "", "") ));
+                gridCanciones.getChildren().add(cargarCancion( new Cancion("2", "Cancion prueba", "", 2021, 20, "", "") ));
             }
         }catch (Exception e){
             e.printStackTrace();

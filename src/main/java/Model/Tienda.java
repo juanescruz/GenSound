@@ -4,10 +4,12 @@ import Archivos.ArchivoUtils;
 import Estructuras.Arbol.ArbolBinario;
 import Estructuras.Lista.ListaIterador;
 import Estructuras.ListaCircular.IteradorCircular;
+import Estructuras.ListaCircular.ListaCircular;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -15,6 +17,7 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 public class Tienda {
+    private final HashMap<String, List<Cancion>> catalogo;
     private ArbolBinario artistas;
     private HashMap<String, Usuario> usuarios;
     private Administrador admin;
@@ -39,6 +42,8 @@ public class Tienda {
             LOGGER.log(Level.INFO, "Archivo no encontrado");
         }
         LOGGER.log(Level.INFO, "Se creó una nueva instancia");
+
+        this.catalogo=new HashMap<>();
         
         this.usuarios=new HashMap<>();
         leerUsuarios();
