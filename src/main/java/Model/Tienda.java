@@ -110,13 +110,15 @@ public class Tienda {
         }*/
     }
     public boolean existeUsuario(String username){
-        boolean flag=false;
-        for(int i=0;i<usuarios.size() && !flag;i++){
-            flag= usuarios.containsKey(username);
-        }
-        return flag;
+       return usuarios.containsKey(username);
     }
-    public void eliminarCancion(Usuario usuario, Cancion cancion){
+    public boolean contrasenaCorrecta(String username, String contrasena){
+        if(usuarios.get(username).equals(contrasena)){
+            return true;
+        }
+        return false;
+    }
+    /*public void eliminarCancion(Usuario usuario, Cancion cancion){
         usuario.getCancionesFav().eliminar(cancion);
 
     }
@@ -126,5 +128,5 @@ public class Tienda {
     public void ordenarCancionesAnio(Usuario usuario, Cancion cancion){
 
     }
-
+*/
 }
