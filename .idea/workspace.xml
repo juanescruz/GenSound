@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a665eb67-1670-4135-8fe6-021964ae9367" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/View/Artista.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/ArtistaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioAdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/View/InicioAdmin.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioPrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioPrincipalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/Arbol/ArbolBinario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/Arbol/ArbolBinario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Artista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Artista.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Cancion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Cancion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/Artista.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/Artista.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/View/inicioPrincipal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/inicioPrincipal.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -103,7 +103,7 @@
       <workItem from="1713204956388" duration="53000" />
       <workItem from="1713207263023" duration="496000" />
       <workItem from="1713442127172" duration="2034000" />
-      <workItem from="1713530908342" duration="2948000" />
+      <workItem from="1713530908342" duration="6397000" />
     </task>
     <servers />
   </component>

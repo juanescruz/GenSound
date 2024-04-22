@@ -5,6 +5,7 @@ import Estructuras.Arbol.ArbolBinario;
 import Estructuras.Lista.ListaIterador;
 import Estructuras.ListaCircular.IteradorCircular;
 import Estructuras.ListaCircular.ListaCircular;
+import lombok.Data;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+@Data
 public class Tienda {
     private final HashMap<String, List<Cancion>> catalogo;
     private ArbolBinario artistas;
