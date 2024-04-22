@@ -1,19 +1,27 @@
 package Model;
 
-import lombok.*;
 
-import java.util.UUID;
+import Estructuras.Arbol.ArbolBinario;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
-@AllArgsConstructor
-public class Cancion {
-    private final String codigoCancion;
+@ToString
+@Builder
+@Setter
+@Getter
+public class Cancion  {
+    private ArbolBinario artistas;
+    private int codigoCancion;
     private String nombreCancion;
     private String nombreAlbum;
     private int anio;
     private double duracion;
     private String genero;
     private String url;
+
+
 
 
 }

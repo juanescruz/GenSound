@@ -1,10 +1,43 @@
+import Estructuras.Arbol.Nodo;
+import Estructuras.Lista.ListaDoble;
+import Estructuras.Lista.NodoDoble;
 package Estructuras.Arbol;
 
-public class ArbolBinario  {
+import Estructuras.Lista.ListaDoble;
+import Estructuras.Lista.NodoDoble;
+import Model.Artista;
+import Model.Cancion;
 
-    private int tamanio;
+import java.util.*;
 
-    public int getTamanio() {
-        return tamanio;
+import lombok.Getter;
+
+@Getter
+public class ArbolBinario {
+    private Nodo raiz;
+
+    public ArbolBinario(){
+        this.raiz=null;
+    }
+    public void agregarArtista(Artista artista) {
+        raiz = agregarArtistaNodo(raiz, artista);
+    }
+
+    private Nodo agregarArtistaNodo(Nodo nodo, Artista artista) {
+        if (nodo == null) {
+            return new Nodo(artista);
+        }
+
+        if (artista.getNombreArtista().compareTo(nodo.artista.getNombreArtista()) < 0) {
+            nodo.izquierdo = agregarArtistaNodo(nodo.izquierdo, artista);
+        }
+        else if (artista.getNombreArtista().compareTo(nodo.artista.getNombreArtista()) > 0) {
+            nodo.derecho = agregarArtistaNodo(nodo.derecho, artista);
+        }
+        // Si el artista ya existe en el arbol entonces:
+        else {
+            //Hay que poner que se hace, aca se ignora
+        }
+        return nodo;
     }
 }

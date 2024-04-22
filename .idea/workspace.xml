@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a665eb67-1670-4135-8fe6-021964ae9367" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/ArtistaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioAdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/View/InicioAdmin.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioPrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioPrincipalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/View/Artista.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/Artista.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/View/inicioPrincipal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/inicioPrincipal.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,12 +21,10 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/Estructuras/Arbol/ArbolBinario.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -53,7 +44,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Ana&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Juanes/Desktop/Github&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/galvi/EstructuraDatos/plataformaNoticias-XXX/plataformaCliente&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -93,17 +84,7 @@
       <workItem from="1710807321325" duration="451000" />
       <workItem from="1711391054023" duration="617000" />
       <workItem from="1712082376228" duration="3643000" />
-      <workItem from="1712086573744" duration="8172000" />
-      <workItem from="1712113274120" duration="259000" />
-      <workItem from="1712233571417" duration="649000" />
-      <workItem from="1712530386118" duration="1716000" />
-      <workItem from="1712612636133" duration="13295000" />
-      <workItem from="1712924112500" duration="3564000" />
-      <workItem from="1713129003955" duration="1726000" />
-      <workItem from="1713204956388" duration="53000" />
-      <workItem from="1713207263023" duration="496000" />
-      <workItem from="1713442127172" duration="2034000" />
-      <workItem from="1713530908342" duration="6397000" />
+      <workItem from="1712086573744" duration="4596000" />
     </task>
     <servers />
   </component>
