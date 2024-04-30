@@ -9,7 +9,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0"
             prefWidth="585.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="Controller.CancionController">
+fx:controller="Controller.CancionInicioController">
    <left>
       <VBox alignment="CENTER" prefHeight="180.0" prefWidth="173.0" BorderPane.alignment="CENTER">
          <children>

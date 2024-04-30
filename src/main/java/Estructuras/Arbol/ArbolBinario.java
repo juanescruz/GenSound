@@ -1,8 +1,7 @@
+package Estructuras.Arbol;
 import Estructuras.Arbol.Nodo;
 import Estructuras.Lista.ListaDoble;
 import Estructuras.Lista.NodoDoble;
-package Estructuras.Arbol;
-
 import Estructuras.Lista.ListaDoble;
 import Estructuras.Lista.NodoDoble;
 import Model.Artista;
@@ -15,12 +14,14 @@ import lombok.Getter;
 @Getter
 public class ArbolBinario {
     private Nodo raiz;
+    private int tamanio;
 
     public ArbolBinario(){
         this.raiz=null;
     }
     public void agregarArtista(Artista artista) {
         raiz = agregarArtistaNodo(raiz, artista);
+        tamanio++;
     }
 
     private Nodo agregarArtistaNodo(Nodo nodo, Artista artista) {

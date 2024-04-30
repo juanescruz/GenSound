@@ -81,7 +81,11 @@ public class Tienda {
         escribirUsuarios();
     }
 
-
+    /**
+     * Este metodo lee el archivo artistas y con ello agrega los artistas y sus respectivas canciones
+     * @param
+     * @return
+     */
     private void leerAristasCanciones() {
         boolean esArtista = false;
         try(Scanner scanner= new Scanner(new File("src/main/resources/Archivos/artistas"))){
@@ -97,7 +101,7 @@ public class Tienda {
 
                 if(esArtista){
                     String [] valores= linea.split(";");
-                    //this.artistas(new Artista());
+                    this.artistas.agregarArtista(new Artista(Integer.parseInt(valores[0]),valores[1],valores[2],Boolean.parseBoolean(valores[3]),null));
 
                 }else{
                     String [] valores= linea.split(";");

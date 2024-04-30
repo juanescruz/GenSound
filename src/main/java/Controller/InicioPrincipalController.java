@@ -9,9 +9,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.SVGPath;
 
@@ -35,8 +32,8 @@ public class InicioPrincipalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            for (int i = 0; i < tienda.getArtistas().getTamanio(); i++) {
-                listaCanciones.getChildren().add(cargarCancion( new Cancion("2", "Cancion prueba", "", 2021, 20, "", "") ));
+            for (int i = 0; i < 3; i++) {
+                //listaCanciones.getChildren().add(cargarCancion( new Cancion(new ArbolBinario(),2,"2", "Cancion prueba", "", 2021, 20, "")));
                 listaArtistas.getChildren().add(cargarArtistas(new Artista(1,"a","a",false, new ListaDoble<>())));
             }
         }catch (Exception e){
@@ -47,10 +44,10 @@ public class InicioPrincipalController implements Initializable {
 
     public Parent cargarCancion(Cancion cancion) throws Exception{
 
-        FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/view/cancion.fxml") );
+        FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/CancionInicio.fxml") );
         Parent parent = loader.load();
 
-        CancionController controller = loader.getController();
+        CancionInicioController controller = loader.getController();
         controller.cargarDatos(cancion);
 
         return parent;
