@@ -275,4 +275,11 @@ public class Tienda {
             buscarCancionesYRecursivo(nodo.getDerecho(), atributo1, atributo2, canciones);
         }
     }
+
+    public void agregarCancion(Cancion cancion, String nombreArtista){
+
+    }
+    public void agegarArtista(Artista artista){
+
+    }
 }
