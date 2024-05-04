@@ -11,8 +11,6 @@ import lombok.*;
 @AllArgsConstructor
 public class Cancion  {
 
-
-    private ArbolBinario artistas;
     private int codigoCancion;
     private String nombreCancion;
     private String nombreAlbum;

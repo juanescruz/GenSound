@@ -5,13 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a665eb67-1670-4135-8fe6-021964ae9367" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/CancionInicioUsuarioController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/CancionPlaylistController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioUsuarioController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/View/CancionInicioUsuario.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/View/CancionPlaylist.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/View/InicioUsuario.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AgregarArtistaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AgregarArtistaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AgregarCancionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AgregarCancionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioPrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioPrincipalController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Cancion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Cancion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/View/AgregarAr.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/AgregarAr.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/View/AgregarCan.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/AgregarCan.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +97,10 @@
       <workItem from="1714424880019" duration="6135000" />
       <workItem from="1714442891372" duration="1072000" />
       <workItem from="1714527485827" duration="3663000" />
+      <workItem from="1714763025212" duration="78000" />
+      <workItem from="1714856859777" duration="37000" />
+      <workItem from="1714856957733" duration="67000" />
+      <workItem from="1714858129901" duration="3025000" />
     </task>
     <servers />
   </component>

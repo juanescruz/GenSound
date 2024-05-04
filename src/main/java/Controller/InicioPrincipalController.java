@@ -39,6 +39,14 @@ public class InicioPrincipalController implements Initializable {
         }catch (Exception e){
             e.printStackTrace();
         }
+        try {
+            for (int i = 0; i < 3; i++) {
+                //listaCanciones.getChildren().add(cargarCancion( new Cancion(new ArbolBinario(),2,"2", "Cancion prueba", "", 2021, 20, "")));
+                listaCanciones.getChildren().add(cargarCancion(new Cancion(1,"","",2,2,"","")));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 
