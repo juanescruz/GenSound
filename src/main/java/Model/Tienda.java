@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -124,13 +125,24 @@ public class Tienda {
     }
 
     public boolean existeUsuario(String username){
-        boolean flag=false;
-        for(int i=0;i<usuarios.size() && !flag;i++){
-            flag= usuarios.containsKey(username);
+       return usuarios.containsKey(username);
+    }
+    public boolean contrasenaCorrecta(String username, String contrasena){
+        if(usuarios.get(username).getContrasenia().equals(contrasena)){
+            return true;
+        }
+        return false;
+    }
+    public boolean correoExiste(String correo){
+        boolean flag= false;
+        for(Map.Entry<String, Usuario>entry: usuarios.entrySet()){
+            if(usuarios.get(entry).getEmail().equals(correo)){
+                flag= true;
+            }
         }
         return flag;
     }
-    public void eliminarCancion(Usuario usuario, Cancion cancion){
+    /*public void eliminarCancion(Usuario usuario, Cancion cancion){
         usuario.getCancionesFav().eliminar(cancion);
 
     }
@@ -140,7 +152,6 @@ public class Tienda {
     public void ordenarCancionesAnio(Usuario usuario, Cancion cancion){
 
     }
-
     /**
      * Este metodo recibe un nombre de un artista, lo busca y retorna la lista de canciones
      * @param nombre
