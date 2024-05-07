@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane fx:id="PaneMain" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.loginComponentController">
+   <children>
+       <Pane fx:id="paneRight" prefHeight="768.0" prefWidth="463.0" style="-fx-background-color: #593271;">
+           <children>
+               <Label layoutX="58.0" layoutY="74.0" prefHeight="81.0" prefWidth="205.0" text="¡Hola!" textFill="#dbb6f2">
+                   <font>
+                       <Font name="System Bold" size="55.0" />
+                   </font>
+               </Label>
+               <Label layoutX="58.0" layoutY="141.0" text="Bienvenido" textFill="#dbb6f2">
+                   <font>
+                       <Font name="System Bold" size="55.0" />
+                   </font></Label>
+               <Label layoutX="58.0" layoutY="281.0" text="Usuario" textFill="WHITE">
+                   <font>
+                       <Font name="System Bold" size="21.0" />
+                   </font>
+               </Label>
+               <Label layoutX="58.0" layoutY="404.0" text="Contraseña" textFill="WHITE">
+                   <font>
+                       <Font name="System Bold" size="21.0" />
+                   </font>
+               </Label>
+               <TextField fx:id="usuarioField" layoutX="72.0" layoutY="326.0" prefHeight="55.0" prefWidth="290.0" style="-fx-background-radius: 65;">
+                   <font>
+                       <Font size="22.0" />
+                   </font>
+               </TextField>
+               <Button fx:id="iniciarBoton" layoutX="114.0" layoutY="537.0" mnemonicParsing="false" onAction="#iniciarSesion" prefHeight="44.0" prefWidth="222.0" style="-fx-background-color: BE6BF0; -fx-background-radius: 12;" text="Iniciar Sesión" textFill="WHITE">
+                   <font>
+                       <Font name="System Bold" size="22.0" />
+                   </font>
+               </Button>
+               <Button fx:id="registrarBoton" layoutX="114.0" layoutY="590.0" mnemonicParsing="false" onAction="#irARegistro" prefHeight="44.0" prefWidth="222.0" style="-fx-background-color: BE6BF0; -fx-background-radius: 12;" text="Registrarse" textFill="WHITE">
+                   <font>
+                       <Font name="System Bold" size="22.0" />
+                   </font>
+               </Button>
+               <PasswordField fx:id="pwdField" layoutX="72.0" layoutY="459.0" prefHeight="55.0" prefWidth="290.0" style="-fx-background-radius: 65;">
+                   <font>
+                       <Font size="22.0" />
+                   </font>
+               </PasswordField>
+            <Label fx:id="usuarioError" layoutX="153.0" layoutY="286.0" prefHeight="16.0" prefWidth="156.0" textFill="RED">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="pwdError" layoutX="206.0" layoutY="407.0" prefHeight="16.0" prefWidth="156.0" textFill="RED">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+           </children></Pane>
+   </children>
+</Pane>
