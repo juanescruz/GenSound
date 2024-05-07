@@ -111,6 +111,6 @@ public class InicioUsuarioController implements Initializable {
             e.printStackTrace();
         }
     }
- 
+
 
 }
