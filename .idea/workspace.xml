@@ -6,13 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a665eb67-1670-4135-8fe6-021964ae9367" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioSesionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioSesionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/RegistroComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/registroComponentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/loginComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/loginComponentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/View/loginComponent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/loginComponent.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/View/registroComponent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/registroComponent.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/Arbol/ArbolBinario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/Arbol/ArbolBinario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +60,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
