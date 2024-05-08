@@ -6,7 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="a665eb67-1670-4135-8fe6-021964ae9367" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioUsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioUsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AgregarArtistaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AgregarArtistaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioAdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/loginComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/loginComponentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/Arbol/ArbolBinario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/Arbol/ArbolBinario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/Arbol/Nodo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/Arbol/Nodo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Artista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Artista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/AgregarAr.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/AgregarAr.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/InicioAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/InicioAdmin.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +55,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
     "git-widget-placeholder": "Ana",
     "last_opened_file_path": "C:/Users/ANAMARIA/OneDrive/Documentos/GitHub/Agencia de viajes",
     "node.js.detected.package.eslint": "true",
