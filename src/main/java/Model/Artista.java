@@ -11,7 +11,7 @@ public class Artista {
     private String nombreArtista;
     private String nacionalidad;
     private boolean esGrupo;
-    private ListaDoble canciones;
+    private ListaDoble<Cancion> canciones;
 
     public int getCodigoArtista() {
         return codigoArtista;

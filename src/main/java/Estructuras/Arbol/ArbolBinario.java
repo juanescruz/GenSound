@@ -24,7 +24,7 @@ public class ArbolBinario {
         tamanio++;
     }
 
-    private Nodo agregarArtistaNodo(Nodo nodo, Artista artista) {
+    private Nodo<Artista> agregarArtistaNodo(Nodo<Artista> nodo, Artista artista) {
         if (nodo == null) {
             return new Nodo(artista);
         }
@@ -40,5 +40,24 @@ public class ArbolBinario {
             //Hay que poner que se hace, aca se ignora
         }
         return nodo;
+    }
+
+    public Artista buscarArtistaPorId(int id) {
+        return buscarArtistaPorIdRec(raiz, id);
+    }
+
+    private Artista buscarArtistaPorIdRec(Nodo nodo, int id) {
+        if (nodo == null) {
+            return null;
+        }
+        if (id == nodo.artista.getCodigoArtista()) {
+            return (Artista) nodo.artista;
+        }
+
+        if (id < nodo.artista.getCodigoArtista()) {
+            return buscarArtistaPorIdRec(nodo.izquierdo, id);
+        } else {
+            return buscarArtistaPorIdRec(nodo.derecho, id);
+        }
     }
 }
