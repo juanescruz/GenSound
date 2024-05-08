@@ -13,21 +13,17 @@ import Estructuras.Lista.NodoDoble;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
+import java.util.random.RandomGenerator;
 
 import Estructuras.Arbol.*;
 
 @Data
 public class Tienda {
-    private final HashMap<String, List<Cancion>> catalogo;
     private ArbolBinario artistas;
     private HashMap<String, Usuario> usuarios;
     private Administrador admin;
@@ -36,13 +32,17 @@ public class Tienda {
     private static final Logger LOGGER = Logger.getLogger(Tienda.class.getName());
 
 
-    public static Tienda getInstance(){
+    public static Tienda getInstance() {
         if(Tienda == null){
-            Tienda = new Tienda();
+            try {
+                Tienda = new Tienda();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }
         return Tienda;
     }
-    private Tienda() {
+    private Tienda() throws Exception {
         try {
             FileHandler fh = new FileHandler("logs.log", true);
             fh.setFormatter(new SimpleFormatter());
@@ -53,13 +53,14 @@ public class Tienda {
         }
         LOGGER.log(Level.INFO, "Se creó una nueva instancia");
 
-        this.catalogo=new HashMap<>();
         
         this.usuarios=new HashMap<>();
         leerUsuarios();
 
         this.artistas= new ArbolBinario();
+
         this.admin=new Administrador();
+        leerArtistasCanciones();
 
     }
 
@@ -117,7 +118,8 @@ public class Tienda {
 
     }
     private void guardarCancionArtista(String[] valores) {
-        artistas.buscarArtistaPorId(Integer.parseInt(valores[0]));
+        Cancion cancion= new Cancion(RandomGenerator.getDefault().nextInt(), valores[1], valores[2], Integer.parseInt(valores[3]),Double.parseDouble(valores[4]),valores[5],valores[6]);
+        artistas.buscarArtistaPorId(Integer.parseInt(valores[0])).getCanciones().agregarfinal(cancion);
 
     }
 
@@ -287,7 +289,8 @@ public class Tienda {
         }
     }
 
-    public void agregarCancion(Cancion cancion, String nombreArtista){
+    public void agregarCancion(Cancion cancion, int codArtista){
+        artistas.buscarArtistaPorId(codArtista).getCanciones().agregarfinal(cancion);
 
     }
     public void agregarArtista(Artista artista) throws Exception {

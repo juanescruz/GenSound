@@ -50,9 +50,9 @@ public class AgregarCancionController implements Initializable {
     }
 
     public void agregarCancion(){
-        tienda.agregarCancion(new Cancion(1,nombreCancion.toString(),
-                nombreAlbum.toString(),Integer.parseInt(anioCancion.toString()),
-                Double.parseDouble(duracionCancion.toString()), generoCancion.getItems().toString(),
-                urlCancion.toString()), nomArtista.toString());
+        tienda.agregarCancion(new Cancion(1,nombreCancion.getText(),
+                nombreAlbum.getText(),Integer.parseInt(anioCancion.getText()),
+                Double.parseDouble(duracionCancion.getText()), generoCancion.getItems().toString(),
+                urlCancion.toString()), Integer.parseInt(nomArtista.getText()));
     }
 }

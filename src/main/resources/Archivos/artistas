@@ -1,8 +1,8 @@
 #Artistas
-CódigoArtista1;NombreArtista1;Nacionalidad1;true/false1
-CódigoArtista2;NombreArtista2;Nacionalidad2;true/false2
+1;NombreArtista1;Nacionalidad1;true
+2;NombreArtista2;Nacionalidad2;false
 #Canciones
-NombreArtista1;NombreCanción;NombreAlbum;Año;Duración;Género;URLCanciónYoutube
-NombreArtista1;NombreCanción;NombreAlbum;Año;Duración;Género;URLCanciónYoutube
-NombreArtista1;NombreCanción;NombreAlbum;Año;Duración;Género;URLCanciónYoutube
-NombreArtista2;NombreCanción;NombreAlbum;Año;Duración;Género;URLCanciónYoutube
+1;NombreCanción;NombreAlbum;2007;198;Genero;URLCanciónYoutube
+1;NombreCanción;NombreAlbum;2008;12;Genero;URLCanciónYoutube
+2;NombreCanción;NombreAlbum;2003;34;Genero;URLCanciónYoutube
+2;NombreCanción;NombreAlbum;2009;23;Genero;URLCanciónYoutube
