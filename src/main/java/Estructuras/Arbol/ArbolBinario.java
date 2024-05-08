@@ -19,12 +19,12 @@ public class ArbolBinario {
     public ArbolBinario(){
         this.raiz=null;
     }
-    public void agregarArtista(Artista artista) {
+    public void agregarArtista(Artista artista) throws Exception {
         raiz = agregarArtistaNodo(raiz, artista);
         tamanio++;
     }
 
-    private Nodo agregarArtistaNodo(Nodo nodo, Artista artista) {
+    private Nodo agregarArtistaNodo(Nodo nodo, Artista artista) throws Exception {
         if (nodo == null) {
             return new Nodo(artista);
         }
@@ -37,7 +37,7 @@ public class ArbolBinario {
         }
         // Si el artista ya existe en el arbol entonces:
         else {
-            //Hay que poner que se hace, aca se ignora
+            throw new Exception("El artista con este nombre ya existe");
         }
         return nodo;
     }
