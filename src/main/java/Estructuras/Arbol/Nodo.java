@@ -4,10 +4,10 @@ import Model.Artista;
 import lombok.Getter;
 
 @Getter
-public class Nodo<Artista> {
+public class Nodo {
     Artista artista;
-    Nodo<Artista> izquierdo;
-    Nodo<Artista> derecho;
+    Nodo izquierdo;
+    Nodo derecho;
 
     public Nodo(Artista artista) {
         this.artista = artista;

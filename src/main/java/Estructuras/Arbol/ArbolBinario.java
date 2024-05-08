@@ -1,13 +1,5 @@
 package Estructuras.Arbol;
-import Estructuras.Arbol.Nodo;
-import Estructuras.Lista.ListaDoble;
-import Estructuras.Lista.NodoDoble;
-import Estructuras.Lista.ListaDoble;
-import Estructuras.Lista.NodoDoble;
 import Model.Artista;
-import Model.Cancion;
-
-import java.util.*;
 
 import lombok.Getter;
 
@@ -24,7 +16,7 @@ public class ArbolBinario {
         tamanio++;
     }
 
-    private Nodo<Artista> agregarArtistaNodo(Nodo<Artista> nodo, Artista artista) {
+    private Nodo agregarArtistaNodo(Nodo nodo, Artista artista) {
         if (nodo == null) {
             return new Nodo(artista);
         }

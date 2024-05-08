@@ -176,7 +176,7 @@ public class Tienda {
      * @param nombre
      * @return
      */
-    private Artista buscarArtistaRec(Nodo<Artista> nodo, String nombre) {
+    private Artista buscarArtistaRec(Nodo nodo, String nombre) {
         if (nodo == null || nodo.getArtista().getNombreArtista().equals(nombre)) {
             if (nodo != null) {
                 return nodo.getArtista();
@@ -223,7 +223,7 @@ public class Tienda {
      * @param atributo2
      * @param canciones
      */
-    private void buscarCancionesORecursivo(Nodo<Artista> nodo, String atributo1, String atributo2, List<Cancion> canciones) {
+    private void buscarCancionesORecursivo(Nodo nodo, String atributo1, String atributo2, List<Cancion> canciones) {
         if (nodo != null) {
             ListaDoble cancionesArtista = nodo.getArtista().getCanciones();
             NodoDoble<Cancion> nodoTemp = cancionesArtista.getNodoPrimero();
@@ -273,7 +273,7 @@ public class Tienda {
      * @param atributo2
      * @param canciones
      */
-    private void buscarCancionesYRecursivo(Nodo<Artista> nodo, String atributo1, String atributo2, List<Cancion> canciones) {
+    private void buscarCancionesYRecursivo(Nodo nodo, String atributo1, String atributo2, List<Cancion> canciones) {
         if (nodo != null) {
             ListaDoble cancionesArtista = nodo.getArtista().getCanciones();
             NodoDoble<Cancion> current = cancionesArtista.getNodoPrimero();
