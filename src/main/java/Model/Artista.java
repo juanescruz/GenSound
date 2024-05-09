@@ -4,7 +4,7 @@ import Estructuras.Lista.ListaDoble;
 import lombok.*;
 
 @Data
-@AllArgsConstructor
+
 public class Artista {
 
     private int codigoArtista;
@@ -14,6 +14,15 @@ public class Artista {
     private boolean esGrupo;
     @Getter
     private ListaDoble<Cancion> canciones;
+
+    public Artista(int codigoArtista, String nombreArtista, String nacionalidad, boolean esGrupo, ListaDoble<Cancion> canciones) {
+        this.codigoArtista = codigoArtista;
+        this.nombreArtista = nombreArtista;
+        this.nacionalidad = nacionalidad;
+        this.esGrupo = esGrupo;
+        this.canciones = canciones != null ? canciones : new ListaDoble<>();
+
+    }
 
     public void setCodigoArtista(int codigoArtista) {
         this.codigoArtista = codigoArtista;

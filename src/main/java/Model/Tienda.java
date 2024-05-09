@@ -102,26 +102,53 @@ public class Tienda {
                     linea= scanner.nextLine();
                 }
 
-                if(esArtista){
-                    String [] valores= linea.split(";");
-                    this.artistas.agregarArtista(new Artista(Integer.parseInt(valores[0]),valores[1],valores[2],Boolean.parseBoolean(valores[3]),null));
-
-                }else{
-                    String [] valores= linea.split(";");
-                    guardarCancionArtista(valores);
-
+                if (esArtista) {
+                    String[] valores = linea.split(";");
+                    if (valores.length >= 4) {
+                        this.artistas.agregarArtista(new Artista(Integer.parseInt(valores[0]), valores[1], valores[2], Boolean.parseBoolean(valores[3]), null));
+                    } else {
+                        // Manejar caso de valores insuficientes
+                    }
+                } else {
+                    String[] valores = linea.split(";");
+                    if (valores.length >= 7) {
+                        guardarCancionArtista(valores);
+                    } else {
+                        // Manejar caso de valores insuficientes
+                    }
                 }
+
+//                if(esArtista){
+//                    String [] valores= linea.split(";");
+//                    this.artistas.agregarArtista(new Artista(Integer.parseInt(valores[0]),valores[1],valores[2],Boolean.parseBoolean(valores[3]),null));
+//
+//                }else{
+//                    String [] valores= linea.split(";");
+//                    guardarCancionArtista(valores);
+//
+//                }
             }
         }catch(IOException e){
             LOGGER.log(Level.WARNING, e.getMessage());
         }
 
     }
-    private void guardarCancionArtista(String[] valores) {
-        Cancion cancion= new Cancion(RandomGenerator.getDefault().nextInt(), valores[1], valores[2], Integer.parseInt(valores[3]),Double.parseDouble(valores[4]),valores[5],valores[6]);
-        artistas.buscarArtistaPorId(Integer.parseInt(valores[0])).getCanciones().agregarfinal(cancion);
-
+    private void guardarCancionArtista(String[] valores) throws Exception {
+        int idArtista = Integer.parseInt(valores[0]);
+        Artista artista = artistas.buscarArtistaPorId(idArtista);
+        if (artista != null) {
+            Cancion cancion = new Cancion(RandomGenerator.getDefault().nextInt(), valores[1], valores[2], Integer.parseInt(valores[3]), Double.parseDouble(valores[4]), valores[5], valores[6]);
+            ListaDoble<Cancion> cancionesArtista = artista.getCanciones();
+            if (cancionesArtista == null) {
+                cancionesArtista = new ListaDoble<>();
+                artista.setCanciones(cancionesArtista);
+            }
+            cancionesArtista.agregarfinal(cancion);
+        } else {
+            throw  new Exception("No se encontró el artista con ID: " + idArtista);
+        }
     }
+
 
     public boolean existeUsuario(String username){
        return usuarios.containsKey(username);
