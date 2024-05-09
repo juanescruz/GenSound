@@ -1,8 +1,15 @@
 #Artistas
-1;NombreArtista1;Nacionalidad1;true
-2;NombreArtista2;Nacionalidad2;false
+1;Airbag;Argentino;true
+2;Juan Luis Guerra;Dominicano;false
+3;Don Omar;Puerrtoriqueño;false
+4;Adele;Inglesa;false
+5;The Beatles;Ingles;true
 #Canciones
-1;T;NombreAlbum;2007;198;Genero;URLCanciónYoutube
-1;M;NombreAlbum;2008;12;Genero;URLCanciónYoutube
-2;L;NombreAlbum;2003;34;Genero;URLCanciónYoutube
-2;H;NombreAlbum;2009;23;Genero;URLCanciónYoutube
+1;Fugitivo;Libertad;2013;300;Rock;URLCanciónYoutube
+1;Algo personal;Libertad;2013;324;Rock;URLCanciónYoutube
+2;Como abeja al panal;Bachata Rosa;1990;343;Bachata;URLCanciónYoutube
+2;La bilirrubina;Bachata Rosa;1991;235;Bachata;URLCanciónYoutube
+3;Dile;The last Don;2003;877;Regueton;url
+4;Rolling in the deep;Twenty five;2015;444;Pop;url
+5;Let it be;Let it be;1970;333;Rock;url
+5;Yesterday;Help!;1965;845;Rock;url
