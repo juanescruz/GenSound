@@ -4,7 +4,6 @@ import Model.Artista;
 import lombok.Getter;
 
 @Getter
-
 public class Nodo {
     Artista artista;
     Nodo izquierdo;

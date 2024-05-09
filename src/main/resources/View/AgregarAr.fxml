@@ -33,7 +33,7 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </VBox.margin>
             </RadioButton>
-            <Button fx:id="btnAgregar" mnemonicParsing="false" text="Agregar">
+            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregarArtista" text="Agregar">
                <VBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </VBox.margin>

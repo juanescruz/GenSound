@@ -33,10 +33,12 @@ public class AgregarArtistaController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-    public void agregarArtista(){
-        tienda.agegarArtista(new Artista(Integer.parseInt(codigoArtista.toString()),nombreArtista.toString(),
-                nacionalidad.toString(),esGrupo.isPressed(),null));
+    public void agregarArtista() throws Exception {
+        tienda.agregarArtista(new Artista(Integer.parseInt(codigoArtista.getText()),nombreArtista.getText(),
+                nacionalidad.getText(),esGrupo.isPressed(),null));
+        System.out.println(tienda.getArtistas());
     }
+
     public String generoMasPopular(){
         return "";
     }

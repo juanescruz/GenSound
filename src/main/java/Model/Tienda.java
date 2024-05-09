@@ -58,13 +58,14 @@ public class Tienda {
         this.usuarios=new HashMap<>();
         leerUsuarios();
 
+        this.artistas= new ArbolBinario();
         this.admin=new Administrador();
 
     }
 
     private void leerUsuarios() {
         try {
-            Object objeto = ArchivoUtils.deserializarObjeto("src/main/resources/Archivos/usuarios");
+            Object objeto = ArchivoUtils.deserializarObjeto("src/main/resources/Archivos/usuarios.bin");
             this.usuarios = (HashMap<String, Usuario>) objeto;
         } catch (Exception e) {
             e.printStackTrace();
@@ -72,7 +73,7 @@ public class Tienda {
     }
     private void escribirUsuarios() {
         try {
-            ArchivoUtils.serializarObjeto("src/main/resources/Archivos/usuarios", usuarios);
+            ArchivoUtils.serializarObjeto("src/main/resources/Archivos/usuarios.bin", usuarios);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -87,7 +88,7 @@ public class Tienda {
      * @param
      * @return
      */
-    private void leerAristasCanciones() {
+    private void leerArtistasCanciones() throws Exception {
         boolean esArtista = false;
         try(Scanner scanner= new Scanner(new File("src/main/resources/Archivos/artistas"))){
             while(scanner.hasNextLine()){
@@ -116,16 +117,15 @@ public class Tienda {
 
     }
     private void guardarCancionArtista(String[] valores) {
-        /*for (int i=0;i<artistas.getTamanio();i++){
-            if(artistas.getArtista.getCodigoArtista.equals(valores[0]){
-                Cancion cancion= new Cancion(valores[1],valores[2],valores[3],valores[4],valores[5],valores[6]);
-                artistas.getArtista.getCanciones.agregarFinal(cancion);
-            }
-        }*/
+        artistas.buscarArtistaPorId(Integer.parseInt(valores[0]));
+
     }
 
     public boolean existeUsuario(String username){
        return usuarios.containsKey(username);
+    }
+    public Usuario getUser(String username){
+        return usuarios.get(username);
     }
     public boolean contrasenaCorrecta(String username, String contrasena){
         if(usuarios.get(username).getContrasenia().equals(contrasena)){
@@ -290,7 +290,7 @@ public class Tienda {
     public void agregarCancion(Cancion cancion, String nombreArtista){
 
     }
-    public void agegarArtista(Artista artista){
-
+    public void agregarArtista(Artista artista) throws Exception {
+        artistas.agregarArtista(artista);
     }
 }

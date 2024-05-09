@@ -1,13 +1,5 @@
 package Estructuras.Arbol;
-import Estructuras.Arbol.Nodo;
-import Estructuras.Lista.ListaDoble;
-import Estructuras.Lista.NodoDoble;
-import Estructuras.Lista.ListaDoble;
-import Estructuras.Lista.NodoDoble;
 import Model.Artista;
-import Model.Cancion;
-
-import java.util.*;
 
 import lombok.Getter;
 
@@ -106,5 +98,4 @@ public class ArbolBinario {
         }
         return actual;
     }
-
 }
