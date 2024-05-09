@@ -52,8 +52,7 @@ public class InicioUsuarioController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //Esto solo se va a hacer para mostrar que necesitamos una lista de canciones, pero la
-        //playlist del usuario se debe sacar de otra manera
+
         ArrayList<Cancion> canciones= new ArrayList<>();
         try {
             for (int i = 0; i < canciones.size(); i++) {

@@ -91,27 +91,32 @@ public class Tienda {
      */
     private void leerArtistasCanciones() throws Exception {
         boolean esArtista = false;
+        boolean esCancion=false;
         try(Scanner scanner= new Scanner(new File("src/main/resources/Archivos/artistas"))){
             while(scanner.hasNextLine()){
                 String linea= scanner.nextLine();
                 if(linea.startsWith("#Artistas")){
                     esArtista = true;
                     linea= scanner.nextLine();
-                }else{
+                }else if (linea.startsWith("#Canciones")){
+                    esCancion=true;
                     esArtista = false;
                     linea= scanner.nextLine();
                 }
 
                 if(esArtista){
                     String [] valores= linea.split(";");
-                    this.artistas.agregarArtista(new Artista(Integer.parseInt(valores[0]),valores[1],valores[2],Boolean.parseBoolean(valores[3]),null));
+                    System.out.println(imprimirArreglo(valores));
+                    this.artistas.agregarArtista(new Artista(Integer.parseInt(valores[0]),valores[1],valores[2],Boolean.parseBoolean(valores[3]),new ListaDoble<>()));
 
-                }else{
+                }else if (esCancion){
                     String [] valores= linea.split(";");
+                    System.out.println(imprimirArreglo(valores));
                     guardarCancionArtista(valores);
-
                 }
+
             }
+
         }catch(IOException e){
             LOGGER.log(Level.WARNING, e.getMessage());
         }
@@ -121,6 +126,13 @@ public class Tienda {
         Cancion cancion= new Cancion(RandomGenerator.getDefault().nextInt(), valores[1], valores[2], Integer.parseInt(valores[3]),Double.parseDouble(valores[4]),valores[5],valores[6]);
         artistas.buscarArtistaPorId(Integer.parseInt(valores[0])).getCanciones().agregarfinal(cancion);
 
+    }
+    public String imprimirArreglo(String [] array){
+        String aux="";
+        for(int i=0; i<array.length; i++){
+            aux +=""+array[i];
+        }
+        return aux;
     }
 
     public boolean existeUsuario(String username){
@@ -289,11 +301,18 @@ public class Tienda {
         }
     }
 
-    public void agregarCancion(Cancion cancion, int codArtista){
-        artistas.buscarArtistaPorId(codArtista).getCanciones().agregarfinal(cancion);
+    public void agregarCancion(Cancion cancion, int codArtista) throws Exception {
+        Artista artista =artistas.buscarArtistaPorId(codArtista);
+        if(artista==null){
+            throw new Exception("Artista no encontrado");
+        }
+        System.out.println(artista.toString());
+        artista.getCanciones().agregarfinal(cancion);
+
 
     }
     public void agregarArtista(Artista artista) throws Exception {
         artistas.agregarArtista(artista);
+        System.out.println(artistas.toString());
     }
 }
