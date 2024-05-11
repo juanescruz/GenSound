@@ -6,7 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.SVGPath;
 
-public class CancionController {
+public class CancionInicioController {
     @FXML
     private Label anioCancion;
 

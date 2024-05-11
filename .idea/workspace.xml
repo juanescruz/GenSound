@@ -6,10 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="a665eb67-1670-4135-8fe6-021964ae9367" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/registroComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/registroComponentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AgregarArtistaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AgregarArtistaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioAdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/loginComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/loginComponentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/Arbol/ArbolBinario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/Arbol/ArbolBinario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/Arbol/Nodo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/Arbol/Nodo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Artista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Artista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/View/registroComponent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/registroComponent.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/AgregarAr.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/AgregarAr.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/InicioAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/InicioAdmin.fxml" afterDir="false" />
+=======
+>>>>>>> a5f5b3db7fa6bea5e03f788addb607566d3a80b8
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,18 +30,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/Estructuras/Arbol/ArbolBinario.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -43,48 +52,59 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Maven.GenSound [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
-    "Maven.GenSound [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "G:/IntelliJ IDEA - workspace/GenSound/src/main/java/Estructuras/ListaCircular",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "Ana",
+    "last_opened_file_path": "C:/Users/ANAMARIA/OneDrive/Documentos/GitHub/Agencia de viajes",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.3413793",
+    "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
     "vue.rearranger.settings.migration": "true"
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.GenSound [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.GenSound [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/IntelliJ IDEA - workspace/GenSound/src/main/java/Estructuras/ListaCircular&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+>>>>>>> a5f5b3db7fa6bea5e03f788addb607566d3a80b8
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Model" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\IntelliJ IDEA - workspace\GenSound\src\main\java\Estructuras\ListaCircular" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ANAMARIA\OneDrive\Documentos\GitHub\GenSound\src\main\resources\View" />
     </key>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -106,23 +126,15 @@
       <workItem from="1710807321325" duration="451000" />
       <workItem from="1711391054023" duration="617000" />
       <workItem from="1712082376228" duration="3643000" />
-      <workItem from="1712086573744" duration="8172000" />
-      <workItem from="1712113274120" duration="259000" />
-      <workItem from="1712233571417" duration="649000" />
-      <workItem from="1712530386118" duration="1716000" />
-      <workItem from="1712612636133" duration="13295000" />
-      <workItem from="1712924112500" duration="3564000" />
-      <workItem from="1713129003955" duration="1726000" />
-      <workItem from="1713204956388" duration="53000" />
-      <workItem from="1713207263023" duration="496000" />
-      <workItem from="1713442127172" duration="2034000" />
-      <workItem from="1713530908342" duration="2948000" />
-      <workItem from="1713798032283" duration="1642000" />
-      <workItem from="1713803344185" duration="2116000" />
-      <workItem from="1713820179192" duration="465000" />
-      <workItem from="1714075872027" duration="493000" />
-      <workItem from="1714609591950" duration="158000" />
-      <workItem from="1715311990236" duration="112000" />
+      <workItem from="1712086573744" duration="4596000" />
+      <workItem from="1714424880019" duration="6135000" />
+      <workItem from="1714442891372" duration="1072000" />
+      <workItem from="1714527485827" duration="3663000" />
+      <workItem from="1714763025212" duration="78000" />
+      <workItem from="1714856859777" duration="37000" />
+      <workItem from="1714856957733" duration="67000" />
+      <workItem from="1714858129901" duration="3805000" />
+      <workItem from="1715093387218" duration="322000" />
     </task>
     <servers />
   </component>
@@ -139,15 +151,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.IllegalStateException" package="java.lang" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

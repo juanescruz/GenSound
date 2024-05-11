@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="597.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AgregarCancionController">
+   <left>
+      <VBox alignment="CENTER" prefHeight="481.0" prefWidth="298.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Agregar canción">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="codArtista" promptText="Nombre del artista">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="nombreCancion" promptText="Nombre de la canción">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="nombreAlbum" promptText="Nombre del álbum">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="direccionCaratula" promptText="Dirección de la carátula">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="anioCancion" promptText="Año">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="duracionCancion" promptText="Duración">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </VBox.margin>
+            </TextField>
+            <ComboBox fx:id="generoCancion" prefWidth="280.0" promptText="Género">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </VBox.margin>
+            </ComboBox>
+            <TextField fx:id="urlCancion" promptText="URL de la canción">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </VBox.margin>
+            </TextField>
+         </children></VBox>
+   </left>
+   <right>
+      <VBox alignment="CENTER" prefHeight="481.0" prefWidth="339.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Preview de la carátula:">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </VBox.margin></Label>
+            <ImageView fitHeight="230.0" fitWidth="252.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregarCancion" text="Agregar">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </VBox.margin></Button>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>
