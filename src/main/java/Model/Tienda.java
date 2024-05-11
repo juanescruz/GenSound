@@ -301,6 +301,11 @@ public class Tienda {
         }
     }
 
+    /**
+     * este metodo busca el id del artista dado, y se agrega la cancion a su lista de canciones
+     * @param cancion
+     * @param codArtista
+     */
     public void agregarCancion(Cancion cancion, int codArtista) throws Exception {
         Artista artista =artistas.buscarArtistaPorId(codArtista);
         if(artista==null){
@@ -314,5 +319,12 @@ public class Tienda {
     public void agregarArtista(Artista artista) throws Exception {
         artistas.agregarArtista(artista);
         System.out.println(artistas.toString());
+    }
+
+    public ArrayList<Cancion> obtenerCanciones(){
+        return artistas.preorderCan();
+    }
+    public ArrayList<Artista> obtenerArtistas(){
+        return artistas.preorderAr();
     }
 }

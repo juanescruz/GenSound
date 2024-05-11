@@ -1,7 +1,12 @@
 package Estructuras.Arbol;
+import Estructuras.Lista.ListaDoble;
+import Estructuras.Lista.ListaIterador;
 import Model.Artista;
 
+import Model.Cancion;
 import lombok.Getter;
+
+import java.util.ArrayList;
 
 @Getter
 public class ArbolBinario {
@@ -36,6 +41,44 @@ public class ArbolBinario {
 
     public Artista buscarArtistaPorId(int id) {
         return buscarArtistaPorIdRec(raiz, id);
+    }
+
+    public ArrayList<Cancion>  preorderCan() {
+        return preorderRecCan(raiz);
+    }
+    public ArrayList<Artista>  preorderAr() {
+        return preorderRecAr(raiz);
+    }
+
+    public ArrayList<Cancion> obtenerCanciones(ListaDoble<Cancion> canciones){
+        ArrayList<Cancion> songs= new ArrayList<>();
+        ListaIterador<Cancion> iterador= canciones.iterator();
+        while(iterador.hasNext()){
+            songs.add(iterador.next());
+        }
+        return songs;
+    }
+    public ArrayList<Cancion> preorderRecCan(Nodo nodo) {
+        ArrayList<Cancion> canciones= new ArrayList<>();
+        if (nodo != null) {
+            preorderRecCan(nodo.izquierdo);
+            canciones.addAll(obtenerCanciones(nodo.getArtista().getCanciones()));
+            preorderRecCan(nodo.derecho);
+            canciones.addAll(obtenerCanciones(nodo.getArtista().getCanciones()));
+
+        }
+        return canciones;
+    }
+    public ArrayList<Artista> preorderRecAr(Nodo nodo) {
+        ArrayList<Artista> artistas= new ArrayList<>();
+        if (nodo != null) {
+            preorderRecAr(nodo.izquierdo);
+            artistas.add(nodo.izquierdo.getArtista());
+            preorderRecAr(nodo.derecho);
+            artistas.add(nodo.derecho.getArtista());
+
+        }
+        return artistas;
     }
 
     private Artista buscarArtistaPorIdRec(Nodo nodo, int id) {
