@@ -47,6 +47,9 @@ public class registroComponentController {
     public void cambiarEstadoPwd(){
         errorPass.setText("");
     }
+    public void cambiarEstadoUser(){
+        errorUserLabel.setText("");
+    }
     public void cambiarComponente(){
         HBox stage = (HBox) mainPane.getParent();
         try {
