@@ -1,16 +1,25 @@
 package Controller;
 
+import App.MainApp;
+import Model.InicioSesion;
 import Model.Tienda;
+import Model.Usuario;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
+import javax.swing.*;
+import java.io.IOException;
 
 public class loginComponentController {
     @FXML
-    AnchorPane anchorPaneMain;
+    Pane PaneMain;
     @FXML
     Pane paneRight;
     @FXML
@@ -21,24 +30,66 @@ public class loginComponentController {
     Button iniciarBoton;
     @FXML
     Button registrarBoton;
-
+    @FXML
+    Label usuarioError;
+    @FXML
+    Label pwdError;
     private  Tienda tienda = Tienda.getInstance();
+    private final InicioSesion inicioSesion= InicioSesion.getInstance();
 
-    public void iniciarSesion(){
+    public void iniciarSesion() throws IOException {
         if(tienda.existeUsuario(usuarioField.getText())){
             if(tienda.contrasenaCorrecta(usuarioField.getText(), pwdField.getText())){
-                System.out.println("correcto");
+                inicioSesion.setUsuario(tienda.getUser(usuarioField.getText()));
+                System.out.println(inicioSesion.getUsuario());
+                FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/View/InicioUsuario.fxml"));
+                extracted(loader);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Info");
+                alert.setContentText("Inicio de sesión correcto");
+                alert.show();
             }
             else{
-                System.out.println("psw incorrecta");
+                pwdError.setText("Contraseña Incorrecta");
             }
         }
         else{
-            System.out.println("No esta registrado");
+            if(usuarioField.getText().equals("admin") && pwdField.getText().equals("$aDmiN")){
+                FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/View/InicioAdmin.fxml"));
+                extracted(loader);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Info");
+                alert.setContentText("Sesión de administrador iniciada");
+                alert.show();
+            }else {
+                usuarioError.setText("Usuario no está registrado");
+            }
+
         }
     }
+
+    private static void extracted(FXMLLoader loader) throws IOException {
+        Parent parent = loader.load();
+        Stage stage = new Stage();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.setTitle("Gensound");
+        stage.show();
+    }
+
     public void irARegistro(){
-        
+        HBox stage = (HBox) PaneMain.getParent();
+        try {
+            // Cargar el FXML del componente
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/registroComponent.fxml"));
+            Pane registro = loader.load();
+
+            // Agregar el componente al HBox
+            stage.getChildren().set(1,registro );
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 

@@ -17,7 +17,7 @@ public class InicioSesionController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             // Cargar el FXML del componente
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/loginComponent.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/loginComponent.fxml"));
             Pane inicioSesion = loader.load();
 
             // Agregar el componente al HBox
@@ -26,4 +26,6 @@ public class InicioSesionController implements Initializable {
             e.printStackTrace();
         }
     }
+
+
 }
