@@ -13,6 +13,13 @@ public class ListaDoble<T> implements Iterable<T> {
     }
 
 
+    public boolean isEmpty(){
+        if(nodoPrimero==null){
+            return true;
+        }else{
+            return false;
+        }
+    }
     //Metodos basicos
 
 
