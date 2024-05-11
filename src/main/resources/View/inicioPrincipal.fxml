@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.InicioPrincipalController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.InicioPrincipalController">
    <left>
-      <VBox fx:id="listaArtistas" prefHeight="500.0" prefWidth="203.0" style="-fx-background-color: #e6affc; -fx-background-radius: 50;" BorderPane.alignment="CENTER">
+      <VBox fx:id="listaArtistas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="203.0" style="-fx-background-color: #e6affc; -fx-background-radius: 50;" BorderPane.alignment="CENTER">
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </padding>
@@ -38,10 +38,11 @@
          </children>
       </HBox>
    </top>
-   <bottom>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
-   </bottom>
    <center>
-      <VBox fx:id="listaCanciones" maxWidth="-Infinity" prefHeight="1250.0" prefWidth="1075.0" BorderPane.alignment="CENTER" />
+      <ScrollPane BorderPane.alignment="CENTER">
+         <content>
+            <VBox fx:id="listaCanciones" maxWidth="-Infinity" prefHeight="1250.0" prefWidth="1075.0" />
+         </content>
+      </ScrollPane>
    </center>
 </BorderPane>

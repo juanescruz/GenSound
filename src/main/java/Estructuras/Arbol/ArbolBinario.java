@@ -26,21 +26,14 @@ public class ArbolBinario {
             return new Nodo(artista);
         }
 
-        if (artista.getNombreArtista().compareTo(nodo.artista.getNombreArtista()) < 0) {
+        if (artista.getCodigoArtista() < nodo.artista.getCodigoArtista()) {
             nodo.izquierdo = agregarArtistaNodo(nodo.izquierdo, artista);
-        }
-        else if (artista.getNombreArtista().compareTo(nodo.artista.getNombreArtista()) > 0) {
+        } else if (artista.getCodigoArtista() > nodo.artista.getCodigoArtista()) {
             nodo.derecho = agregarArtistaNodo(nodo.derecho, artista);
-        }
-        // Si el artista ya existe en el arbol entonces:
-        else {
-            throw new Exception("El artista con este nombre ya existe");
+        } else {
+            throw new Exception("El artista con este ID ya existe");
         }
         return nodo;
-    }
-
-    public Artista buscarArtistaPorId(int id) {
-        return buscarArtistaPorIdRec(raiz, id);
     }
 
     public ArrayList<Cancion>  preorderCan() {
@@ -81,13 +74,14 @@ public class ArbolBinario {
         return artistas;
     }
 
-    private Artista buscarArtistaPorIdRec(Nodo nodo, int id) {
-        if (nodo == null) {
-            return null;
-        }
+    public Artista buscarArtistaPorId(int id) {System.out.println("");
+        return buscarArtistaPorIdRec(raiz, id);
 
-        if (id == nodo.artista.getCodigoArtista()) {
-            return nodo.artista;
+    }
+
+    private Artista buscarArtistaPorIdRec(Nodo nodo, int id) {
+        if (nodo == null || nodo.artista.getCodigoArtista() == id) {
+            return nodo != null ? nodo.artista : null;
         }
 
         if (id < nodo.artista.getCodigoArtista()) {

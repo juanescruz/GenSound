@@ -32,6 +32,8 @@ public class CancionInicioController {
         nombreCancion.setText( cancion.getNombreCancion() );
         generoCancion.setText( cancion.getGenero() );
         duracionCancion.setText( ""+cancion.getDuracion() );
+        nombreAlbum.setText(cancion.getNombreAlbum());
+        anioCancion.setText(""+cancion.getAnio());
     }
 
 
