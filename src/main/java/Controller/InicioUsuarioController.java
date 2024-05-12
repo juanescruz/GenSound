@@ -46,22 +46,21 @@ public class InicioUsuarioController implements Initializable {
     private Button btnPlaylist;
 
     @FXML
-    private VBox vBoxCanciones;
+    private VBox listaCanciones;
 
     private Tienda tienda= Tienda.getInstance();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        ArrayList<Cancion> canciones= new ArrayList<>();
         try {
-            for (int i = 0; i < canciones.size(); i++) {
-                vBoxCanciones.getChildren().add(cargarCancionInicio(canciones.get(i)));
+            ArrayList<Cancion> canciones= tienda.obtenerCanciones();
+            for (int i = 0; i<canciones.size(); i++) {
+                listaCanciones.getChildren().add(cargarCancionInicio(canciones.get(i)));
             }
         }catch (Exception e){
             e.printStackTrace();
         }
-
     }
 
     public Parent cargarCancionPlayList(Cancion cancion) throws Exception{
@@ -77,7 +76,7 @@ public class InicioUsuarioController implements Initializable {
     }
     public Parent cargarCancionInicio(Cancion cancion) throws Exception{
 
-        FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/CancionInicioUsuario.fxml") );
+        FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/CancionInicio.fxml") );
         Parent parent = loader.load();
 
         CancionInicioController controller = loader.getController();
@@ -87,29 +86,7 @@ public class InicioUsuarioController implements Initializable {
 
     }
 
-    public void cargarCancionesInicio(){
-        //Esto solo se va a hacer para mostrar que necesitamos una lista de canciones, pero la
-        //playlist del usuario se debe sacar de otra manera
-        ArrayList<Cancion> canciones= new ArrayList<>();
-        try {
-            for (int i = 0; i < canciones.size(); i++) {
-                vBoxCanciones.getChildren().add(cargarCancionInicio(canciones.get(i)));
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 
-    public void cargarPlaylist(){
-        ArrayList<Cancion> playlist= new ArrayList<>();
-        try {
-            for (int i = 0; i < playlist.size(); i++) {
-                vBoxCanciones.getChildren().add(cargarCancionPlayList(playlist.get(i)));
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 
 
 }
