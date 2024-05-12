@@ -59,7 +59,7 @@ public class CancionInicioController {
     }
 
     public void agregarCancionPlaylist(){
-
+        tienda.agregarCancion(inicioSesion.getUsuario(),cancion);
     }
 
 

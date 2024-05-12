@@ -1,5 +1,6 @@
 package Controller;
 
+import Estructuras.ListaCircular.ListaCircular;
 import Model.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,7 +36,7 @@ public class registroComponentController {
         }
 
         if(!tienda.existeUsuario(userField.getText()) && pwdField.getText().equals(pwdConField.getText())){
-            Usuario userNew = new Usuario(userField.getText(),pwdField.getText(), emailField.getText(), null );
+            Usuario userNew = new Usuario(userField.getText(),pwdField.getText(), emailField.getText(),new ListaCircular<>());
             tienda.agregarUsuarios(userNew);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Registro de Usuario");

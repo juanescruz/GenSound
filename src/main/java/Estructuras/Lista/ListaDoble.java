@@ -1,5 +1,8 @@
 package Estructuras.Lista;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ListaDoble<T> implements Iterable<T> {
     private NodoDoble<T> nodoPrimero;
     private NodoDoble<T> nodoUltimo;
@@ -82,7 +85,15 @@ public class ListaDoble<T> implements Iterable<T> {
         }
     }
 
-
+    public List<T> obtenerTodosLosElementos() {
+        List<T> elementos = new ArrayList<>();
+        NodoDoble<T> actual = nodoPrimero;
+        while (actual != null) {
+            elementos.add(actual.getValorNodo());
+            actual = actual.getSiguienteNodo();
+        }
+        return elementos;
+    }
     /**
      * Borra completamente la Lista
      */

@@ -330,8 +330,8 @@ public class Tienda {
         System.out.println(artistas.toString());
     }
 
-    public ArrayList<Cancion> obtenerCanciones(){
-        return artistas.preorderCan();
+    public List<Cancion> obtenerCanciones(){
+        return artistas.obtenerTodasLasCanciones();
     }
     public ArrayList<Artista> obtenerArtistas(){
         return artistas.preorderAr();

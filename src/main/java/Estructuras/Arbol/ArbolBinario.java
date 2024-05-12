@@ -7,6 +7,7 @@ import Model.Cancion;
 import lombok.Getter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 public class ArbolBinario {
@@ -67,6 +68,26 @@ public class ArbolBinario {
 
         return canciones;
 
+    }
+
+    public List<Cancion> obtenerTodasLasCanciones() {
+        List<Cancion> canciones = new ArrayList<>();
+        obtenerTodasLasCancionesRec(raiz, canciones);
+        return canciones;
+    }
+
+    private void obtenerTodasLasCancionesRec(Nodo nodo, List<Cancion> canciones) {
+        if (nodo != null) {
+            obtenerTodasLasCancionesRec(nodo.getIzquierdo(), canciones);
+
+            Artista artista = nodo.getArtista();
+            if (artista != null && artista.getCanciones() != null) {
+                canciones.addAll(artista.getCanciones().obtenerTodosLosElementos());
+            }
+            obtenerTodasLasCancionesRec(nodo.getDerecho(), canciones);
+
+
+        }
     }
     public ArrayList<Artista> preorderRecAr(Nodo nodo) {
         ArrayList<Artista> artistas= new ArrayList<>();

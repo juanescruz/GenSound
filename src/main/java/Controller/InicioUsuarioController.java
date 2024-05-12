@@ -8,16 +8,19 @@ import Model.Tienda;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class InicioUsuarioController implements Initializable {
@@ -47,7 +50,7 @@ public class InicioUsuarioController implements Initializable {
     private Button btnPlaylist;
 
     @FXML
-    private VBox listaCanciones;
+    private BorderPane listaCanciones;
     @FXML
     private VBox vBoxCanciones;
 
@@ -61,9 +64,9 @@ public class InicioUsuarioController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         try {
-            ArrayList<Cancion> canciones= tienda.obtenerCanciones();
+            List<Cancion> canciones= tienda.obtenerCanciones();
             for (int i = 0; i<canciones.size(); i++) {
-                listaCanciones.getChildren().add(cargarCancionInicio(canciones.get(i)));
+                vBoxCanciones.getChildren().add(cargarCancionInicio(canciones.get(i)));
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -80,6 +83,22 @@ public class InicioUsuarioController implements Initializable {
             throw new RuntimeException(e);
         }
 
+    }
+    private void cambiarVentana(String fxmlname) {
+        try {
+            Node nodo = MainApp.loadFXML(fxmlname);
+            setCenter(nodo);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @SuppressWarnings("exports")
+    public void setCenter(Node node) {
+        listaCanciones.setCenter(node);
+    }
+
+    public void abrirPlaylist(){
+        cambiarVentana("playlist");
     }
 
     public Parent cargarCancionPlayList(Cancion cancion) throws Exception{

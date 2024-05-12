@@ -14,6 +14,7 @@ import javafx.scene.shape.SVGPath;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class InicioPrincipalController implements Initializable {
@@ -41,7 +42,7 @@ public class InicioPrincipalController implements Initializable {
             e.printStackTrace();
         }
         try {
-            ArrayList<Cancion> canciones= tienda.obtenerCanciones();
+            List<Cancion> canciones= tienda.obtenerCanciones();
             for (int i = 0; i<canciones.size(); i++) {
                 listaCanciones.getChildren().add(cargarCancion(canciones.get(i)));
             }
