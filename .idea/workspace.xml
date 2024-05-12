@@ -7,18 +7,13 @@
     <list default="true" id="e0733166-e11a-48ce-9994-7685f220df1d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs.log.1.lck" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CancionInicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/CancionInicioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CancionInicioUsuarioController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioPrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioPrincipalController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioUsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioUsuarioController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/registroComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/registroComponentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/Arbol/ArbolBinario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/Arbol/ArbolBinario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/Lista/ListaDoble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/Lista/ListaDoble.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/ListaCircular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/ListaCircular.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Archivos/artistas" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Archivos/artistas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/View/InicioUsuario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/InicioUsuario.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +52,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Ana",
+    "git-widget-placeholder": "master",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

@@ -36,7 +36,8 @@ public class registroComponentController {
         }
 
         if(!tienda.existeUsuario(userField.getText()) && pwdField.getText().equals(pwdConField.getText())){
-            Usuario userNew = new Usuario(userField.getText(),pwdField.getText(), emailField.getText(),new ListaCircular<>());
+            ListaCircular<Cancion> canciones = new ListaCircular<>();
+            Usuario userNew = new Usuario(userField.getText(),pwdField.getText(), emailField.getText(),canciones);
             tienda.agregarUsuarios(userNew);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Registro de Usuario");

@@ -53,6 +53,8 @@ public class InicioUsuarioController implements Initializable {
     private BorderPane listaCanciones;
     @FXML
     private VBox vBoxCanciones;
+    @FXML
+    private VBox vboxLista;
 
     private ReproductorPruebaController reproductorPruebaController;
 
@@ -77,7 +79,7 @@ public class InicioUsuarioController implements Initializable {
             Parent parent = loader.load();
             reproductorPruebaController = loader.getController();
             reproductorPruebaController.setInicioUsuarioController(this);
-            vBoxCanciones.getChildren().add(1, parent);
+            vboxLista.getChildren().add(1, parent);
 
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -50,15 +50,14 @@ public class CancionInicioController {
         anioCancion.setText(""+cancion.getAnio());
     }
     public void reproducirCancion(){
-        VBox parent = (VBox) anioCancion.getParent();
         inicioUsuarioController.reproducirCancion(cancion);
-
     }
     public void setInicioUsuarioController(InicioUsuarioController inicioUsuarioController) {
         this.inicioUsuarioController = inicioUsuarioController;
     }
 
     public void agregarCancionPlaylist(){
+        System.out.println(cancion.getNombreCancion());
         tienda.agregarCancion(inicioSesion.getUsuario(),cancion);
     }
 

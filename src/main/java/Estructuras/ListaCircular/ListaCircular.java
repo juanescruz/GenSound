@@ -1,8 +1,9 @@
 package Estructuras.ListaCircular;
 
+import java.io.Serializable;
 import java.util.Stack;
 
-public class ListaCircular<T> implements Iterable<T> {
+public class ListaCircular<T> implements Iterable<T>, Serializable {
 
     private Nodo<T> cabeza;
     private Nodo<T> nodoPrimero;

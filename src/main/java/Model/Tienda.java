@@ -162,6 +162,7 @@ public class Tienda {
     }
     public void agregarCancion(Usuario usuario, Cancion cancion){
         usuario.getCancionesFav().insertar(cancion);
+        System.out.println(usuario.getCancionesFav().toString());
     }
     public void ordenarCancionesAnio(Usuario usuario, Cancion cancion){
 

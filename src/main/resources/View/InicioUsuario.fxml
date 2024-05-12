@@ -31,11 +31,15 @@
    <center>
       <BorderPane prefHeight="322.0" prefWidth="516.0">
          <center>
-            <ScrollPane prefHeight="316.0" prefWidth="517.0" BorderPane.alignment="CENTER">
-               <content>
-                  <VBox fx:id="vBoxCanciones" prefHeight="318.0" prefWidth="516.0" />
-               </content>
-            </ScrollPane>
+            <VBox fx:id="vboxLista" BorderPane.alignment="CENTER">
+               <children>
+                  <ScrollPane prefHeight="316.0" prefWidth="517.0">
+                     <content>
+                        <VBox fx:id="vBoxCanciones" prefHeight="318.0" prefWidth="516.0" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
          </center>
       </BorderPane>
    </center>
