@@ -6,8 +6,8 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReproductorPruebaController">
    <children>
-      <WebView fx:id="reproductor" disable="true" layoutX="586.0" layoutY="382.0" prefHeight="9.0" prefWidth="9.0" />
-      <Button layoutX="60.0" layoutY="249.0" mnemonicParsing="false" onAction="#reproducir" text="Play" />
-      <Button layoutX="60.0" layoutY="291.0" mnemonicParsing="false" onAction="#pausar" text="Pause" />
+      <WebView fx:id="reproductor" disable="true" layoutX="14.0" layoutY="14.0" prefHeight="308.0" prefWidth="555.0" />
+      <Button layoutX="179.0" layoutY="335.0" mnemonicParsing="false" onAction="#reproducir" text="Play" />
+      <Button layoutX="277.0" layoutY="335.0" mnemonicParsing="false" onAction="#pausar" text="Pause" />
    </children>
 </AnchorPane>
