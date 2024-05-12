@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.shape.SVGPath;
 
 public class CancionPlaylistController {
+
     @FXML
     private Label anioCancion;
 
@@ -47,4 +48,5 @@ public class CancionPlaylistController {
     public void eliminar(){
 
     }
+
 }

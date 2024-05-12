@@ -15,6 +15,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -47,6 +48,12 @@ public class InicioUsuarioController implements Initializable {
 
     @FXML
     private VBox listaCanciones;
+    @FXML
+    private VBox vBoxCanciones;
+
+    private ReproductorPruebaController reproductorPruebaController;
+
+    private CancionInicioController cancionInicioController;
 
     private Tienda tienda= Tienda.getInstance();
 
@@ -61,6 +68,18 @@ public class InicioUsuarioController implements Initializable {
         }catch (Exception e){
             e.printStackTrace();
         }
+        FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/ReproductorPrueba.fxml") );
+
+        try {
+            Parent parent = loader.load();
+            reproductorPruebaController = loader.getController();
+            reproductorPruebaController.setInicioUsuarioController(this);
+            vBoxCanciones.getChildren().add(1, parent);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     public Parent cargarCancionPlayList(Cancion cancion) throws Exception{
@@ -79,14 +98,15 @@ public class InicioUsuarioController implements Initializable {
         FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/CancionInicio.fxml") );
         Parent parent = loader.load();
 
-        CancionInicioController controller = loader.getController();
-        controller.cargarDatos(cancion);
-
+        cancionInicioController = loader.getController();
+        cancionInicioController.setInicioUsuarioController(this);
+        cancionInicioController.cargarDatos(cancion);
         return parent;
 
     }
 
 
-
-
+    public void reproducirCancion(Cancion cancion) {
+        reproductorPruebaController.setURLCancion(cancion.getUrl());
+    }
 }
