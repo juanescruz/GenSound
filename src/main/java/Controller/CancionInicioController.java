@@ -18,6 +18,9 @@ public class CancionInicioController {
     private ImageView caratulaCancion;
 
     @FXML
+    private SVGPath gustarCancion;
+
+    @FXML
     private Label duracionCancion;
 
     @FXML
@@ -32,7 +35,6 @@ public class CancionInicioController {
     @FXML
     private SVGPath reproducirCancion;
 
-    private SVGPath gustarCancion;
 
     private Tienda tienda= Tienda.getInstance();
     private final InicioSesion inicioSesion= InicioSesion.getInstance();
@@ -59,6 +61,7 @@ public class CancionInicioController {
     public void agregarCancionPlaylist(){
         System.out.println(cancion.getNombreCancion());
         tienda.agregarCancion(inicioSesion.getUsuario(),cancion);
+        System.out.println(inicioSesion.getUsuario().getCancionesFav().estaVacia());
     }
 
 

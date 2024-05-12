@@ -29,7 +29,7 @@
       </VBox>
    </left>
    <center>
-      <BorderPane prefHeight="322.0" prefWidth="516.0">
+      <BorderPane fx:id="listaCanciones" prefHeight="322.0" prefWidth="516.0">
          <center>
             <VBox fx:id="vboxLista" BorderPane.alignment="CENTER">
                <children>

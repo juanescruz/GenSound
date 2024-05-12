@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0733166-e11a-48ce-9994-7685f220df1d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.log.2" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log.2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CancionInicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/CancionInicioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioUsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioUsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/registroComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/registroComponentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/ListaCircular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/ListaCircular.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Usuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/View/InicioUsuario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/InicioUsuario.fxml" afterDir="false" />
     </list>
@@ -52,7 +51,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "Ana",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -124,7 +123,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a665eb67-1670-4135-8fe6-021964ae9367" name="Changes" comment="" />
+      <changelist id="e0733166-e11a-48ce-9994-7685f220df1d" name="Changes" comment="" />
       <created>1710806491612</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -150,6 +149,7 @@
       <workItem from="1714856957733" duration="67000" />
       <workItem from="1714858129901" duration="3805000" />
       <workItem from="1715093387218" duration="322000" />
+      <workItem from="1715490816839" duration="1248000" />
     </task>
     <servers />
   </component>
