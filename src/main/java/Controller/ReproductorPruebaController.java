@@ -12,6 +12,10 @@ public class ReproductorPruebaController{
     WebView reproductor;
     private boolean cargado = false;
     private boolean reproduciendo = false;
+    private String urlCancion;
+
+    private InicioUsuarioController inicioUsuarioController;
+
     public void reproducir(){
         if (reproduciendo){
         // Si ya se estaba reproduciendo, no hacemos nada
@@ -39,7 +43,7 @@ public class ReproductorPruebaController{
             }
         });
         // Cargar la página de YouTube
-        webEngine.load("https://www.youtube.com/watch?v=oVXsRRWVelc");
+        webEngine.load(urlCancion);
     }
     public void pausar() {
         if (!reproduciendo) {
@@ -50,5 +54,13 @@ public class ReproductorPruebaController{
         webEngine.executeScript("var player = document.querySelector('.html5-main-video'); " +
                 "if (player) { player.pause(); }");
         reproduciendo = false;
+    }
+    public void setURLCancion(String url){
+        this.urlCancion= url;
+        reproducir();
+    }
+
+    public void setInicioUsuarioController(InicioUsuarioController inicioUsuarioController) {
+        this.inicioUsuarioController = inicioUsuarioController;
     }
 }

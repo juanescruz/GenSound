@@ -4,10 +4,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.web.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReproductorPruebaController">
+<Pane prefHeight="137.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReproductorPruebaController">
    <children>
-      <WebView fx:id="reproductor" disable="true" layoutX="14.0" layoutY="14.0" prefHeight="308.0" prefWidth="555.0" />
-      <Button layoutX="179.0" layoutY="335.0" mnemonicParsing="false" onAction="#reproducir" text="Play" />
-      <Button layoutX="277.0" layoutY="335.0" mnemonicParsing="false" onAction="#pausar" text="Pause" />
+      <Button layoutX="142.0" layoutY="56.0" mnemonicParsing="false" onAction="#reproducir" text="Play" />
+      <Button layoutX="252.0" layoutY="56.0" mnemonicParsing="false" onAction="#pausar" text="Pause" />
+      <WebView fx:id="reproductor" disable="true" layoutX="363.0" layoutY="38.0" prefHeight="10.0" prefWidth="15.0" />
    </children>
-</AnchorPane>
+</Pane>

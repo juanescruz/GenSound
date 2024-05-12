@@ -123,7 +123,7 @@ public class Tienda {
 
     }
     private void guardarCancionArtista(String[] valores) {
-        Cancion cancion= new Cancion(RandomGenerator.getDefault().nextInt(), valores[1], valores[2], Integer.parseInt(valores[3]),Double.parseDouble(valores[4]),valores[5],valores[6]);
+        Cancion cancion= new Cancion((int) Math.random(), valores[1], valores[2], Integer.parseInt(valores[3]),Double.parseDouble(valores[4]),valores[5],valores[6]);
         artistas.buscarArtistaPorId(Integer.parseInt(valores[0])).getCanciones().agregarfinal(cancion);
 
     }
