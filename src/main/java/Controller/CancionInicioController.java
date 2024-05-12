@@ -1,6 +1,8 @@
 package Controller;
 
 import Model.Cancion;
+import Model.InicioSesion;
+import Model.Tienda;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -28,12 +30,22 @@ public class CancionInicioController {
     @FXML
     private SVGPath reproducirCancion;
 
+    @FXML
+    private SVGPath gustarCancion;
+
+    private Tienda tienda= Tienda.getInstance();
+    private final InicioSesion inicioSesion= InicioSesion.getInstance();
+
     public void cargarDatos(Cancion cancion){
         nombreCancion.setText( cancion.getNombreCancion() );
         generoCancion.setText( cancion.getGenero() );
         duracionCancion.setText( ""+cancion.getDuracion() );
         nombreAlbum.setText(cancion.getNombreAlbum());
         anioCancion.setText(""+cancion.getAnio());
+    }
+
+    public void agregarCancionPlaylist(){
+
     }
 
 

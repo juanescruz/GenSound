@@ -156,16 +156,18 @@ public class Tienda {
         }
         return flag;
     }
-    /*public void eliminarCancion(Usuario usuario, Cancion cancion){
-        usuario.getCancionesFav().eliminar(cancion);
+    public void eliminarCancion(Usuario usuario, Cancion cancion){
+        usuario.getCancionesFav().borrar(cancion);
 
     }
     public void agregarCancion(Usuario usuario, Cancion cancion){
-        usuario.getCancionesFav().agregarfinal(cancion);
+        usuario.getCancionesFav().insertar(cancion);
     }
     public void ordenarCancionesAnio(Usuario usuario, Cancion cancion){
 
     }
+
+
     /**
      * Este metodo recibe un nombre de un artista, lo busca y retorna la lista de canciones
      * @param nombre
@@ -316,7 +318,14 @@ public class Tienda {
 
 
     }
+    /**
+     * este metodo agrega un artista dado por parámetro al arbol binario de artistas que hay en la tienda
+     * @param artista
+     */
     public void agregarArtista(Artista artista) throws Exception {
+        if(artistas.buscarArtistaPorId(artista.getCodigoArtista())!=null){
+            throw new Exception("El artista ya se encuentra agregado");
+        }
         artistas.agregarArtista(artista);
         System.out.println(artistas.toString());
     }
