@@ -140,7 +140,6 @@ public class InicioUsuarioController implements Initializable {
 <<<<<<< HEAD
 
     public void reproducirCancion(Cancion cancion) {
-
         reproductorPruebaController.setURLCancion(cancion.getUrl());
     }
 =======

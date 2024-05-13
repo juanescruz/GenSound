@@ -18,9 +18,8 @@ public class ReproductorPruebaController{
 
     public void reproducir(){
         if (reproduciendo){
-        cargarVideo();
-        reproductor.setVisible(false);
-        reproduciendo=true;
+        // Si ya se estaba reproduciendo, no hacemos nada
+        return;
     }
         if (cargado) {
         WebEngine webEngine = reproductor.getEngine();
