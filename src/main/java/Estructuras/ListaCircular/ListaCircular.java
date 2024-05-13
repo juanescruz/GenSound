@@ -1,6 +1,9 @@
 package Estructuras.ListaCircular;
 
+import lombok.Getter;
+
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.Stack;
 
 public class ListaCircular<T> implements Iterable<T>, Serializable {
@@ -53,7 +56,7 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
     }
 
     // Método para insertar un elemento en la lista
-    public void insertarDes(T dato) {
+    public void insertar(T dato) {
         Nodo<T> nuevoNodo = new Nodo<>(dato);
         if (cabeza == null) {
             cabeza = nuevoNodo;
@@ -71,62 +74,6 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
         pilaDeshacer.push(new Deshacer<>(null, nuevoNodo));
         pilaRehacer.clear();
     }
-    public void insertar(T dato) {
-
-
-        Nodo<T> nuevoNodo = new Nodo<>(dato);
-
-        if (cabeza == null) {
-
-            cabeza = nuevoNodo;
-
-            cabeza.setSiguienteNodo(cabeza);
-
-        } else {
-
-            Nodo<T> actual = cabeza;
-
-            while (true) {
-
-                Nodo<T> siguiente = actual.getSiguienteNodo();
-
-                if (siguiente == cabeza) {
-
-                    break;
-
-                }
-
-                actual = siguiente;
-
-            }
-
-            actual.setSiguienteNodo(nuevoNodo);
-
-            nuevoNodo.setSiguienteNodo(cabeza);
-
-        }
-
-        tamanio++;
-
-
-    }
-    /*public void insertar(T dato) {
-
-        Nodo<T> nuevoNodo = new Nodo<>(dato);
-        if (cabeza == null) {
-            cabeza = nuevoNodo;
-            cabeza.setSiguienteNodo(cabeza);
-        } else {
-            Nodo<T> actual = cabeza;
-            while (actual.getSiguienteNodo() != cabeza) {
-                actual = actual.getSiguienteNodo();
-            }
-            actual.setSiguienteNodo(nuevoNodo);
-            nuevoNodo.setSiguienteNodo(cabeza);
-        }
-        tamanio++;
-
-    }*/
 
     public void borrar(T dato) {
 
@@ -157,7 +104,7 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
 
         } while (actual != cabeza);
     }
- //
+
     //Obtener Nodo el valor de un Nodo
     public T obtenerValorNodo(int indice) {
 
@@ -193,7 +140,7 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
 
     //Verificar si la lista esta vacia
     public boolean estaVacia() {
-        return nodoPrimero == null;
+        return nodoPrimero != null;
     }
 
 
@@ -208,46 +155,6 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
             actual = actual.getSiguienteNodo();
         } while (actual != cabeza);
         System.out.println();
-    }
-
-    //Elimina el primer nodo de la lista
-    public T eliminarPrimero() {
-
-        if( !estaVacia() ) {
-            Nodo<T> n = nodoPrimero;
-            T valor = n.getValorNodo();
-            nodoPrimero = n.getSiguienteNodo();
-
-            if(nodoPrimero==null) {
-//				nodoUltimo = null;
-            }
-
-            tamanio--;
-            return valor;
-        }
-
-        throw new RuntimeException("Lista vac�a");
-    }
-
-
-    public T eliminarUltimo() {
-
-        if( !estaVacia() ) {
-            T valor = nodoUltimo.getValorNodo();
-            Nodo<T> prev = obtenerNodo(tamanio-2);
-            nodoUltimo = prev;
-
-            if(nodoUltimo==null) {
-                nodoPrimero=null;
-            }else {
-                prev.setSiguienteNodo(null);
-            }
-
-            tamanio--;
-            return valor;
-        }
-
-        throw new RuntimeException("Lista vac�a");
     }
 
     private Nodo<T> obtenerNodo(int indice) {
@@ -296,8 +203,45 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
     }
 
     @Override
-    public IteradorCircular<T> iterator() {
-        return new IteradorCircular<>(nodoPrimero);
+    public Iterator<T> iterator() {
+
+        return new IteradorListaSimple(cabeza);
+    }
+
+    protected class IteradorListaSimple implements Iterator<T>{
+
+        private Nodo<T> nodo;
+        /**
+         * -- GETTER --
+         *  Posici�n actual de la lista
+         *
+         * @return posici�n
+         */
+        @Getter
+        private int posicion;
+
+        /**
+         * Constructor de la clase Iterador
+         * @param nodo Primer Nodo de la lista
+         */
+        public IteradorListaSimple(Nodo<T> nodo) {
+            this.nodo = nodo;
+            this.posicion = 0;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return nodo!=null;
+        }
+
+        @Override
+        public T next() {
+            T valor = nodo.getValorNodo();
+            nodo = nodo.getSiguienteNodo();
+            posicion++;
+            return valor;
+        }
+
     }
 
 

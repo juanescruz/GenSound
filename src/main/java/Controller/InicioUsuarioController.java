@@ -101,6 +101,7 @@ public class InicioUsuarioController implements Initializable {
 
     public void abrirPlaylist(){
         cambiarVentana("playlist");
+        //Llamar metodo que inialice
     }
 
     public Parent cargarCancionPlayList(Cancion cancion) throws Exception{

@@ -6,12 +6,9 @@ import java.util.Iterator;
 
     private Nodo<T> nodo;
 
-    private int posicion;
-
 
     public IteradorCircular(Nodo<T> nodo) {
         this.nodo = nodo;
-        this.posicion = 0;
     }
 
     @Override
@@ -23,7 +20,7 @@ import java.util.Iterator;
     public T next() {
         T valor = nodo.getValorNodo();
         nodo = nodo.getSiguienteNodo();
-        posicion++;
         return valor;
     }
+
 }
