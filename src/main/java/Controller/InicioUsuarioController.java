@@ -98,6 +98,7 @@ public class InicioUsuarioController implements Initializable {
 
     public void abrirPlaylist(){
         cambiarVentana("playlist");
+        //Llamar metodo que inialice
     }
 
     public Parent cargarCancionInicio(Cancion cancion) throws Exception{
@@ -114,6 +115,7 @@ public class InicioUsuarioController implements Initializable {
 
 
     public void reproducirCancion(Cancion cancion) {
+
         reproductorPruebaController.setURLCancion(cancion.getUrl());
     }
 

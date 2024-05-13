@@ -60,8 +60,8 @@ public class CancionInicioController {
 
     public void agregarCancionPlaylist(){
         System.out.println(cancion.getNombreCancion());
-        tienda.agregarCancion(inicioSesion.getUsuario(),cancion);
-        System.out.println(inicioSesion.getUsuario().getCancionesFav().estaVacia());
+        tienda.agregarCancion(inicioSesion.getUsuario(), cancion);
+        inicioSesion.getUsuario().getCancionesFav().imprimirLista();
     }
 
 
