@@ -51,13 +51,12 @@ may. 08, 2024 6:02:49 P. M. Model.Tienda <init>
 INFO: Se creó una nueva instancia
 may. 08, 2024 6:04:37 P. M. Model.Tienda <init>
 INFO: Se creó una nueva instancia
-may. 08, 2024 8:37:30 P. M. Model.Tienda <init>
+may. 09, 2024 7:10:10 A. M. Model.Tienda <init>
 INFO: Se creó una nueva instancia
-may. 08, 2024 8:44:14 P. M. Model.Tienda <init>
+may. 09, 2024 7:26:08 A. M. Model.Tienda <init>
 INFO: Se creó una nueva instancia
-may. 08, 2024 8:57:27 P. M. Model.Tienda <init>
+may. 09, 2024 7:35:25 A. M. Model.Tienda <init>
 INFO: Se creó una nueva instancia
-<<<<<<< HEAD
 may. 09, 2024 8:08:43 A. M. Model.Tienda <init>
 INFO: Se creó una nueva instancia
 may. 09, 2024 10:58:47 A. M. Model.Tienda <init>
@@ -118,8 +117,6 @@ may. 12, 2024 12:18:18 A. M. Model.Tienda <init>
 INFO: Se creó una nueva instancia
 may. 12, 2024 12:29:13 A. M. Model.Tienda <init>
 INFO: Se creó una nueva instancia
-<<<<<<< HEAD
-=======
 may. 12, 2024 8:24:29 P. M. Model.Tienda <init>
 INFO: Se creó una nueva instancia
 may. 12, 2024 9:35:46 P. M. Model.Tienda <init>
@@ -153,8 +150,4 @@ INFO: Se creó una nueva instancia
 may. 12, 2024 11:12:32 P. M. Model.Tienda <init>
 INFO: Se creó una nueva instancia
 may. 12, 2024 11:28:27 P. M. Model.Tienda <init>
-=======
-may. 09, 2024 11:20:29 A. M. Model.Tienda <init>
->>>>>>> parent of a3cc411 (Fix: Metodos de busqueda)
 INFO: Se creó una nueva instancia
->>>>>>> parent of 03bdca2 (Merge con master)

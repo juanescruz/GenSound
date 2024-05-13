@@ -1,8 +1,9 @@
 package Estructuras.ListaCircular;
 
+import java.io.Serializable;
 import java.util.Stack;
 
-public class ListaCircular<T> implements Iterable<T> {
+public class ListaCircular<T> implements Iterable<T>, Serializable {
 
     private Nodo<T> cabeza;
     private Nodo<T> nodoPrimero;
@@ -52,8 +53,7 @@ public class ListaCircular<T> implements Iterable<T> {
     }
 
     // Método para insertar un elemento en la lista
-    public void insertar(T dato) {
-
+    public void insertarDes(T dato) {
         Nodo<T> nuevoNodo = new Nodo<>(dato);
         if (cabeza == null) {
             cabeza = nuevoNodo;
@@ -71,6 +71,62 @@ public class ListaCircular<T> implements Iterable<T> {
         pilaDeshacer.push(new Deshacer<>(null, nuevoNodo));
         pilaRehacer.clear();
     }
+    public void insertar(T dato) {
+
+
+        Nodo<T> nuevoNodo = new Nodo<>(dato);
+
+        if (cabeza == null) {
+
+            cabeza = nuevoNodo;
+
+            cabeza.setSiguienteNodo(cabeza);
+
+        } else {
+
+            Nodo<T> actual = cabeza;
+
+            while (true) {
+
+                Nodo<T> siguiente = actual.getSiguienteNodo();
+
+                if (siguiente == cabeza) {
+
+                    break;
+
+                }
+
+                actual = siguiente;
+
+            }
+
+            actual.setSiguienteNodo(nuevoNodo);
+
+            nuevoNodo.setSiguienteNodo(cabeza);
+
+        }
+
+        tamanio++;
+
+
+    }
+    /*public void insertar(T dato) {
+
+        Nodo<T> nuevoNodo = new Nodo<>(dato);
+        if (cabeza == null) {
+            cabeza = nuevoNodo;
+            cabeza.setSiguienteNodo(cabeza);
+        } else {
+            Nodo<T> actual = cabeza;
+            while (actual.getSiguienteNodo() != cabeza) {
+                actual = actual.getSiguienteNodo();
+            }
+            actual.setSiguienteNodo(nuevoNodo);
+            nuevoNodo.setSiguienteNodo(cabeza);
+        }
+        tamanio++;
+
+    }*/
 
     public void borrar(T dato) {
 

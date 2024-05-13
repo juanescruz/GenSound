@@ -7,10 +7,13 @@ import lombok.*;
 @AllArgsConstructor
 public class Artista {
 
+    @Getter
     private int codigoArtista;
     @Getter
     private String nombreArtista;
+    @Getter
     private String nacionalidad;
+    @Getter
     private boolean esGrupo;
     @Getter
     private ListaDoble<Cancion> canciones;
