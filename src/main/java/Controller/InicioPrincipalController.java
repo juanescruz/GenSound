@@ -13,8 +13,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.SVGPath;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class InicioPrincipalController implements Initializable {
@@ -34,17 +32,17 @@ public class InicioPrincipalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-           ArrayList<Artista> artistas= tienda.obtenerArtistas();
-            for (int i = 0; i < artistas.size(); i++) {
-                listaArtistas.getChildren().add(cargarArtistas(artistas.get(i)));
+            for (int i = 0; i < 3; i++) {
+                //listaCanciones.getChildren().add(cargarCancion( new Cancion(new ArbolBinario(),2,"2", "Cancion prueba", "", 2021, 20, "")));
+                listaArtistas.getChildren().add(cargarArtistas(new Artista(1,"a","a",false, new ListaDoble<>())));
             }
         }catch (Exception e){
             e.printStackTrace();
         }
         try {
-            List<Cancion> canciones= tienda.obtenerCanciones();
-            for (int i = 0; i<canciones.size(); i++) {
-                listaCanciones.getChildren().add(cargarCancion(canciones.get(i)));
+            for (int i = 0; i < 3; i++) {
+                //listaCanciones.getChildren().add(cargarCancion( new Cancion(new ArbolBinario(),2,"2", "Cancion prueba", "", 2021, 20, "")));
+                listaCanciones.getChildren().add(cargarCancion(new Cancion(1,"","",2,2,"","")));
             }
         }catch (Exception e){
             e.printStackTrace();

@@ -13,7 +13,11 @@ import Estructuras.Lista.NodoDoble;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,8 +26,11 @@ import java.util.random.RandomGenerator;
 
 import Estructuras.Arbol.*;
 
+import Estructuras.Arbol.*;
+
 @Data
 public class Tienda {
+    private final HashMap<String, List<Cancion>> catalogo;
     private ArbolBinario artistas;
     private HashMap<String, Usuario> usuarios;
     private Administrador admin;
@@ -32,17 +39,13 @@ public class Tienda {
     private static final Logger LOGGER = Logger.getLogger(Tienda.class.getName());
 
 
-    public static Tienda getInstance() {
+    public static Tienda getInstance(){
         if(Tienda == null){
-            try {
-                Tienda = new Tienda();
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
+            Tienda = new Tienda();
         }
         return Tienda;
     }
-    private Tienda() throws Exception {
+    private Tienda() {
         try {
             FileHandler fh = new FileHandler("logs.log", true);
             fh.setFormatter(new SimpleFormatter());
@@ -53,14 +56,13 @@ public class Tienda {
         }
         LOGGER.log(Level.INFO, "Se creó una nueva instancia");
 
+        this.catalogo=new HashMap<>();
         
         this.usuarios=new HashMap<>();
         leerUsuarios();
 
         this.artistas= new ArbolBinario();
-
         this.admin=new Administrador();
-        leerArtistasCanciones();
 
     }
 
@@ -91,48 +93,35 @@ public class Tienda {
      */
     private void leerArtistasCanciones() throws Exception {
         boolean esArtista = false;
-        boolean esCancion=false;
         try(Scanner scanner= new Scanner(new File("src/main/resources/Archivos/artistas"))){
             while(scanner.hasNextLine()){
                 String linea= scanner.nextLine();
                 if(linea.startsWith("#Artistas")){
                     esArtista = true;
                     linea= scanner.nextLine();
-                }else if (linea.startsWith("#Canciones")){
-                    esCancion=true;
+                }else{
                     esArtista = false;
                     linea= scanner.nextLine();
                 }
 
                 if(esArtista){
                     String [] valores= linea.split(";");
-                    System.out.println(imprimirArreglo(valores));
-                    this.artistas.agregarArtista(new Artista(Integer.parseInt(valores[0]),valores[1],valores[2],Boolean.parseBoolean(valores[3]),new ListaDoble<>()));
+                    this.artistas.agregarArtista(new Artista(Integer.parseInt(valores[0]),valores[1],valores[2],Boolean.parseBoolean(valores[3]),null));
 
-                }else if (esCancion){
+                }else{
                     String [] valores= linea.split(";");
-                    System.out.println(imprimirArreglo(valores));
                     guardarCancionArtista(valores);
+
                 }
-
             }
-
         }catch(IOException e){
             LOGGER.log(Level.WARNING, e.getMessage());
         }
 
     }
     private void guardarCancionArtista(String[] valores) {
-        Cancion cancion= new Cancion((int) Math.random(), valores[1], valores[2], Integer.parseInt(valores[3]),Double.parseDouble(valores[4]),valores[5],valores[6]);
-        artistas.buscarArtistaPorId(Integer.parseInt(valores[0])).getCanciones().agregarfinal(cancion);
+        artistas.buscarArtistaPorId(Integer.parseInt(valores[0]));
 
-    }
-    public String imprimirArreglo(String [] array){
-        String aux="";
-        for(int i=0; i<array.length; i++){
-            aux +=""+array[i];
-        }
-        return aux;
     }
 
     public boolean existeUsuario(String username){
@@ -156,19 +145,21 @@ public class Tienda {
         }
         return flag;
     }
-    public void eliminarCancion(Usuario usuario, Cancion cancion){
-        usuario.getCancionesFav().borrar(cancion);
+    /*public void eliminarCancion(Usuario usuario, Cancion cancion){
+        usuario.getCancionesFav().eliminar(cancion);
 
     }
     public void agregarCancion(Usuario usuario, Cancion cancion){
-        usuario.getCancionesFav().insertar(cancion);
-        System.out.println(usuario.getCancionesFav().toString());
+        usuario.getCancionesFav().agregarfinal(cancion);
     }
     public void ordenarCancionesAnio(Usuario usuario, Cancion cancion){
 
     }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> parent of a3cc411 (Fix: Metodos de busqueda)
     /**
      * Este metodo recibe un nombre de un artista, lo busca y retorna la lista de canciones
      * @param nombre
@@ -304,37 +295,10 @@ public class Tienda {
         }
     }
 
-    /**
-     * este metodo busca el id del artista dado, y se agrega la cancion a su lista de canciones
-     * @param cancion
-     * @param codArtista
-     */
-    public void agregarCancion(Cancion cancion, int codArtista) throws Exception {
-        Artista artista =artistas.buscarArtistaPorId(codArtista);
-        if(artista==null){
-            throw new Exception("Artista no encontrado");
-        }
-        System.out.println(artista.toString());
-        artista.getCanciones().agregarfinal(cancion);
-
+    public void agregarCancion(Cancion cancion, String nombreArtista){
 
     }
-    /**
-     * este metodo agrega un artista dado por parámetro al arbol binario de artistas que hay en la tienda
-     * @param artista
-     */
     public void agregarArtista(Artista artista) throws Exception {
-        if(artistas.buscarArtistaPorId(artista.getCodigoArtista())!=null){
-            throw new Exception("El artista ya se encuentra agregado");
-        }
         artistas.agregarArtista(artista);
-        System.out.println(artistas.toString());
-    }
-
-    public List<Cancion> obtenerCanciones(){
-        return artistas.obtenerTodasLasCanciones();
-    }
-    public ArrayList<Artista> obtenerArtistas(){
-        return artistas.preorderAr();
     }
 }

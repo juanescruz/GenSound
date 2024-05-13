@@ -1,11 +1,9 @@
 package Controller;
 
-import Estructuras.Lista.ListaDoble;
 import Model.Artista;
 import Model.Tienda;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -37,12 +35,8 @@ public class AgregarArtistaController implements Initializable {
     }
     public void agregarArtista() throws Exception {
         tienda.agregarArtista(new Artista(Integer.parseInt(codigoArtista.getText()),nombreArtista.getText(),
-                nacionalidad.getText(),esGrupo.isPressed(),new ListaDoble<>()));
+                nacionalidad.getText(),esGrupo.isPressed(),null));
         System.out.println(tienda.getArtistas());
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Info");
-        alert.setContentText("Artista agregada correctamente");
-        alert.show();
     }
 
     public String generoMasPopular(){

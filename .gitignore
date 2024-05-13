@@ -4,16 +4,7 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-.idea/*
-*.iws
-*.iml
-*.ipr
-.idea/misc.xml
-.idea/workspace.xml
+.idea/**
 ### Eclipse ###
 .apt_generated
 .classpath
@@ -38,6 +29,9 @@ build/
 
 ### Mac OS ###
 .DS_Store
+<<<<<<< HEAD
 *.log
 /.idea
 logs.log
+=======
+>>>>>>> parent of a3cc411 (Fix: Metodos de busqueda)
