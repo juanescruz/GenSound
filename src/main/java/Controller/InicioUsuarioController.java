@@ -129,6 +129,7 @@ public class InicioUsuarioController implements Initializable {
 
 
     public void reproducirCancion(Cancion cancion) {
+
         reproductorPruebaController.setURLCancion(cancion.getUrl());
     }
 }
