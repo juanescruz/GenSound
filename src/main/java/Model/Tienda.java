@@ -2,6 +2,9 @@ package Model;
 
 import Archivos.ArchivoUtils;
 import Estructuras.Arbol.ArbolBinario;
+import Estructuras.Lista.ListaIterador;
+import Estructuras.ListaCircular.IteradorCircular;
+import Estructuras.ListaCircular.ListaCircular;
 import lombok.Data;
 
 import Estructuras.Arbol.Nodo;
@@ -15,6 +18,9 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
+import java.util.random.RandomGenerator;
+
+import Estructuras.Arbol.*;
 
 @Data
 public class Tienda {
@@ -161,30 +167,42 @@ public class Tienda {
     public void ordenarCancionesAnio(Usuario usuario, Cancion cancion){
 
     }
-    public List<Cancion> buscarArtista(String nombre) {
-        List<Cancion> cancionesArtista = new ArrayList<>();
-        buscarArtistaRec(artistas.getRaiz(), nombre, cancionesArtista);
-        return cancionesArtista;
-    }
 
-    private void buscarArtistaRec(Nodo nodo, String nombre, List<Cancion> cancionesArtista) {
-        if (nodo != null) {
-            Artista artista = nodo.getArtista();
-            if (artista != null && artista.getNombreArtista().equals(nombre)) {
-                ListaDoble canciones = artista.getCanciones();
-                if (canciones != null) {
-                    NodoDoble<Cancion> current = canciones.getNodoPrimero();
-                    while (current != null) {
-                        cancionesArtista.add(current.getValorNodo());
-                        current = current.getSiguienteNodo();
-                    }
-                }
-            }
-            buscarArtistaRec(nodo.getIzquierdo(), nombre, cancionesArtista);
-            buscarArtistaRec(nodo.getDerecho(), nombre, cancionesArtista);
+
+    /**
+     * Este metodo recibe un nombre de un artista, lo busca y retorna la lista de canciones
+     * @param nombre
+     * @return
+     */
+    public List<Cancion> buscarArtista(String nombre) {
+        Artista artista = buscarArtistaRec(artistas.getRaiz(), nombre);
+        if (artista != null) {
+            return (List<Cancion>) artista.getCanciones();
+        } else {
+            return null;
         }
     }
 
+    /**
+     * Este metodo busca el artista de manera recursiva en los sub arboles del arbol binario
+     * @param nodo
+     * @param nombre
+     * @return
+     */
+    private Artista buscarArtistaRec(Nodo nodo, String nombre) {
+        if (nodo == null || nodo.getArtista().getNombreArtista().equals(nombre)) {
+            if (nodo != null) {
+                return nodo.getArtista();
+            } else {
+                return null;
+            }
+        }
+        if (nombre.compareTo(nodo.getArtista().getNombreArtista()) < 0) {
+            return buscarArtistaRec(nodo.getIzquierdo(), nombre);
+        } else {
+            return buscarArtistaRec(nodo.getDerecho(), nombre);
+        }
+    }
 
     /**
      * Este metodo busca canciones con dos atributos, si hay coincidencia en cualquier atributo, retornara la cancion
@@ -195,9 +213,6 @@ public class Tienda {
      */
     public List<Cancion> buscarCancionesO(String atributo1, String atributo2) {
         List<Cancion> canciones = new ArrayList<>();
-
-        buscarCancionesORecursivo(artistas.getRaiz(), atributo1, atributo2, canciones);
-
         Thread hiloIzquierdo = new Thread(() -> buscarCancionesORecursivo(artistas.getRaiz().getIzquierdo(), atributo1, atributo2, canciones));
         Thread hiloDerecho = new Thread(() -> buscarCancionesORecursivo(artistas.getRaiz().getDerecho(), atributo1, atributo2, canciones));
 
@@ -215,51 +230,72 @@ public class Tienda {
     }
 
     /**
-     * Este método busca canciones que contienen al menos uno de los atributos en el nombre de la canción o el álbum,
-     * explorando de manera recursiva el árbol de artistas.
-     *
-     * @param nodo      El nodo desde el cual se inicia la búsqueda.
-     * @param atributo1 El primer atributo a buscar.
-     * @param atributo2 El segundo atributo a buscar.
-     * @param canciones La lista donde se agregan las canciones encontradas.
+     * este metodo busca canciones por ó recursivamente, compara en este caso el nombre de la cancion y el album
+     * @param nodo
+     * @param atributo1
+     * @param atributo2
+     * @param canciones
      */
     private void buscarCancionesORecursivo(Nodo nodo, String atributo1, String atributo2, List<Cancion> canciones) {
         if (nodo != null) {
             ListaDoble cancionesArtista = nodo.getArtista().getCanciones();
-            NodoDoble<Cancion> current = cancionesArtista.getNodoPrimero();
-            while (current != null) {
-                Cancion cancion = current.getValorNodo();
-                boolean contieneAtributo1 = cancion.getNombreCancion().contains(atributo1);
-                boolean contieneAtributo2 = cancion.getNombreCancion().contains(atributo2);
-                boolean contieneAtributoAlbum1 = cancion.getNombreAlbum().contains(atributo1);
-                boolean contieneAtributoAlbum2 = cancion.getNombreAlbum().contains(atributo2);
-                if ((contieneAtributo1 || contieneAtributo2) || (contieneAtributoAlbum1 || contieneAtributoAlbum2)) {
-                    canciones.add(cancion);
+            NodoDoble<Cancion> nodoTemp = cancionesArtista.getNodoPrimero();
+            while (nodoTemp != null) {
+                Cancion cancion = nodoTemp.getValorNodo();
+                if (cancion.getNombreCancion().equals(atributo1) || cancion.getNombreAlbum().equals(atributo2) || cancion.getNombreCancion().equals(atributo2) || cancion.getNombreAlbum().equals(atributo1)) {
+                    synchronized (canciones) {
+                        canciones.add(cancion);
+                    }
                 }
-                current = current.getSiguienteNodo();
+                nodoTemp = nodoTemp.getSiguienteNodo();
             }
             buscarCancionesORecursivo(nodo.getIzquierdo(), atributo1, atributo2, canciones);
             buscarCancionesORecursivo(nodo.getDerecho(), atributo1, atributo2, canciones);
         }
     }
 
+    /**
+     * Este metodo busca canciones con dos atributos, debe haber coincidencia en los dos atributos, retornara la o las canciones
+     * implementa hilos para buscar en los subarboles
+     * @param atributo1
+     * @param atributo2
+     * @return
+     */
     public List<Cancion> buscarCancionesY(String atributo1, String atributo2) {
-        Set<Cancion> cancionesSet = new HashSet<>();
-        buscarCancionesYRecursivo(artistas.getRaiz(), atributo1, atributo2, cancionesSet);
+        List<Cancion> canciones = new ArrayList<>();
+        Thread hiloIzquierdo = new Thread(() -> buscarCancionesYRecursivo(artistas.getRaiz().getIzquierdo(), atributo1, atributo2, canciones));
+        Thread hiloDerecho = new Thread(() -> buscarCancionesYRecursivo(artistas.getRaiz().getDerecho(), atributo1, atributo2, canciones));
 
-        List<Cancion> canciones = new ArrayList<>(cancionesSet);
+        hiloIzquierdo.start();
+        hiloDerecho.start();
+
+        try {
+            hiloIzquierdo.join();
+            hiloDerecho.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         return canciones;
     }
 
-    private void buscarCancionesYRecursivo(Nodo nodo, String atributo1, String atributo2, Set<Cancion> canciones) {
+    /**
+     * este metodo busca canciones por ó recursivamente, compara en este caso el nombre de la cancion y el album
+     * @param nodo
+     * @param atributo1
+     * @param atributo2
+     * @param canciones
+     */
+    private void buscarCancionesYRecursivo(Nodo nodo, String atributo1, String atributo2, List<Cancion> canciones) {
         if (nodo != null) {
             ListaDoble cancionesArtista = nodo.getArtista().getCanciones();
             NodoDoble<Cancion> current = cancionesArtista.getNodoPrimero();
             while (current != null) {
                 Cancion cancion = current.getValorNodo();
-                // Verificar si la canción contiene ambos atributos en el nombre de la canción y el álbum
-                if (cancion.getNombreCancion().contains(atributo1) && cancion.getNombreAlbum().contains(atributo2)) {
-                    canciones.add(cancion);
+                if (cancion.getNombreCancion().equals(atributo1) && cancion.getNombreAlbum().equals(atributo2) || cancion.getNombreCancion().equals(atributo2) && cancion.getNombreAlbum().equals(atributo1)) {
+                    synchronized (canciones) {
+                        canciones.add(cancion);
+                    }
                 }
                 current = current.getSiguienteNodo();
             }
