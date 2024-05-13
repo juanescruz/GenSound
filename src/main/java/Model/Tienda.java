@@ -24,6 +24,7 @@ import Estructuras.Arbol.*;
 
 @Data
 public class Tienda {
+
     private ArbolBinario artistas;
     private HashMap<String, Usuario> usuarios;
     private Administrador admin;
@@ -43,6 +44,23 @@ public class Tienda {
         return Tienda;
     }
     private Tienda() throws Exception {
+
+
+        ListaCircular<Integer> integers = new ListaCircular<>();
+
+        integers.insertar(1);
+        integers.insertar(2);
+        integers.insertar(3);
+
+        int contador = 0;
+        for (Integer numero : integers) {
+            if (contador == integers.getTamanio()){
+                break;
+            }
+            System.out.println(numero);
+            contador++;
+        }
+
         try {
             FileHandler fh = new FileHandler("logs.log", true);
             fh.setFormatter(new SimpleFormatter());
