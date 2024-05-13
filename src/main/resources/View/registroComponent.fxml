@@ -28,7 +28,7 @@
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <TextField fx:id="userField" layoutX="108.0" layoutY="328.0" prefHeight="26.0" prefWidth="300.0" style="-fx-background-radius: 65;">
+            <TextField fx:id="userField" layoutX="108.0" layoutY="328.0" onMouseClicked="#cambiarEstadoUser" prefHeight="26.0" prefWidth="300.0" style="-fx-background-radius: 65;">
                <font>
                   <Font size="22.0" />
                </font>

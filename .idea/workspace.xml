@@ -4,9 +4,59 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a665eb67-1670-4135-8fe6-021964ae9367" name="Changes" comment="">
+    <list default="true" id="e0733166-e11a-48ce-9994-7685f220df1d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.log.2" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log.2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Archivos/ArchivoUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Archivos/ArchivoUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AgregarArtistaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AgregarArtistaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AgregarCancionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AgregarCancionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ArtistaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ArtistaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CancionInicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/CancionInicioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CancionPlaylistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/CancionPlaylistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioAdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioPrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioPrincipalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioSesionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioSesionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioUsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioUsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/loginComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/loginComponentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/registroComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/registroComponentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/Arbol/ArbolBinario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/Arbol/ArbolBinario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/Arbol/Nodo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/Arbol/Nodo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/Lista/ListaDoble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/Lista/ListaDoble.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/Lista/ListaIterador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/Lista/ListaIterador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/Lista/NodoDoble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/Lista/NodoDoble.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Deshacer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Deshacer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/IteradorCircular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/IteradorCircular.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/ListaCircular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/ListaCircular.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Nodo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Nodo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Rehacer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Rehacer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Administrador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Administrador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Artista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Artista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Cancion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Cancion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/InicioSesion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/InicioSesion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Archivos/artistas" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Archivos/artistas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/AgregarAr.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/AgregarAr.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/AgregarCan.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/AgregarCan.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/Artista.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/Artista.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/CancionInicio.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/CancionInicio.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/CancionPlaylist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/CancionPlaylist.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/InicioAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/InicioAdmin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/InicioUsuario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/InicioUsuario.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/inicioPrincipal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/inicioPrincipal.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/inicioSesion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/inicioSesion.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/loginComponent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/loginComponent.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/registroComponent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/registroComponent.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,54 +88,86 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.GenSound [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
-    "Maven.GenSound [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/galvi/EstructuraDatos/GenSound-master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Ana&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/galvi/EstructuraDatos/GenSound-master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Model" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\IntelliJ IDEA - workspace\GenSound\src\main\java\Estructuras\ListaCircular" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ANAMARIA\OneDrive\Documentos\GitHub\GenSound\src\main\resources\View" />
     </key>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
-      </set>
-    </attachedChunks>
+  <component name="RunManager" selected="Maven.GenSound [javafx:run]">
+    <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="App.MainApp" />
+      <module name="GenSound" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="App.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GenSound [javafx:run]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="javafx:run" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Maven.GenSound [javafx:run]" />
+        <item itemvalue="Application.MainApp" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a665eb67-1670-4135-8fe6-021964ae9367" name="Changes" comment="" />
+      <changelist id="e0733166-e11a-48ce-9994-7685f220df1d" name="Changes" comment="" />
       <created>1710806491612</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -102,20 +184,16 @@
       <workItem from="1710807321325" duration="451000" />
       <workItem from="1711391054023" duration="617000" />
       <workItem from="1712082376228" duration="3643000" />
-      <workItem from="1712086573744" duration="8172000" />
-      <workItem from="1712113274120" duration="259000" />
-      <workItem from="1712233571417" duration="649000" />
-      <workItem from="1712530386118" duration="1716000" />
-      <workItem from="1712612636133" duration="13295000" />
-      <workItem from="1712924112500" duration="3564000" />
-      <workItem from="1713129003955" duration="1726000" />
-      <workItem from="1713204956388" duration="53000" />
-      <workItem from="1713207263023" duration="496000" />
-      <workItem from="1713442127172" duration="2034000" />
-      <workItem from="1713530908342" duration="2948000" />
-      <workItem from="1713798032283" duration="1642000" />
-      <workItem from="1713803344185" duration="2116000" />
-      <workItem from="1713820179192" duration="465000" />
+      <workItem from="1712086573744" duration="4596000" />
+      <workItem from="1714424880019" duration="6135000" />
+      <workItem from="1714442891372" duration="1072000" />
+      <workItem from="1714527485827" duration="3663000" />
+      <workItem from="1714763025212" duration="78000" />
+      <workItem from="1714856859777" duration="37000" />
+      <workItem from="1714856957733" duration="67000" />
+      <workItem from="1714858129901" duration="3805000" />
+      <workItem from="1715093387218" duration="322000" />
+      <workItem from="1715490816839" duration="1248000" />
     </task>
     <servers />
   </component>
@@ -132,15 +210,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.IllegalStateException" package="java.lang" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
