@@ -28,11 +28,17 @@ public class PlaylistController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         System.out.println("a");
-        
+
         try {
+            int contador=0;
             for (Cancion cancion : inicioSesion.getUsuario().getCancionesFav()) {
 
-                playlistUsuario.getChildren().add(cargarCancionPlayList(cancion));
+                if(contador==inicioSesion.getUsuario().getCancionesFav().getTamanio()){
+                    break;
+                }else{
+                    playlistUsuario.getChildren().add(cargarCancionPlayList(cancion));
+                }
+                contador++;
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -41,7 +47,6 @@ public class PlaylistController implements Initializable {
     }
 
     public Parent cargarCancionPlayList(Cancion cancion) throws Exception{
-        System.out.println(""+cancion.getNombreCancion());
 
         FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/CancionPlaylist.fxml") );
         Parent parent = loader.load();
