@@ -70,6 +70,7 @@ public class InicioUsuarioController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        txtBuscar.setPromptText("Ingresa Albúm,Nombre de la canción para busqueda Y/O");
         pintarCancionesInicio();
         FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/ReproductorPrueba.fxml") );
         try {
@@ -140,7 +141,7 @@ public class InicioUsuarioController implements Initializable {
     }
 
     @FXML
-    void buscar(ActionEvent event) {
+    void buscar(ActionEvent event) throws Exception {
         List<Cancion>canciones = new ArrayList<>();
         String parametros = txtBuscar.getText();
         if (radioButtonArtista.isSelected()) {
@@ -148,10 +149,18 @@ public class InicioUsuarioController implements Initializable {
             canciones = tienda.buscarArtista(parametros);
         } else if (radioButtonO.isSelected()) {
             String[] atributos = parametros.split(",");
-            canciones = tienda.buscarCancionesO(atributos[0], atributos[1]);
+            if(atributos.length == 2){
+                canciones = tienda.buscarCancionesO(atributos[0], atributos[1]);
+            }else{
+                throw new Exception("Ingrese los dos parametros separados por , para hacer la busqueda Or");
+            }
         } else if (radioButtonY.isSelected()) {
             String[] atributos = parametros.split(",");
-            canciones = tienda.buscarCancionesY(atributos[0], atributos[1]);
+            if(atributos.length == 2){
+                canciones = tienda.buscarCancionesY(atributos[0], atributos[1]);
+            }else{
+                throw new Exception("Ingrese los dos parametros separados por , para hacer la busqueda Y");
+            }
         }
         System.out.println("Canciones en controller: "+canciones);
         Label label = new Label();
