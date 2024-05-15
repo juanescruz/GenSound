@@ -5,10 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0733166-e11a-48ce-9994-7685f220df1d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CancionInicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/CancionInicioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioUsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioUsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/PlaylistController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ReproductorPruebaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ReproductorPruebaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/CancionInicio.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/CancionInicio.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/CancionPlaylist.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/InicioUsuario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/InicioUsuario.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/ReproductorPrueba.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/ReproductorPrueba.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/playlist.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,6 +158,7 @@
       <workItem from="1715562282066" duration="3591000" />
       <workItem from="1715607125772" duration="1408000" />
       <workItem from="1715610465937" duration="16000" />
+      <workItem from="1715735031269" duration="4375000" />
     </task>
     <servers />
   </component>

@@ -2,6 +2,7 @@ package Model;
 
 import Archivos.ArchivoUtils;
 import Estructuras.Arbol.ArbolBinario;
+import Estructuras.Lista.ListaIterador;
 import Estructuras.ListaCircular.ListaCircular;
 import lombok.Data;
 
