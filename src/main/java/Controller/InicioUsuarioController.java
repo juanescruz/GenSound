@@ -4,6 +4,7 @@ import App.MainApp;
 import Estructuras.Lista.ListaDoble;
 import Model.Artista;
 import Model.Cancion;
+import Model.InicioSesion;
 import Model.Tienda;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,9 +27,6 @@ public class InicioUsuarioController implements Initializable {
 
 
     @FXML
-    private Button btnBuscar;
-
-    @FXML
     private TextField txtBuscar;
 
     @FXML
@@ -39,21 +37,6 @@ public class InicioUsuarioController implements Initializable {
 
     @FXML
     private RadioButton radioButtonY;
-
-    @FXML
-    private TextField atributosBuscar;
-
-    @FXML
-    private ComboBox<String> atributosOrdenar;
-
-    @FXML
-    private Button btnInicio;
-    @FXML
-    private Button btnOrdenar;
-    @FXML
-    private Button btnPlaylist;
-    @FXML
-    private BorderPane listaCanciones;
     @FXML
     private VBox vBoxCanciones;
     @FXML
@@ -62,6 +45,7 @@ public class InicioUsuarioController implements Initializable {
     private ReproductorPruebaController reproductorPruebaController;
 
     private CancionInicioController cancionInicioController;
+    private final InicioSesion inicioSesion= InicioSesion.getInstance();
 
     private Tienda tienda= Tienda.getInstance();
 
@@ -93,25 +77,6 @@ public class InicioUsuarioController implements Initializable {
         }
 
     }
-
-    private void cambiarVentana(String fxmlname) {
-        try {
-            Node nodo = MainApp.loadFXML(fxmlname);
-            setCenter(nodo);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    @SuppressWarnings("exports")
-    public void setCenter(Node node) {
-        listaCanciones.setCenter(node);
-    }
-
-    public void abrirPlaylist(){
-        cambiarVentana("playlist");
-        //Llamar metodo que inialice
-    }
-
     public Parent cargarCancionInicio(Cancion cancion) throws Exception{
 
         FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/CancionInicio.fxml") );
@@ -119,6 +84,8 @@ public class InicioUsuarioController implements Initializable {
 
         cancionInicioController = loader.getController();
         cancionInicioController.setInicioUsuarioController(this);
+        cancionInicioController.setInteraccionCancion(false);
+        cancionInicioController.setIconoInteraccion();
         cancionInicioController.cargarDatos(cancion);
         return parent;
 
@@ -165,6 +132,39 @@ public class InicioUsuarioController implements Initializable {
                     throw new RuntimeException(e);
                 }
             }
+        }
+    }
+    public Parent cargarCancionPlayList(Cancion cancion) throws Exception{
+
+        FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/CancionInicio.fxml") );
+        Parent parent = loader.load();
+
+        cancionInicioController = loader.getController();
+        cancionInicioController.cargarDatos(cancion);
+        cancionInicioController = loader.getController();
+        cancionInicioController.setInicioUsuarioController(this);
+        cancionInicioController.setInteraccionCancion(true);
+        cancionInicioController.setIconoInteraccion();
+        cancionInicioController.cargarDatos(cancion);
+
+        return parent;
+
+    }
+    public void pintarPlaylist(){
+        vBoxCanciones.getChildren().clear();
+        try {
+            int contador=0;
+            for (Cancion cancion : inicioSesion.getUsuario().getCancionesFav()) {
+
+                if(contador==inicioSesion.getUsuario().getCancionesFav().getTamanio()){
+                    break;
+                }else{
+                    vBoxCanciones.getChildren().add(cargarCancionPlayList(cancion));
+                }
+                contador++;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 
