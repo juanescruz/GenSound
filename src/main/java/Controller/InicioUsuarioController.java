@@ -48,13 +48,10 @@ public class InicioUsuarioController implements Initializable {
 
     @FXML
     private Button btnInicio;
-
     @FXML
     private Button btnOrdenar;
-
     @FXML
     private Button btnPlaylist;
-
     @FXML
     private BorderPane listaCanciones;
     @FXML
@@ -115,17 +112,6 @@ public class InicioUsuarioController implements Initializable {
         //Llamar metodo que inialice
     }
 
-    public Parent cargarCancionPlayList(Cancion cancion) throws Exception{
-
-        FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/CancionPlaylist.fxml") );
-        Parent parent = loader.load();
-
-        CancionInicioController controller = loader.getController();
-        controller.cargarDatos(cancion);
-
-        return parent;
-
-    }
     public Parent cargarCancionInicio(Cancion cancion) throws Exception{
 
         FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/CancionInicio.fxml") );
@@ -181,4 +167,7 @@ public class InicioUsuarioController implements Initializable {
             }
         }
     }
+
 }
+
+

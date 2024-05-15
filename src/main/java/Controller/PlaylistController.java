@@ -27,9 +27,18 @@ public class PlaylistController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        System.out.println("a");
+
         try {
+            int contador=0;
             for (Cancion cancion : inicioSesion.getUsuario().getCancionesFav()) {
-                playlistUsuario.getChildren().add(cargarCancionPlayList(cancion));
+
+                if(contador==inicioSesion.getUsuario().getCancionesFav().getTamanio()){
+                    break;
+                }else{
+                    playlistUsuario.getChildren().add(cargarCancionPlayList(cancion));
+                }
+                contador++;
             }
         }catch (Exception e){
             e.printStackTrace();

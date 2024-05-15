@@ -8,6 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.SVGPath;
 
+import javax.swing.*;
+
 public class CancionPlaylistController {
 
     @FXML
@@ -34,10 +36,13 @@ public class CancionPlaylistController {
     @FXML
     private SVGPath reproducirCancion;
 
+    private Cancion cancion;
+
     private Tienda tienda= Tienda.getInstance();
     private final InicioSesion inicioSesion= InicioSesion.getInstance();
 
     public void cargarDatos(Cancion cancion){
+        this.cancion=cancion;
         nombreCancion.setText( cancion.getNombreCancion() );
         generoCancion.setText( cancion.getGenero() );
         duracionCancion.setText( ""+cancion.getDuracion() );
@@ -46,7 +51,11 @@ public class CancionPlaylistController {
     }
 
     public void eliminar(){
-
+        tienda.eliminarCancion(inicioSesion.getUsuario(), cancion);
+        int deshacer= JOptionPane.showConfirmDialog(null, "Desea deshacer lo hecho?");
+        if(deshacer==1){
+            inicioSesion.getUsuario().getCancionesFav().deshacer();
+        }
     }
 
 }
