@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Tienda;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
@@ -8,6 +9,8 @@ import javafx.scene.layout.HBox;
 import java.io.IOException;
 
 import App.MainApp;
+
+import javax.swing.*;
 
 public class InicioAdminController {
 
@@ -19,6 +22,8 @@ public class InicioAdminController {
     private HBox crearCancion;
     @FXML
     private BorderPane centerPane;
+
+    private Tienda tienda= Tienda.getInstance();
 
     private void cambiarVentana(String fxmlname) {
         try {
@@ -36,5 +41,7 @@ public class InicioAdminController {
 
     public void abrirAgregarAr(){ cambiarVentana("AgregarAr");}
     public void abrirAgregarCan(){ cambiarVentana("AgregarCan");}
-    public void abrirConsultas(){ cambiarVentana("Consultas");}
+    public void abrirConsultas(){
+        JOptionPane.showMessageDialog(null, "El género más escuchado de la tienda es: "+tienda.hallarGeneroMasRepetido());
+    }
 }
