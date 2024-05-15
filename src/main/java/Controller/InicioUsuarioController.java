@@ -1,8 +1,6 @@
 package Controller;
 
 import App.MainApp;
-import Estructuras.Lista.ListaDoble;
-import Model.Artista;
 import Model.Cancion;
 import Model.InicioSesion;
 import Model.Tienda;
@@ -10,16 +8,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -42,7 +37,7 @@ public class InicioUsuarioController implements Initializable {
     @FXML
     private VBox vboxLista;
 
-    private ReproductorPruebaController reproductorPruebaController;
+    private ReproductorController reproductorController;
 
     private CancionInicioController cancionInicioController;
     private final InicioSesion inicioSesion= InicioSesion.getInstance();
@@ -53,11 +48,11 @@ public class InicioUsuarioController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         txtBuscar.setPromptText("Ingresa Albúm,Nombre de la canción para busqueda Y/O");
         pintarCancionesInicio();
-        FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/ReproductorPrueba.fxml") );
+        FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/Reproductor.fxml") );
         try {
             Parent parent = loader.load();
-            reproductorPruebaController = loader.getController();
-            reproductorPruebaController.setInicioUsuarioController(this);
+            reproductorController = loader.getController();
+            reproductorController.setInicioUsuarioController(this);
             vboxLista.getChildren().add(1, parent);
 
         } catch (IOException e) {
@@ -91,7 +86,7 @@ public class InicioUsuarioController implements Initializable {
 
     }
     public void reproducirCancion(Cancion cancion) {
-        reproductorPruebaController.setURLCancion(cancion.getUrl());
+        reproductorController.setURLCancion(cancion.getUrl());
     }
 
     @FXML

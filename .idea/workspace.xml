@@ -8,16 +8,15 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CancionInicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/CancionInicioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioPrincipalController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioUsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioUsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/PlaylistController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ReproductorPruebaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ReproductorPruebaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/View/CancionInicio.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/CancionInicio.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/View/CancionPlaylist.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/View/InicioUsuario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/InicioUsuario.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/View/ReproductorPrueba.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/ReproductorPrueba.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/View/playlist.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ReproductorPruebaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ReproductorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/loginComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LoginComponentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/registroComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/RegistroComponentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/ReproductorPrueba.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/Reproductor.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/inicioPrincipal.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/loginComponent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/loginComponent.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/registroComponent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/registroComponent.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,15 +51,18 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Maven.GenSound [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -104,6 +106,7 @@
                 <option value="javafx:run" />
               </list>
             </option>
+            <option name="multimoduleDir" />
             <option name="pomFileName" value="pom.xml" />
             <option name="profilesMap">
               <map />
@@ -124,6 +127,14 @@
         <item itemvalue="Application.MainApp" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -159,6 +170,8 @@
       <workItem from="1715607125772" duration="1408000" />
       <workItem from="1715610465937" duration="16000" />
       <workItem from="1715735031269" duration="4375000" />
+      <workItem from="1715774951085" duration="392000" />
+      <workItem from="1715775380831" duration="325000" />
     </task>
     <servers />
   </component>

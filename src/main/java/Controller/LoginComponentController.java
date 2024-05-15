@@ -3,21 +3,18 @@ package Controller;
 import App.MainApp;
 import Model.InicioSesion;
 import Model.Tienda;
-import Model.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.IOException;
 
-public class loginComponentController {
+public class LoginComponentController {
     @FXML
     Pane PaneMain;
     @FXML

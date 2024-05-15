@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane fx:id="PaneMain" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.loginComponentController">
+<Pane fx:id="PaneMain" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginComponentController">
    <children>
        <Pane fx:id="paneRight" prefHeight="768.0" prefWidth="463.0" style="-fx-background-color: #593271;">
            <children>

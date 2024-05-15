@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
-public class ReproductorPruebaController{
+public class ReproductorController {
     @FXML
     WebView reproductor;
     @FXML
