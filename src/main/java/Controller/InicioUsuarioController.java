@@ -10,6 +10,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -20,7 +22,8 @@ import java.util.ResourceBundle;
 
 public class InicioUsuarioController implements Initializable {
 
-
+    @FXML
+    public BorderPane BorderPane;
     @FXML
     private TextField txtBuscar;
 
@@ -46,6 +49,7 @@ public class InicioUsuarioController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         txtBuscar.setPromptText("Ingresa Albúm,Nombre de la canción para busqueda Y/O");
         pintarCancionesInicio();
         FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/Reproductor.fxml") );
