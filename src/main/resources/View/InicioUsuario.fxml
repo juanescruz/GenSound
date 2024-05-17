@@ -9,7 +9,7 @@
    <left>
       <VBox alignment="CENTER" prefHeight="500.0" prefWidth="183.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnInicio" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Inicio">
+            <Button fx:id="btnInicio" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#pintarCancionesInicio" text="Inicio">
                <VBox.margin>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </VBox.margin>
@@ -17,7 +17,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnPlaylist" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#abrirPlaylist" text="Playlist propia">
+            <Button fx:id="btnPlaylist" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#pintarPlaylist" text="Playlist propia">
                <VBox.margin>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </VBox.margin>
@@ -48,10 +48,11 @@
          <children>
             <HBox alignment="CENTER_RIGHT" prefHeight="70.0" prefWidth="700.0">
                <children>
-                  <TextField />
-                  <RadioButton mnemonicParsing="false" text="RadioButton" />
-                  <RadioButton mnemonicParsing="false" text="RadioButton" />
-                  <RadioButton mnemonicParsing="false" text="RadioButton" />
+                  <Button fx:id="btnBuscar" mnemonicParsing="false" onAction="#buscar" text="Buscar" />
+                  <TextField fx:id="txtBuscar" />
+                  <RadioButton fx:id="radioButtonArtista" mnemonicParsing="false" text="Artista" />
+                  <RadioButton fx:id="radioButtonY" mnemonicParsing="false" text="Busqueda Y" />
+                  <RadioButton fx:id="radioButtonO" mnemonicParsing="false" text="Busqueda O" />
                </children>
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="48.0" prefWidth="700.0">

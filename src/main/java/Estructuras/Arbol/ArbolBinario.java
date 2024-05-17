@@ -53,21 +53,13 @@ public class ArbolBinario {
         return songs;
     }
     public ArrayList<Cancion> preorderRecCan(Nodo nodo) {
-
         ArrayList<Cancion> canciones = new ArrayList<>();
-
         if (nodo != null) {
-
             preorderRecCan(nodo.izquierdo);
-
             preorderRecCan(nodo.derecho);
-
             canciones.addAll(obtenerCanciones(nodo.getArtista().getCanciones()));
-
         }
-
         return canciones;
-
     }
 
     public List<Cancion> obtenerTodasLasCanciones() {

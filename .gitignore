@@ -40,3 +40,6 @@ build/
 .DS_Store
 *.log
 /.idea
+/.idea
+/.idea
+.idea/workspace.xml

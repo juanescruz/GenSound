@@ -4,22 +4,26 @@ package Controller;
 
 import javafx.concurrent.Worker;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
-public class ReproductorPruebaController{
+public class ReproductorController {
     @FXML
     WebView reproductor;
+    @FXML
+    Label lblCargando;
     private boolean cargado = false;
     private boolean reproduciendo = false;
     private String urlCancion;
-
+    private boolean pausado=true;
     private InicioUsuarioController inicioUsuarioController;
 
     public void reproducir(){
-        if (reproduciendo){
-        // Si ya se estaba reproduciendo, no hacemos nada
-        return;
+        if (reproduciendo|| pausado){
+        cargarVideo();
+        reproductor.setVisible(false);
+        reproduciendo=true;
     }
         if (cargado) {
         WebEngine webEngine = reproductor.getEngine();
@@ -34,10 +38,12 @@ public class ReproductorPruebaController{
 }
     private void cargarVideo() {
         WebEngine webEngine = reproductor.getEngine();
+        lblCargando.setText("Cargando...");
         webEngine.getLoadWorker().stateProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue == Worker.State.SUCCEEDED) {
                 cargado = true;
                 // Reproducir el video después de que se haya cargado
+                lblCargando.setText("");
                 webEngine.executeScript("var player = document.querySelector('.html5-main-video'); " +
                         "if (player) { player.play(); }");
             }
@@ -54,6 +60,7 @@ public class ReproductorPruebaController{
         webEngine.executeScript("var player = document.querySelector('.html5-main-video'); " +
                 "if (player) { player.pause(); }");
         reproduciendo = false;
+        pausado=true;
     }
     public void setURLCancion(String url){
         this.urlCancion= url;
