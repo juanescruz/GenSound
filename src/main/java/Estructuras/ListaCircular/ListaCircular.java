@@ -75,6 +75,24 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
         pilaRehacer.clear();
     }
 
+    /*public void insertar(T dato) {
+
+        Nodo<T> nuevoNodo = new Nodo<>(dato);
+        if (cabeza == null) {
+            cabeza = nuevoNodo;
+            cabeza.setSiguienteNodo(cabeza);
+        } else {
+            Nodo<T> actual = cabeza;
+            while (actual.getSiguienteNodo() != cabeza) {
+                actual = actual.getSiguienteNodo();
+            }
+            actual.setSiguienteNodo(nuevoNodo);
+            nuevoNodo.setSiguienteNodo(cabeza);
+        }
+        tamanio++;
+
+    }*/
+
     public void borrar(T dato) {
 
         if (cabeza == null) {

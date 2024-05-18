@@ -4,8 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0733166-e11a-48ce-9994-7685f220df1d" name="Changes" comment="">
+    <list default="true" id="31081885-2cf5-4bd1-b383-a3e0ea491e74" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/PopUpDeshacerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/PopUpRehacerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/View/PopUpDeshacer.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/View/PopUpRehacer.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CancionInicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/CancionInicioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CancionPlaylistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/CancionPlaylistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioUsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioUsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/CancionInicio.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/CancionInicio.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/InicioUsuario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/InicioUsuario.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,13 +36,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/Estructuras/Arbol/ArbolBinario.java" root0="FORCE_HIGHLIGHTING" />
-  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
+  &quot;associatedIndex&quot;: 3
 }</component>
-  <component name="ProjectId" id="2dsp9WZhmj7m3g7ydJhG8a0cLtH" />
+  <component name="ProjectId" id="2gZmmwxRCnzeRuNHlN2d98wuGaH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -39,128 +49,32 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Julian&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="Model" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\ANAMARIA\OneDrive\Documentos\GitHub\GenSound\src\main\resources\View" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Maven.GenSound [javafx:run]">
-    <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="App.MainApp" />
-      <module name="GenSound" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="App.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GenSound [javafx:run]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
-      <MavenSettings>
-        <option name="myGeneralSettings" />
-        <option name="myRunnerSettings" />
-        <option name="myRunnerParameters">
-          <MavenRunnerParameters>
-            <option name="cmdOptions" />
-            <option name="profiles">
-              <set />
-            </option>
-            <option name="goals">
-              <list>
-                <option value="javafx:run" />
-              </list>
-            </option>
-            <option name="pomFileName" value="pom.xml" />
-            <option name="profilesMap">
-              <map />
-            </option>
-            <option name="projectsCmdOptionValues">
-              <list />
-            </option>
-            <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="$PROJECT_DIR$" />
-          </MavenRunnerParameters>
-        </option>
-      </MavenSettings>
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Maven.GenSound [javafx:run]" />
-        <item itemvalue="Application.MainApp" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e0733166-e11a-48ce-9994-7685f220df1d" name="Changes" comment="" />
-      <created>1710806491612</created>
+      <changelist id="31081885-2cf5-4bd1-b383-a3e0ea491e74" name="Changes" comment="" />
+      <created>1715913639200</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1710806491612</updated>
-      <workItem from="1710806492770" duration="17000" />
-      <workItem from="1710806546791" duration="20000" />
-      <workItem from="1710806570655" duration="21000" />
-      <workItem from="1710806733968" duration="235000" />
-      <workItem from="1710807021859" duration="42000" />
-      <workItem from="1710807099949" duration="44000" />
-      <workItem from="1710807161273" duration="39000" />
-      <workItem from="1710807212339" duration="84000" />
-      <workItem from="1710807297741" duration="18000" />
-      <workItem from="1710807321325" duration="451000" />
-      <workItem from="1711391054023" duration="617000" />
-      <workItem from="1712082376228" duration="3643000" />
-      <workItem from="1712086573744" duration="4596000" />
-      <workItem from="1714424880019" duration="6135000" />
-      <workItem from="1714442891372" duration="1072000" />
-      <workItem from="1714527485827" duration="3663000" />
-      <workItem from="1714763025212" duration="78000" />
-      <workItem from="1714856859777" duration="37000" />
-      <workItem from="1714856957733" duration="67000" />
-      <workItem from="1714858129901" duration="3805000" />
-      <workItem from="1715093387218" duration="322000" />
-      <workItem from="1715490816839" duration="1248000" />
-      <workItem from="1715562282066" duration="3591000" />
-      <workItem from="1715607125772" duration="1408000" />
-      <workItem from="1715610465937" duration="16000" />
+      <updated>1715913639200</updated>
+      <workItem from="1715913641890" duration="941000" />
+      <workItem from="1715955112377" duration="2995000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
