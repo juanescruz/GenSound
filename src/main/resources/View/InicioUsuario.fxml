@@ -73,8 +73,9 @@
                   <Label text="Filtrar: " />
                   <ComboBox fx:id="comboBoxAtributos" prefWidth="150.0" />
                   <Separator prefHeight="0.0" prefWidth="5.0" visible="false" />
-                  <Button mnemonicParsing="false" text="Confirmar" />
+                  <Button fx:id="btnOrdenarDescendente" mnemonicParsing="false" text="Descendente" />
                   <Separator prefHeight="0.0" prefWidth="32.0" visible="false" />
+                  <Button fx:id="btnOrdenarAscendente" mnemonicParsing="false" text="Ascendente" />
                </children>
             </HBox>
          </children>

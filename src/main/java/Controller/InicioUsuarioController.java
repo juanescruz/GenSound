@@ -42,6 +42,12 @@ public class InicioUsuarioController implements Initializable {
     private VBox vboxLista;
     @FXML
     private ComboBox<String> comboBoxAtributos;
+
+    @FXML
+    private Button btnOrdenarAscendente;
+
+    @FXML
+    private Button btnOrdenarDescendente;
     private ReproductorController reproductorController;
     private CancionInicioController cancionInicioController;
     private final InicioSesion inicioSesion= InicioSesion.getInstance();
@@ -52,6 +58,7 @@ public class InicioUsuarioController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         txtBuscar.setPromptText("Ingresa Albúm,Nombre de la canción para busqueda Y/O");
+        cargarComboBoxAtributos();
         pintarCancionesInicio();
         FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/Reproductor.fxml") );
         try {
@@ -63,11 +70,15 @@ public class InicioUsuarioController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-        comboBoxAtributos.getItems().addAll("Nombre", "Album", "Año", "Duración", "Género");
-        comboBoxAtributos.setOnAction(event -> ordenarCanciones(comboBoxAtributos.getValue()));
+        btnOrdenarAscendente.setOnAction(event -> ordenarCanciones(true));
+        btnOrdenarDescendente.setOnAction(event -> ordenarCanciones(false));
 
     }
+    private void cargarComboBoxAtributos() {
+        comboBoxAtributos.getItems().addAll("Nombre", "Album", "Año", "Duración", "Género");
+        comboBoxAtributos.setOnAction(event -> ordenarCanciones(true));
+    }
+
 
     public void pintarCancionesInicio() {
         vBoxCanciones.getChildren().clear();
@@ -172,29 +183,38 @@ public class InicioUsuarioController implements Initializable {
         }
     }
 
-    private void ordenarCanciones(String atributo) {
+
+    private void ordenarCanciones(boolean ascendente) {
         List<Cancion> canciones = tienda.obtenerCanciones();
         if (canciones != null && !canciones.isEmpty()) {
-            switch (atributo) {
-                case "Nombre":
-                    canciones.sort(Comparator.comparing(Cancion::getNombreCancion));
-                    break;
-                case "Album":
-                    canciones.sort(Comparator.comparing(Cancion::getNombreAlbum));
-                    break;
-                case "Año":
-                    canciones.sort(Comparator.comparingInt(Cancion::getAnio));
-                    break;
-                case "Duración":
-                    canciones.sort(Comparator.comparingDouble(Cancion::getDuracion));
-                    break;
-                case "Género":
-                    canciones.sort(Comparator.comparing(Cancion::getGenero));
-                    break;
-                default:
-                    break;
+            String atributo = comboBoxAtributos.getValue();
+            if (atributo != null && !atributo.isEmpty()) {
+                Comparator<Cancion> comparator;
+                switch (atributo) {
+                    case "Nombre":
+                        comparator = Comparator.comparing(Cancion::getNombreCancion);
+                        break;
+                    case "Album":
+                        comparator = Comparator.comparing(Cancion::getNombreAlbum);
+                        break;
+                    case "Año":
+                        comparator = Comparator.comparingInt(Cancion::getAnio);
+                        break;
+                    case "Duración":
+                        comparator = Comparator.comparingDouble(Cancion::getDuracion);
+                        break;
+                    case "Género":
+                        comparator = Comparator.comparing(Cancion::getGenero);
+                        break;
+                    default:
+                        return;
+                }
+                if (!ascendente) {
+                    comparator = comparator.reversed();
+                }
+                canciones.sort(comparator);
+                actualizarListaCanciones(canciones);
             }
-            actualizarListaCanciones(canciones);
         }
     }
 
@@ -204,10 +224,11 @@ public class InicioUsuarioController implements Initializable {
             try {
                 vBoxCanciones.getChildren().add(cargarCancionInicio(cancion));
             } catch (Exception e) {
-                e.printStackTrace();
+                throw new RuntimeException(e);
             }
         }
     }
+
 }
 
 
