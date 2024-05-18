@@ -17,6 +17,7 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -39,9 +40,9 @@ public class InicioUsuarioController implements Initializable {
     private VBox vBoxCanciones;
     @FXML
     private VBox vboxLista;
-
+    @FXML
+    private ComboBox<String> comboBoxAtributos;
     private ReproductorController reproductorController;
-
     private CancionInicioController cancionInicioController;
     private final InicioSesion inicioSesion= InicioSesion.getInstance();
 
@@ -62,6 +63,10 @@ public class InicioUsuarioController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        comboBoxAtributos.getItems().addAll("Nombre", "Album", "Año", "Duración", "Género");
+        comboBoxAtributos.setOnAction(event -> ordenarCanciones(comboBoxAtributos.getValue()));
+
     }
 
     public void pintarCancionesInicio() {
@@ -167,6 +172,42 @@ public class InicioUsuarioController implements Initializable {
         }
     }
 
+    private void ordenarCanciones(String atributo) {
+        List<Cancion> canciones = tienda.obtenerCanciones();
+        if (canciones != null && !canciones.isEmpty()) {
+            switch (atributo) {
+                case "Nombre":
+                    canciones.sort(Comparator.comparing(Cancion::getNombreCancion));
+                    break;
+                case "Album":
+                    canciones.sort(Comparator.comparing(Cancion::getNombreAlbum));
+                    break;
+                case "Año":
+                    canciones.sort(Comparator.comparingInt(Cancion::getAnio));
+                    break;
+                case "Duración":
+                    canciones.sort(Comparator.comparingDouble(Cancion::getDuracion));
+                    break;
+                case "Género":
+                    canciones.sort(Comparator.comparing(Cancion::getGenero));
+                    break;
+                default:
+                    break;
+            }
+            actualizarListaCanciones(canciones);
+        }
+    }
+
+    private void actualizarListaCanciones(List<Cancion> canciones) {
+        vBoxCanciones.getChildren().clear();
+        for (Cancion cancion : canciones) {
+            try {
+                vBoxCanciones.getChildren().add(cargarCancionInicio(cancion));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
 
 
