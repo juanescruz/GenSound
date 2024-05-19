@@ -22,7 +22,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class InicioUsuarioController implements Initializable {
-    private static InicioUsuarioController InicioUsuarioController;
     @FXML
     public BorderPane BorderPane;
     @FXML
@@ -37,7 +36,7 @@ public class InicioUsuarioController implements Initializable {
     @FXML
     private RadioButton radioButtonY;
     @FXML
-    public VBox vBoxCanciones = new VBox();
+    public VBox vBoxCanciones;
     @FXML
     private VBox vboxLista;
     @FXML
@@ -80,16 +79,6 @@ public class InicioUsuarioController implements Initializable {
     }
 
 
-    public static InicioUsuarioController getInstance() {
-        if(InicioUsuarioController == null){
-            try {
-                InicioUsuarioController = new InicioUsuarioController();
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return InicioUsuarioController;
-    }
 
     public void pintarCancionesInicio() {
         vBoxCanciones.getChildren().clear();

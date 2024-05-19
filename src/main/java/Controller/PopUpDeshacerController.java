@@ -1,5 +1,6 @@
 package Controller;
 
+import App.MainApp;
 import Model.Cancion;
 import Model.InicioSesion;
 import Model.Usuario;
@@ -14,16 +15,21 @@ import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.File;
 import java.io.IOException;
-
-
+@Setter
+@Getter
 public class PopUpDeshacerController {
 
     @FXML
     public Label MensajeLabel;
     @FXML
     private Button BotonDeshacer;
+    private InicioUsuarioController inicioUsuarioController;
+    private PopUpRehacerController rehacerController;
 
     public void initialize() {
 
@@ -50,7 +56,7 @@ public class PopUpDeshacerController {
         Usuario usuario = InicioSesion.getInstance().getUsuario();
         usuario.getCancionesFav().deshacer();
 
-        InicioUsuarioController.getInstance().pintarPlaylist();
+        inicioUsuarioController.pintarPlaylist();
 
         System.out.println();
         System.out.println("Canciones actualizadas despues de la funcion deshacer: ");
@@ -67,9 +73,10 @@ public class PopUpDeshacerController {
             contador++;
         }
 
-        File url = new File("src/main/resources/View/PopUpRehacer.fxml");
-        FXMLLoader loader = new FXMLLoader(url.toURL());
+        FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/PopUpRehacer.fxml") );
         Parent parent = loader.load();
+        rehacerController = loader.getController();
+        rehacerController.setInicioUsuarioController(inicioUsuarioController);
         Scene scene = new Scene(parent);
         Stage stage = new Stage();
         stage.setScene(scene);

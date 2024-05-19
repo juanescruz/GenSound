@@ -1,5 +1,6 @@
 package Controller;
 
+import App.MainApp;
 import Model.Cancion;
 import Model.InicioSesion;
 import Model.Tienda;
@@ -41,6 +42,8 @@ public class CancionInicioController {
 
     @FXML
     private Label nombreCancion;
+    private PopUpDeshacerController deshacerController= new PopUpDeshacerController();
+    private PopUpRehacerController rehacerController;
     private Tienda tienda= Tienda.getInstance();
     private final InicioSesion inicioSesion= InicioSesion.getInstance();
 
@@ -102,9 +105,10 @@ public class CancionInicioController {
                 contador++;
             }
 
-            File url = new File("src/main/resources/View/PopUpDeshacer.fxml");
-            FXMLLoader loader = new FXMLLoader(url.toURL());
+            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/View/PopUpDeshacer.fxml"));
             Parent parent = loader.load();
+            deshacerController= loader.getController();
+            deshacerController.setInicioUsuarioController(inicioUsuarioController);
             Scene scene = new Scene(parent);
             Stage stage = new Stage();
             stage.setScene(scene);
@@ -132,9 +136,10 @@ public class CancionInicioController {
                 contador++;
             }
 
-            File url = new File("src/main/resources/View/PopUpDeshacer.fxml");
-            FXMLLoader loader = new FXMLLoader(url.toURL());
+            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/View/PopUpDeshacer.fxml"));
             Parent parent = loader.load();
+            deshacerController = loader.getController();
+            deshacerController.setInicioUsuarioController(inicioUsuarioController);
             Scene scene = new Scene(parent);
             Stage stage = new Stage();
             stage.setScene(scene);
