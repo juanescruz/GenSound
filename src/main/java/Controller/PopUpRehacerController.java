@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Cancion;
 import Model.InicioSesion;
 import Model.Usuario;
 import javafx.application.Platform;
@@ -38,6 +39,23 @@ public class PopUpRehacerController {
 
         Usuario usuario = InicioSesion.getInstance().getUsuario();
         usuario.getCancionesFav().rehacer();
+
+        InicioUsuarioController.getInstance().pintarPlaylist();
+
+        System.out.println();
+        System.out.println("Canciones actualizadas despues de la funcion rehacer: ");
+
+        int contador = 0;
+
+        for (Cancion cancion : InicioSesion.getInstance().getUsuario().getCancionesFav()) {
+
+            if(contador == InicioSesion.getInstance().getUsuario().getCancionesFav().getTamanio()){
+                break;
+            } else {
+                System.out.println(cancion.getNombreCancion());
+            }
+            contador++;
+        }
 
     }
 }

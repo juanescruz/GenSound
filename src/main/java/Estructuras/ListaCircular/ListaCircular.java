@@ -8,9 +8,11 @@ import java.util.Stack;
 
 public class ListaCircular<T> implements Iterable<T>, Serializable {
 
+    @Getter
     private Nodo<T> cabeza;
     private Nodo<T> nodoPrimero;
     private Nodo<T> nodoUltimo;
+    @Getter
     private int tamanio;
     private final Stack<Deshacer<T>> pilaDeshacer;
     private final Stack<Rehacer<T>> pilaRehacer;
@@ -25,16 +27,8 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
         this.pilaRehacer = new Stack<>();
     }
 
-    public Nodo<T> getCabeza(){
-        return cabeza;
-    }
-
     public void setCabeza(Nodo<T> nuevaCabeza){
         this.cabeza = nuevaCabeza;
-    }
-
-    public int getTamanio(){
-        return tamanio;
     }
 
     public void setTamanio(int tamanio){
@@ -74,24 +68,6 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
         pilaDeshacer.push(new Deshacer<>(null, nuevoNodo));
         pilaRehacer.clear();
     }
-
-    /*public void insertar(T dato) {
-
-        Nodo<T> nuevoNodo = new Nodo<>(dato);
-        if (cabeza == null) {
-            cabeza = nuevoNodo;
-            cabeza.setSiguienteNodo(cabeza);
-        } else {
-            Nodo<T> actual = cabeza;
-            while (actual.getSiguienteNodo() != cabeza) {
-                actual = actual.getSiguienteNodo();
-            }
-            actual.setSiguienteNodo(nuevoNodo);
-            nuevoNodo.setSiguienteNodo(cabeza);
-        }
-        tamanio++;
-
-    }*/
 
     public void borrar(T dato) {
 

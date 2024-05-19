@@ -17,7 +17,6 @@ public class Deshacer<T> {
         } else {
             deshacerEliminacion(listaCircular);
         }
-
         pilaRehacer.push(new Rehacer<>(nodoAnterior, nodoBorrado));
     }
 
