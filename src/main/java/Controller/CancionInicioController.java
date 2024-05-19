@@ -80,7 +80,27 @@ public class CancionInicioController {
     public void agregarCancionPlaylist() throws IOException {
 
         System.out.println(cancion.getNombreCancion());
+
         if(!estaEnPlayList) {
+
+            tienda.agregarCancion(inicioSesion.getUsuario(), cancion);
+
+            System.out.println("Se agrega la cancion: " + cancion.getNombreCancion());
+
+            System.out.println();
+            System.out.println("Canciones actualizadas:");
+
+            int contador = 0;
+
+            for (Cancion cancion : inicioSesion.getUsuario().getCancionesFav()) {
+
+                if(contador == inicioSesion.getUsuario().getCancionesFav().getTamanio()){
+                    break;
+                } else {
+                    System.out.println(cancion.getNombreCancion());
+                }
+                contador++;
+            }
 
             File url = new File("src/main/resources/View/PopUpDeshacer.fxml");
             FXMLLoader loader = new FXMLLoader(url.toURL());
@@ -92,15 +112,25 @@ public class CancionInicioController {
             scene.setFill(Color.TRANSPARENT);
             stage.show();
 
-            tienda.agregarCancion(inicioSesion.getUsuario(), cancion);
-            System.out.println("Se agrega la cancion: ");
-            inicioSesion.getUsuario().getCancionesFav().imprimirLista();
-
         } else {
 
-            tienda.eliminarCancion(inicioSesion.getUsuario(),cancion);
-            inicioSesion.getUsuario().getCancionesFav().imprimirLista();
+            tienda.eliminarCancion(inicioSesion.getUsuario(), cancion);
             inicioUsuarioController.pintarPlaylist();
+
+            System.out.println();
+            System.out.println("Canciones actualizadas:");
+
+            int contador = 0;
+
+            for (Cancion cancion : inicioSesion.getUsuario().getCancionesFav()) {
+
+                if(contador == inicioSesion.getUsuario().getCancionesFav().getTamanio()){
+                    break;
+                } else {
+                    System.out.println(cancion.getNombreCancion());
+                }
+                contador++;
+            }
 
             File url = new File("src/main/resources/View/PopUpDeshacer.fxml");
             FXMLLoader loader = new FXMLLoader(url.toURL());
