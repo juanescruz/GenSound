@@ -324,46 +324,21 @@ public class Tienda {
         return artistas.preorderAr();
     }
 
-    public String hallarGeneroMasRepetido(){
-        Map<String, Integer> generos=new HashMap<>();
-        String genero="";
-        ArrayList<Artista> artistasAux= artistas.preorderAr();
-        for(int i=0;i<artistasAux.size();i++){
-            genero= hallarGeneroEnArtista(artistasAux.get(i));
-            generos.put(genero, generos.getOrDefault(genero, 0)+1);
+    public String hallarGeneroMasRepetido() {
+        List<Cancion> canciones = obtenerCanciones();
+        Map<String, Integer> conteoGeneros = new HashMap<>();
+        for (Cancion cancion : canciones) {
+            String genero = cancion.getGenero();
+            conteoGeneros.put(genero, conteoGeneros.getOrDefault(genero, 0) + 1);
         }
-        String generoMasRepetido= "  ";
-        int aux=0;
-        for(Map.Entry<String, Integer> entry: generos.entrySet()){
-            if(entry.getValue()>aux){
-                aux= entry.getValue();
-                generoMasRepetido=entry.getKey();
+        String generoMasRepetido = null;
+        int maximoConteo = 0;
+        for (Map.Entry<String, Integer> entry : conteoGeneros.entrySet()) {
+            if (entry.getValue() > maximoConteo) {
+                generoMasRepetido = entry.getKey();
+                maximoConteo = entry.getValue();
             }
         }
         return generoMasRepetido;
     }
-
-    public String hallarGeneroEnArtista(Artista a){
-        Map<String, Integer> generos=new HashMap<>();
-        String genero="";
-        for(int i=0;i<a.getCanciones().getTamanio();i++){
-            ListaIterador<Cancion> iterador=a.getCanciones().iterator();
-            if(iterador.hasNext()){
-                genero=iterador.next().getGenero();
-                generos.put(genero, generos.getOrDefault(genero, 0)+1);
-            }
-        }
-
-        String generoMasRepetido= "";
-        int aux=0;
-        for(Map.Entry<String, Integer> entry: generos.entrySet()){
-            if(entry.getValue()>aux){
-                aux= entry.getValue();
-                generoMasRepetido=entry.getKey();
-            }
-        }
-        return generoMasRepetido;
-    }
-
-
 }
