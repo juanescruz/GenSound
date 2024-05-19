@@ -84,14 +84,18 @@ public class ArbolBinario {
     public ArrayList<Artista> preorderRecAr(Nodo nodo) {
         ArrayList<Artista> artistas= new ArrayList<>();
         if (nodo != null) {
-            preorderRecAr(nodo.izquierdo);
-            artistas.add(nodo.izquierdo.getArtista());
-            preorderRecAr(nodo.derecho);
-            artistas.add(nodo.derecho.getArtista());
-
+            if (nodo.izquierdo != null) {
+                preorderRecAr(nodo.izquierdo);
+                artistas.add(nodo.izquierdo.getArtista());
+            }
+            if (nodo.derecho != null) {
+                preorderRecAr(nodo.derecho);
+                artistas.add(nodo.derecho.getArtista());
+            }
         }
         return artistas;
     }
+
 
     public Artista buscarArtistaPorId(int id) {System.out.println("");
         return buscarArtistaPorIdRec(raiz, id);

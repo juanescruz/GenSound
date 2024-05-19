@@ -5,12 +5,20 @@ import Model.InicioSesion;
 import Model.Tienda;
 import com.sun.source.tree.InstanceOfTree;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.SVGPath;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
+import java.io.File;
+import java.io.IOException;
 
 public class CancionInicioController {
     @FXML
@@ -69,17 +77,41 @@ public class CancionInicioController {
     }
 
 
-    public void agregarCancionPlaylist(){
+    public void agregarCancionPlaylist() throws IOException {
+
         System.out.println(cancion.getNombreCancion());
         if(!estaEnPlayList) {
+
+            File url = new File("src/main/resources/View/PopUpDeshacer.fxml");
+            FXMLLoader loader = new FXMLLoader(url.toURL());
+            Parent parent = loader.load();
+            Scene scene = new Scene(parent);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UNDECORATED);
+            scene.setFill(Color.TRANSPARENT);
+            stage.show();
+
             tienda.agregarCancion(inicioSesion.getUsuario(), cancion);
             System.out.println("Se agrega la cancion: ");
             inicioSesion.getUsuario().getCancionesFav().imprimirLista();
-        }
-        else{
+
+        } else {
+
             tienda.eliminarCancion(inicioSesion.getUsuario(),cancion);
             inicioSesion.getUsuario().getCancionesFav().imprimirLista();
             inicioUsuarioController.pintarPlaylist();
+
+            File url = new File("src/main/resources/View/PopUpDeshacer.fxml");
+            FXMLLoader loader = new FXMLLoader(url.toURL());
+            Parent parent = loader.load();
+            Scene scene = new Scene(parent);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UNDECORATED);
+            scene.setFill(Color.TRANSPARENT);
+            stage.show();
+
         }
     }
 }
