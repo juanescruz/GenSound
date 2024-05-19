@@ -22,7 +22,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class InicioUsuarioController implements Initializable {
-
     @FXML
     public BorderPane BorderPane;
     @FXML
@@ -37,7 +36,7 @@ public class InicioUsuarioController implements Initializable {
     @FXML
     private RadioButton radioButtonY;
     @FXML
-    private VBox vBoxCanciones;
+    public VBox vBoxCanciones;
     @FXML
     private VBox vboxLista;
     @FXML
@@ -78,6 +77,7 @@ public class InicioUsuarioController implements Initializable {
         comboBoxAtributos.getItems().addAll("Nombre", "Album", "Año", "Duración", "Género");
         comboBoxAtributos.setOnAction(event -> ordenarCanciones(true));
     }
+
 
 
     public void pintarCancionesInicio() {
@@ -166,14 +166,19 @@ public class InicioUsuarioController implements Initializable {
 
     }
     public void pintarPlaylist(){
+
         vBoxCanciones.getChildren().clear();
+
         try {
-            int contador=0;
+
+            int contador = 0;
+
             for (Cancion cancion : inicioSesion.getUsuario().getCancionesFav()) {
 
-                if(contador==inicioSesion.getUsuario().getCancionesFav().getTamanio()){
+                if(contador == inicioSesion.getUsuario().getCancionesFav().getTamanio()){
                     break;
-                }else{
+
+                } else {
                     vBoxCanciones.getChildren().add(cargarCancionPlayList(cancion));
                 }
                 contador++;

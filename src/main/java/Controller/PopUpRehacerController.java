@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Cancion;
 import Model.InicioSesion;
 import Model.Usuario;
 import javafx.application.Platform;
@@ -8,13 +9,17 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class PopUpRehacerController {
     @FXML
     public Label MensajeLabel;
     @FXML
     public Button BotonDeshacer;
-
+    private InicioUsuarioController inicioUsuarioController;
     public void initialize() {
 
         new Thread(() -> {
@@ -38,6 +43,23 @@ public class PopUpRehacerController {
 
         Usuario usuario = InicioSesion.getInstance().getUsuario();
         usuario.getCancionesFav().rehacer();
+
+        inicioUsuarioController.pintarPlaylist();
+
+        System.out.println();
+        System.out.println("Canciones actualizadas despues de la funcion rehacer: ");
+
+        int contador = 0;
+
+        for (Cancion cancion : InicioSesion.getInstance().getUsuario().getCancionesFav()) {
+
+            if(contador == InicioSesion.getInstance().getUsuario().getCancionesFav().getTamanio()){
+                break;
+            } else {
+                System.out.println(cancion.getNombreCancion());
+            }
+            contador++;
+        }
 
     }
 }

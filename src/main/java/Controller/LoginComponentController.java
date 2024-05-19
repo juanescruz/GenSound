@@ -41,6 +41,8 @@ public class LoginComponentController {
                 System.out.println(inicioSesion.getUsuario());
                 FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/View/InicioUsuario.fxml"));
                 extracted(loader);
+                Stage anterior = (Stage) usuarioError.getParent().getParent().getScene().getWindow();
+                anterior.close();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Info");
                 alert.setContentText("Inicio de sesión correcto");
