@@ -10,17 +10,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class InicioUsuarioController implements Initializable {
 
-
+    @FXML
+    public BorderPane BorderPane;
     @FXML
     private TextField txtBuscar;
 
@@ -36,9 +40,15 @@ public class InicioUsuarioController implements Initializable {
     private VBox vBoxCanciones;
     @FXML
     private VBox vboxLista;
+    @FXML
+    private ComboBox<String> comboBoxAtributos;
 
+    @FXML
+    private Button btnOrdenarAscendente;
+
+    @FXML
+    private Button btnOrdenarDescendente;
     private ReproductorController reproductorController;
-
     private CancionInicioController cancionInicioController;
     private final InicioSesion inicioSesion= InicioSesion.getInstance();
 
@@ -46,7 +56,9 @@ public class InicioUsuarioController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         txtBuscar.setPromptText("Ingresa Albúm,Nombre de la canción para busqueda Y/O");
+        cargarComboBoxAtributos();
         pintarCancionesInicio();
         FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/Reproductor.fxml") );
         try {
@@ -58,7 +70,15 @@ public class InicioUsuarioController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        btnOrdenarAscendente.setOnAction(event -> ordenarCanciones(true));
+        btnOrdenarDescendente.setOnAction(event -> ordenarCanciones(false));
+
     }
+    private void cargarComboBoxAtributos() {
+        comboBoxAtributos.getItems().addAll("Nombre", "Album", "Año", "Duración", "Género");
+        comboBoxAtributos.setOnAction(event -> ordenarCanciones(true));
+    }
+
 
     public void pintarCancionesInicio() {
         vBoxCanciones.getChildren().clear();
@@ -160,6 +180,52 @@ public class InicioUsuarioController implements Initializable {
             }
         }catch (Exception e){
             e.printStackTrace();
+        }
+    }
+
+
+    private void ordenarCanciones(boolean ascendente) {
+        List<Cancion> canciones = tienda.obtenerCanciones();
+        if (canciones != null && !canciones.isEmpty()) {
+            String atributo = comboBoxAtributos.getValue();
+            if (atributo != null && !atributo.isEmpty()) {
+                Comparator<Cancion> comparator;
+                switch (atributo) {
+                    case "Nombre":
+                        comparator = Comparator.comparing(Cancion::getNombreCancion);
+                        break;
+                    case "Album":
+                        comparator = Comparator.comparing(Cancion::getNombreAlbum);
+                        break;
+                    case "Año":
+                        comparator = Comparator.comparingInt(Cancion::getAnio);
+                        break;
+                    case "Duración":
+                        comparator = Comparator.comparingDouble(Cancion::getDuracion);
+                        break;
+                    case "Género":
+                        comparator = Comparator.comparing(Cancion::getGenero);
+                        break;
+                    default:
+                        return;
+                }
+                if (!ascendente) {
+                    comparator = comparator.reversed();
+                }
+                canciones.sort(comparator);
+                actualizarListaCanciones(canciones);
+            }
+        }
+    }
+
+    private void actualizarListaCanciones(List<Cancion> canciones) {
+        vBoxCanciones.getChildren().clear();
+        for (Cancion cancion : canciones) {
+            try {
+                vBoxCanciones.getChildren().add(cargarCancionInicio(cancion));
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
