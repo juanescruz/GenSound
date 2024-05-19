@@ -82,6 +82,4 @@ public class CancionInicioController {
             inicioUsuarioController.pintarPlaylist();
         }
     }
-
-
 }

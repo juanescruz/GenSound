@@ -59,6 +59,7 @@ public class Tienda {
         this.admin=new Administrador();
         leerArtistasCanciones();
 
+
     }
 
     private void leerUsuarios() {
