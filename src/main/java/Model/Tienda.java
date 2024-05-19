@@ -2,9 +2,7 @@ package Model;
 
 import Archivos.ArchivoUtils;
 import Estructuras.Arbol.ArbolBinario;
-
 import Estructuras.Lista.ListaIterador;
-
 import Estructuras.ListaCircular.ListaCircular;
 import lombok.Data;
 
@@ -42,22 +40,6 @@ public class Tienda {
         return Tienda;
     }
     private Tienda() throws Exception {
-
-
-        ListaCircular<Integer> integers = new ListaCircular<>();
-
-        integers.insertar(1);
-        integers.insertar(2);
-        integers.insertar(3);
-
-        int contador = 0;
-        for (Integer numero : integers) {
-            if (contador == integers.getTamanio()){
-                break;
-            }
-            System.out.println(numero);
-            contador++;
-        }
 
         try {
             FileHandler fh = new FileHandler("logs.log", true);
