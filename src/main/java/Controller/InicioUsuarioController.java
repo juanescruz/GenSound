@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -50,7 +51,7 @@ public class InicioUsuarioController implements Initializable {
     private ReproductorController reproductorController;
     private CancionInicioController cancionInicioController;
     private final InicioSesion inicioSesion= InicioSesion.getInstance();
-
+    private Stage currentPopup;
     private Tienda tienda= Tienda.getInstance();
 
     @Override
@@ -78,20 +79,24 @@ public class InicioUsuarioController implements Initializable {
         comboBoxAtributos.setOnAction(event -> ordenarCanciones(true));
     }
 
-
-
     public void pintarCancionesInicio() {
+
         vBoxCanciones.getChildren().clear();
         try {
             List<Cancion> canciones= tienda.obtenerCanciones();
-            for (int i = 0; i<canciones.size(); i++) {
-                vBoxCanciones.getChildren().add(cargarCancionInicio(canciones.get(i)));
+
+            for (Cancion cancion : canciones) {
+
+
+
+                vBoxCanciones.getChildren().add(cargarCancionInicio(cancion));
             }
         }catch (Exception e){
             e.printStackTrace();
         }
 
     }
+
     public Parent cargarCancionInicio(Cancion cancion) throws Exception{
 
         FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/CancionInicio.fxml") );
@@ -102,9 +107,19 @@ public class InicioUsuarioController implements Initializable {
         cancionInicioController.setInteraccionCancion(false);
         cancionInicioController.setIconoInteraccion();
         cancionInicioController.cargarDatos(cancion);
+
         return parent;
 
     }
+
+    public void showPopup(Stage popup) {
+        if (currentPopup != null && currentPopup.isShowing()) {
+            currentPopup.close();
+        }
+        currentPopup = popup;
+        currentPopup.show();
+    }
+
     public void reproducirCancion(Cancion cancion) {
         reproductorController.setURLCancion(cancion.getUrl());
     }
@@ -165,6 +180,30 @@ public class InicioUsuarioController implements Initializable {
         return parent;
 
     }
+
+    private static void mostrarInformacionDeLaLista() {
+
+        System.out.println();
+        System.out.println("Canciones actuales en la playlist: ");
+
+        int contador = 0;
+
+        for (Cancion cancion : InicioSesion.getInstance().getUsuario().getCancionesFav()) {
+
+            if(contador == InicioSesion.getInstance().getUsuario().getCancionesFav().getTamanio()){
+                break;
+            } else {
+                System.out.println(cancion.getNombreCancion());
+            }
+            contador++;
+        }
+    }
+
+    public void onPlayListClick(){
+        mostrarInformacionDeLaLista();
+        pintarPlaylist();
+    }
+
     public void pintarPlaylist(){
 
         vBoxCanciones.getChildren().clear();

@@ -46,6 +46,12 @@ public class PopUpRehacerController {
 
         inicioUsuarioController.pintarPlaylist();
 
+        mostrarInformacionDeLaLista();
+
+    }
+
+    private static void mostrarInformacionDeLaLista() {
+
         System.out.println();
         System.out.println("Canciones actualizadas despues de la funcion rehacer: ");
 
@@ -60,6 +66,5 @@ public class PopUpRehacerController {
             }
             contador++;
         }
-
     }
 }

@@ -99,6 +99,22 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
         } while (actual != cabeza);
     }
 
+    public boolean contains(T value) {
+        if (cabeza == null) {
+            return false;  // La lista está vacía
+        }
+
+        Nodo<T> actual = cabeza;
+        do {
+            if (actual.getValorNodo() == value) {
+                return true;
+            }
+            actual = actual.getSiguienteNodo();
+        } while (actual != cabeza);
+
+        return false;
+    }
+
     //Obtener Nodo el valor de un Nodo
     public T obtenerValorNodo(int indice) {
 

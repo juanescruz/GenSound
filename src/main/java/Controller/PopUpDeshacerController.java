@@ -58,6 +58,23 @@ public class PopUpDeshacerController {
 
         inicioUsuarioController.pintarPlaylist();
 
+        mostrarInformacionDeLaLista();
+
+        FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/PopUpRehacer.fxml") );
+        Parent parent = loader.load();
+        rehacerController = loader.getController();
+        rehacerController.setInicioUsuarioController(inicioUsuarioController);
+        Scene scene = new Scene(parent);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.initStyle(StageStyle.UNDECORATED);
+        scene.setFill(Color.TRANSPARENT);
+        stage.show();
+
+    }
+
+    private static void mostrarInformacionDeLaLista() {
+
         System.out.println();
         System.out.println("Canciones actualizadas despues de la funcion deshacer: ");
 
@@ -72,18 +89,6 @@ public class PopUpDeshacerController {
             }
             contador++;
         }
-
-        FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/PopUpRehacer.fxml") );
-        Parent parent = loader.load();
-        rehacerController = loader.getController();
-        rehacerController.setInicioUsuarioController(inicioUsuarioController);
-        Scene scene = new Scene(parent);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.initStyle(StageStyle.UNDECORATED);
-        scene.setFill(Color.TRANSPARENT);
-        stage.show();
-
     }
 
 }

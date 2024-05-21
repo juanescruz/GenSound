@@ -10,6 +10,7 @@ import Estructuras.Arbol.Nodo;
 import Estructuras.Lista.ListaDoble;
 import Estructuras.Lista.NodoDoble;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -158,8 +159,14 @@ public class Tienda {
         usuario.getCancionesFav().borrar(cancion);
 
     }
-    public void agregarCancion(Usuario usuario, Cancion cancion){
-        usuario.getCancionesFav().insertar(cancion);
+    public boolean agregarCancion(Usuario usuario, Cancion cancion){
+        if (!InicioSesion.getInstance().getUsuario().getCancionesFav().contains(cancion)){
+            usuario.getCancionesFav().insertar(cancion);
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(null, "La canción ya se encuentra en tu playlist.", "Información.", JOptionPane.INFORMATION_MESSAGE);
+        }
+        return false;
     }
     public void ordenarCancionesAnio(Usuario usuario, Cancion cancion){
 
