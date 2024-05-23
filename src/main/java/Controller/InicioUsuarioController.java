@@ -16,10 +16,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class InicioUsuarioController implements Initializable {
 
@@ -111,44 +108,61 @@ public class InicioUsuarioController implements Initializable {
 
     @FXML
     void buscar(ActionEvent event) throws Exception {
-        List<Cancion>canciones = new ArrayList<>();
+        Set<Cancion> cancionesSet = new HashSet<>();
         String parametros = txtBuscar.getText();
+        String[] atributos = parametros.split(",");
+
         if (radioButtonArtista.isSelected()) {
-            System.out.println("Parametro: "+parametros);
-            canciones = tienda.buscarArtista(parametros);
+            if(atributos.length>1){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Información");
+                alert.setContentText("Ingrese solo el nombre del artista.");
+                alert.show();
+            }else{
+                System.out.println("Parametro: " + parametros);
+                cancionesSet.addAll(tienda.buscarArtista(atributos[0]));
+            }
         } else if (radioButtonO.isSelected()) {
-            String[] atributos = parametros.split(",");
-            if(atributos.length == 2){
-                canciones = tienda.buscarCancionesO(atributos[0], atributos[1]);
-            }else{
-                throw new Exception("Ingrese los dos parametros separados por , para hacer la busqueda Or");
+            if (atributos.length < 2) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Información");
+                alert.setContentText("Ingrese al menos dos parámetros separados por comas para hacer la búsqueda O.");
+                alert.show();
+                throw new Exception("Ingrese al menos dos parámetros separados por comas para hacer la búsqueda O.");
             }
+            cancionesSet.addAll(tienda.buscarCancionesO(atributos));
         } else if (radioButtonY.isSelected()) {
-            String[] atributos = parametros.split(",");
-            if(atributos.length == 2){
-                canciones = tienda.buscarCancionesY(atributos[0], atributos[1]);
-            }else{
-                throw new Exception("Ingrese los dos parametros separados por , para hacer la busqueda Y");
+            if (atributos.length < 2) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Información");
+                alert.setContentText("Ingrese al menos dos parámetros separados por comas para hacer la búsqueda Y.");
+                alert.show();
+                throw new Exception("Ingrese al menos dos parámetros separados por comas para hacer la búsqueda Y.");
             }
+            cancionesSet.addAll(tienda.buscarCancionesY(atributos));
         }
-        System.out.println("Canciones en controller: "+canciones);
+
+        List<Cancion> canciones = new ArrayList<>(cancionesSet);
+        System.out.println("Canciones en controller: " + canciones);
         Label label = new Label();
         label.setText("No se encontró ninguna coincidencia");
 
-        if(canciones.isEmpty() || canciones == null){
+        if (canciones.isEmpty()) {
             vBoxCanciones.getChildren().clear();
             vBoxCanciones.getChildren().add(label);
-        }else{
+        } else {
             vBoxCanciones.getChildren().clear();
-            for (int i = 0; i<canciones.size(); i++) {
+            for (Cancion cancion : canciones) {
                 try {
-                    vBoxCanciones.getChildren().add(cargarCancionInicio(canciones.get(i)));
+                    vBoxCanciones.getChildren().add(cargarCancionInicio(cancion));
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
             }
         }
     }
+
+
     public Parent cargarCancionPlayList(Cancion cancion) throws Exception{
 
         FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/CancionInicio.fxml") );
@@ -182,7 +196,6 @@ public class InicioUsuarioController implements Initializable {
             e.printStackTrace();
         }
     }
-
 
     private void ordenarCanciones(boolean ascendente) {
         List<Cancion> canciones = tienda.obtenerCanciones();
