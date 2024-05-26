@@ -4,7 +4,6 @@ import App.MainApp;
 import Model.Cancion;
 import Model.InicioSesion;
 import Model.Tienda;
-import com.sun.source.tree.InstanceOfTree;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,12 +13,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.io.File;
 import java.io.IOException;
 
 public class CancionInicioController {
@@ -47,10 +46,9 @@ public class CancionInicioController {
     private PopUpRehacerController rehacerController;
     private Tienda tienda= Tienda.getInstance();
     private final InicioSesion inicioSesion= InicioSesion.getInstance();
-
     private InicioUsuarioController inicioUsuarioController;
     private boolean estaEnPlayList;
-    private Cancion cancion=null;
+    private Cancion cancion = null;
 
     public void cargarDatos(Cancion cancion1){
         String imagePath = cancion1.getCaratula();
@@ -86,6 +84,7 @@ public class CancionInicioController {
     public void reproducirCancion(){
         inicioUsuarioController.reproducirCancion(cancion);
     }
+
     public void setInicioUsuarioController(InicioUsuarioController inicioUsuarioController) {
         this.inicioUsuarioController = inicioUsuarioController;
     }
@@ -93,13 +92,11 @@ public class CancionInicioController {
 
     public void agregarCancionPlaylist() throws IOException {
 
-        System.out.println(cancion.getNombreCancion());
-
         if(!estaEnPlayList) {
 
-            tienda.agregarCancion(inicioSesion.getUsuario(), cancion);
-
-            System.out.println("Se agrega la cancion: " + cancion.getNombreCancion());
+            if (tienda.agregarCancion(inicioSesion.getUsuario(), cancion)){
+                showPopUp();
+            }
 
             System.out.println();
             System.out.println("Canciones actualizadas:");
@@ -115,17 +112,6 @@ public class CancionInicioController {
                 }
                 contador++;
             }
-
-            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/View/PopUpDeshacer.fxml"));
-            Parent parent = loader.load();
-            deshacerController= loader.getController();
-            deshacerController.setInicioUsuarioController(inicioUsuarioController);
-            Scene scene = new Scene(parent);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.initStyle(StageStyle.UNDECORATED);
-            scene.setFill(Color.TRANSPARENT);
-            stage.show();
 
         } else {
 
@@ -147,17 +133,24 @@ public class CancionInicioController {
                 contador++;
             }
 
-            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/View/PopUpDeshacer.fxml"));
-            Parent parent = loader.load();
-            deshacerController = loader.getController();
-            deshacerController.setInicioUsuarioController(inicioUsuarioController);
-            Scene scene = new Scene(parent);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.initStyle(StageStyle.UNDECORATED);
-            scene.setFill(Color.TRANSPARENT);
-            stage.show();
+            showPopUp();
 
         }
+
+    }
+
+    private void showPopUp() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/View/PopUpDeshacer.fxml"));
+        Parent parent = loader.load();
+        deshacerController = loader.getController();
+        deshacerController.setInicioUsuarioController(inicioUsuarioController);
+        Scene scene = new Scene(parent);
+        Stage popup = new Stage();
+        popup.setScene(scene);
+        popup.initStyle(StageStyle.UNDECORATED);
+        scene.setFill(Color.TRANSPARENT);
+        inicioUsuarioController.showPopup(popup);
+
     }
 }
