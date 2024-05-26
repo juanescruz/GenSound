@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -52,12 +53,22 @@ public class CancionInicioController {
     private Cancion cancion=null;
 
     public void cargarDatos(Cancion cancion1){
+        String imagePath = cancion1.getCaratula();
+        Image image = null;
         cancion =cancion1;
         nombreCancion.setText( cancion.getNombreCancion() );
         generoCancion.setText( cancion.getGenero() );
         duracionCancion.setText( ""+cancion.getDuracion() );
         nombreAlbum.setText(cancion.getNombreAlbum());
         anioCancion.setText(""+cancion.getAnio());
+        try {
+            image = new Image(getClass().getClassLoader().getResourceAsStream(imagePath));
+            caratulaCancion.setImage(image);
+        } catch (NullPointerException e) {
+            System.err.println("No se pudo cargar la imagen en la ruta: " + imagePath);
+            e.printStackTrace();
+        }
+
     }
     public void setInteraccionCancion(boolean interaccion){
         this.estaEnPlayList= interaccion;

@@ -9,10 +9,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.SVGPath;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,7 +30,8 @@ public class InicioUsuarioController implements Initializable {
     public BorderPane BorderPane;
     @FXML
     private TextField txtBuscar;
-
+    @FXML
+    private SVGPath volver;
     @FXML
     private RadioButton radioButtonArtista;
 
@@ -232,6 +237,22 @@ public class InicioUsuarioController implements Initializable {
                 throw new RuntimeException(e);
             }
         }
+    }
+
+    public void volverInicioSesion() {
+        try{
+        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/View/inicioSesion.fxml"));
+        Parent parent = loader.load();
+        Stage stage = new Stage();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.setTitle("GenSound");
+        Stage scene1 = (Stage) txtBuscar.getParent().getScene().getWindow();
+        scene1.close();
+        stage.show();
+    } catch (IOException ioException) {
+        ioException.printStackTrace();
+    }
     }
 
 }

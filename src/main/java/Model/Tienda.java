@@ -3,6 +3,7 @@ package Model;
 import Archivos.ArchivoUtils;
 import Estructuras.Arbol.ArbolBinario;
 import Estructuras.Lista.ListaIterador;
+import Estructuras.ListaCircular.IteradorCircular;
 import Estructuras.ListaCircular.ListaCircular;
 import lombok.Data;
 
@@ -105,12 +106,10 @@ public class Tienda {
 
                 if(esArtista){
                     String [] valores= linea.split(";");
-                    System.out.println(imprimirArreglo(valores));
                     this.artistas.agregarArtista(new Artista(Integer.parseInt(valores[0]),valores[1],valores[2],Boolean.parseBoolean(valores[3]),new ListaDoble<>()));
 
                 }else if (esCancion){
                     String [] valores= linea.split(";");
-                    System.out.println(imprimirArreglo(valores));
                     guardarCancionArtista(valores);
                 }
 
@@ -122,8 +121,9 @@ public class Tienda {
 
     }
     private void guardarCancionArtista(String[] valores) {
-        Cancion cancion= new Cancion((int) Math.random(), valores[1], valores[2], Integer.parseInt(valores[3]),Double.parseDouble(valores[4]),valores[5],valores[6]);
+        Cancion cancion= new Cancion((int) (Math.random()*100), valores[1], valores[2], Integer.parseInt(valores[3]),Double.parseDouble(valores[4]),valores[5],valores[6], valores[7]);
         artistas.buscarArtistaPorId(Integer.parseInt(valores[0])).getCanciones().agregarfinal(cancion);
+
 
     }
     public String imprimirArreglo(String [] array){
@@ -162,9 +162,7 @@ public class Tienda {
     public void agregarCancion(Usuario usuario, Cancion cancion){
         usuario.getCancionesFav().insertar(cancion);
     }
-    public void ordenarCancionesAnio(Usuario usuario, Cancion cancion){
 
-    }
     public List<Cancion> buscarArtista(String nombre) {
         List<Cancion> cancionesArtista = new ArrayList<>();
         buscarArtistaRec(artistas.getRaiz(), nombre, cancionesArtista);
@@ -322,5 +320,70 @@ public class Tienda {
             }
         }
         return generoMasRepetido;
+    }
+
+    public Artista hallarArtistaMasPopular(){
+
+        Artista artistaAux= new Artista();
+        List<Cancion> canciones= obtenerCancionesUs();
+        if(canciones==null){
+            throw new NullPointerException("No hay ninguna canción likeada");
+        }
+
+        System.out.println("Canciones:");
+        System.out.println(canciones);
+
+        Map<Artista, Integer> conteoArtistas = new HashMap<>();
+        for (Cancion cancion : canciones) {
+            artistaAux = hallarArtistaCancion(cancion);
+
+            System.out.println("Artista Aux:");
+            System.out.println(artistaAux);
+            conteoArtistas.put(artistaAux, conteoArtistas.getOrDefault(artistaAux, 0) + 1);
+        }
+
+        System.out.println( conteoArtistas );
+        Artista artistaMasRepetido = null;
+        int maximoConteo = 0;
+        for (Map.Entry<Artista, Integer> entry : conteoArtistas.entrySet()) {
+            if (entry.getValue() > maximoConteo) {
+                artistaMasRepetido = entry.getKey();
+                maximoConteo = entry.getValue();
+            }
+        }
+        return artistaMasRepetido;
+    }
+    public List<Cancion> obtenerCancionesUs(){
+        List<Cancion> canciones= new ArrayList<>();
+        for(Usuario user: usuarios.values()){
+            int contador = 0;
+            for (Cancion cancion : user.getCancionesFav()) {
+                if(contador == user.getCancionesFav().getTamanio()){
+                    break;
+                }else{
+                    canciones.add(cancion);
+                }
+                contador++;
+            }
+        }
+        return canciones;
+    }
+    public Artista hallarArtistaCancion(Cancion cancion){
+        Artista artista= new Artista();
+        ArrayList<Artista> arts= artistas.preorderAr();
+
+        System.out.println("Artistas ArbolPre:");
+        System.out.println(arts);
+
+        for(Artista ar:arts){
+            ListaIterador<Cancion> iterador= ar.getCanciones().iterator();
+            while(iterador.hasNext()){
+                if(cancion.getNombreCancion().equals(iterador.next().getNombreCancion())){
+                    artista=ar;
+                    break;
+                }
+            }
+        }
+        return artista;
     }
 }

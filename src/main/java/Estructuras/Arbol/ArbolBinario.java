@@ -41,7 +41,7 @@ public class ArbolBinario {
         return preorderRecCan(raiz);
     }
     public ArrayList<Artista>  preorderAr() {
-        return preorderRecAr(raiz);
+        return preorderRecAr(raiz, new ArrayList<>());
     }
 
     public ArrayList<Cancion> obtenerCanciones(ListaDoble<Cancion> canciones){
@@ -81,16 +81,16 @@ public class ArbolBinario {
 
         }
     }
-    public ArrayList<Artista> preorderRecAr(Nodo nodo) {
-        ArrayList<Artista> artistas= new ArrayList<>();
-        if (nodo != null) {
+    public ArrayList<Artista> preorderRecAr(Nodo nodo, ArrayList<Artista> artistas) {
+        if (nodo == null) {
+            return artistas;
+        }else{
+            artistas.add( nodo.getArtista() );
             if (nodo.izquierdo != null) {
-                preorderRecAr(nodo.izquierdo);
-                artistas.add(nodo.izquierdo.getArtista());
+                preorderRecAr(nodo.izquierdo, artistas);
             }
             if (nodo.derecho != null) {
-                preorderRecAr(nodo.derecho);
-                artistas.add(nodo.derecho.getArtista());
+                preorderRecAr(nodo.derecho, artistas);
             }
         }
         return artistas;

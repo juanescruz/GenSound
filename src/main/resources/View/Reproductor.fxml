@@ -2,13 +2,14 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.web.*?>
 
 <Pane prefHeight="137.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReproductorController">
    <children>
-      <Button layoutX="142.0" layoutY="56.0" mnemonicParsing="false" onAction="#reproducir" text="Play" />
-      <Button layoutX="252.0" layoutY="56.0" mnemonicParsing="false" onAction="#pausar" text="Pause" />
       <WebView fx:id="reproductor" disable="true" layoutX="363.0" layoutY="38.0" prefHeight="10.0" prefWidth="15.0" />
-      <Label fx:id="lblCargando" layoutX="333.0" layoutY="73.0" prefHeight="17.0" prefWidth="82.0" />
+      <Label fx:id="lblCargando" layoutX="305.0" layoutY="55.0" prefHeight="25.0" prefWidth="100.0" styleClass="subtitulo2" stylesheets="@../CSS/label.css" />
+      <SVGPath content="M16.6582 9.28638C18.098 10.1862 18.8178 10.6361 19.0647 11.2122C19.2803 11.7152 19.2803 12.2847 19.0647 12.7878C18.8178 13.3638 18.098 13.8137 16.6582 14.7136L9.896 18.94C8.29805 19.9387 7.49907 20.4381 6.83973 20.385C6.26501 20.3388 5.73818 20.0469 5.3944 19.584C5 19.053 5 18.1108 5 16.2264V7.77357C5 5.88919 5 4.94701 5.3944 4.41598C5.73818 3.9531 6.26501 3.66111 6.83973 3.6149C7.49907 3.5619 8.29805 4.06126 9.896 5.05998L16.6582 9.28638Z" fill="#382352" layoutX="146.0" layoutY="37.0" onMouseClicked="#reproducir" scaleX="2.5" scaleY="2.5" />
+      <SVGPath content="M8.5 18H9.5C10.0523 18 10.5 17.5523 10.5 17V7C10.5 6.44772 10.0523 6 9.5 6H8.5C7.94772 6 7.5 6.44772 7.5 7V17C7.5 17.5523 7.94772 18 8.5 18Z M14.5 18H15.5C16.0523 18 16.5 17.5523 16.5 17V7C16.5 6.44772 16.0523 6 15.5 6H14.5C13.9477 6 13.5 6.44772 13.5 7V17C13.5 17.5523 13.9477 18 14.5 18Z" fill="#382352" layoutX="241.0" layoutY="37.0" onMouseClicked="#pausar" scaleX="3.0" scaleY="3.0" />
    </children>
 </Pane>

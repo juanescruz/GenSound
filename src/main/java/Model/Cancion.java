@@ -18,7 +18,7 @@ public class Cancion  {
     private double duracion;
     private String genero;
     private String url;
-
+    private String caratula;
 
 
 

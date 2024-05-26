@@ -8,6 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -59,6 +61,8 @@ public class LoginComponentController {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Info");
                 alert.setContentText("Sesión de administrador iniciada");
+                Stage anterior = (Stage) usuarioError.getParent().getParent().getScene().getWindow();
+                anterior.close();
                 alert.show();
             }else {
                 usuarioError.setText("Usuario no está registrado");
@@ -77,14 +81,14 @@ public class LoginComponentController {
     }
 
     public void irARegistro(){
-        HBox stage = (HBox) PaneMain.getParent();
+        BorderPane stage = (BorderPane) usuarioError.getParent().getParent();
         try {
             // Cargar el FXML del componente
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/registroComponent.fxml"));
             Pane registro = loader.load();
 
             // Agregar el componente al HBox
-            stage.getChildren().set(1,registro );
+            stage.setCenter(registro);
         } catch (Exception e) {
             e.printStackTrace();
         }
