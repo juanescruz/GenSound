@@ -20,6 +20,11 @@ public class EstadisticasController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         generoMas.setText(tienda.hallarGeneroMasRepetido());
-        artistaMas.setText(tienda.hallarArtistaMasPopular().getNombreArtista());
+        try{
+            artistaMas.setText(tienda.hallarArtistaMasPopular().getNombreArtista());
+        }catch (NullPointerException e){
+            e.getMessage();
+        }
+
     }
 }

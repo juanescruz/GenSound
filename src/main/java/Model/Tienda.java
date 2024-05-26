@@ -329,7 +329,7 @@ public class Tienda {
         return generoMasRepetido;
     }
 
-    public Artista hallarArtistaMasPopular(){
+    public Artista hallarArtistaMasPopular() throws NullPointerException{
 
         Artista artistaAux= new Artista();
         List<Cancion> canciones= obtenerCancionesUs();
