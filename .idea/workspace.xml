@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="31081885-2cf5-4bd1-b383-a3e0ea491e74" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/Estructuras/ListaCircular/ListaCircularTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs.log.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CancionInicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/CancionInicioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioUsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioUsuarioController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/ListaCircular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/ListaCircular.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Estructuras/ListaCircular/ListaCircularTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Estructuras/ListaCircular/ListaCircularTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,16 +71,18 @@
       <recent name="Estructuras.ListaCircular" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ListaCircularTest.deshacerInsercion">
-    <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="App.MainApp" />
+  <component name="RunManager" selected="JUnit.ListaCircularTest">
+    <configuration name="ListaCircularTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="GenSound" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="App.*" />
+          <option name="PATTERN" value="Estructuras.ListaCircular.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="Estructuras.ListaCircular" />
+      <option name="MAIN_CLASS_NAME" value="Estructuras.ListaCircular.ListaCircularTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -123,41 +119,45 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GenSound [javafx:run]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
-      <MavenSettings>
-        <option name="myGeneralSettings" />
-        <option name="myRunnerSettings" />
-        <option name="myRunnerParameters">
-          <MavenRunnerParameters>
-            <option name="cmdOptions" />
-            <option name="profiles">
-              <set />
-            </option>
-            <option name="goals">
-              <list>
-                <option value="javafx:run" />
-              </list>
-            </option>
-            <option name="pomFileName" value="pom.xml" />
-            <option name="profilesMap">
-              <map />
-            </option>
-            <option name="projectsCmdOptionValues">
-              <list />
-            </option>
-            <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="$PROJECT_DIR$" />
-          </MavenRunnerParameters>
-        </option>
-      </MavenSettings>
-      <method v="2" />
+    <configuration name="ListaCircularTest.rehacerEliminacion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GenSound" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Estructuras.ListaCircular.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Estructuras.ListaCircular" />
+      <option name="MAIN_CLASS_NAME" value="Estructuras.ListaCircular.ListaCircularTest" />
+      <option name="METHOD_NAME" value="rehacerEliminacion" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ListaCircularTest.rehacerInsercion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GenSound" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Estructuras.ListaCircular.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Estructuras.ListaCircular" />
+      <option name="MAIN_CLASS_NAME" value="Estructuras.ListaCircular.ListaCircularTest" />
+      <option name="METHOD_NAME" value="rehacerInsercion" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ListaCircularTest.deshacerInsercion" />
+        <item itemvalue="JUnit.ListaCircularTest" />
+        <item itemvalue="JUnit.ListaCircularTest.rehacerInsercion" />
         <item itemvalue="JUnit.ListaCircularTest.deshacerEliminacion" />
-        <item itemvalue="Maven.GenSound [javafx:run]" />
-        <item itemvalue="Application.MainApp" />
+        <item itemvalue="JUnit.ListaCircularTest.rehacerEliminacion" />
+        <item itemvalue="JUnit.ListaCircularTest.deshacerInsercion" />
       </list>
     </recent_temporary>
   </component>
@@ -198,7 +198,7 @@
       <workItem from="1716145075823" duration="8163000" />
       <workItem from="1716301243520" duration="4556000" />
       <workItem from="1716510539847" duration="24000" />
-      <workItem from="1716858849141" duration="1719000" />
+      <workItem from="1716858849141" duration="2401000" />
     </task>
     <servers />
   </component>
