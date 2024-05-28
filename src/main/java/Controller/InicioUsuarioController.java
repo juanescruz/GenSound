@@ -1,6 +1,7 @@
 package Controller;
 
 import App.MainApp;
+import Estructuras.ListaCircular.ListaCircular;
 import Model.Cancion;
 import Model.InicioSesion;
 import Model.Tienda;
@@ -86,8 +87,6 @@ public class InicioUsuarioController implements Initializable {
             List<Cancion> canciones= tienda.obtenerCanciones();
 
             for (Cancion cancion : canciones) {
-
-
 
                 vBoxCanciones.getChildren().add(cargarCancionInicio(cancion));
             }
@@ -200,6 +199,19 @@ public class InicioUsuarioController implements Initializable {
     }
 
     public void onPlayListClick(){
+
+        //------Ejemplo------
+        System.out.println("----------------------");
+        System.out.println("Ejemplo");
+
+        ListaCircular<Integer> integers = new ListaCircular<>();
+        integers.insertar(1);
+        integers.insertar(2);
+        integers.insertar(3);
+        System.out.println("Esta? " + integers.contains(4));
+        System.out.println("----------------------");
+        //------Ejemplo------
+
         mostrarInformacionDeLaLista();
         pintarPlaylist();
     }
@@ -207,6 +219,11 @@ public class InicioUsuarioController implements Initializable {
     public void pintarPlaylist(){
 
         vBoxCanciones.getChildren().clear();
+
+        System.out.println();
+        System.out.println("Tamano lista canciones: " + inicioSesion.getUsuario().getCancionesFav().getTamanio());
+        System.out.println();
+
 
         try {
 
@@ -216,12 +233,12 @@ public class InicioUsuarioController implements Initializable {
 
                 if(contador == inicioSesion.getUsuario().getCancionesFav().getTamanio()){
                     break;
-
                 } else {
                     vBoxCanciones.getChildren().add(cargarCancionPlayList(cancion));
                 }
                 contador++;
             }
+
         }catch (Exception e){
             e.printStackTrace();
         }

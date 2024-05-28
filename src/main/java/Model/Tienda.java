@@ -160,7 +160,8 @@ public class Tienda {
 
     }
     public boolean agregarCancion(Usuario usuario, Cancion cancion){
-        if (!InicioSesion.getInstance().getUsuario().getCancionesFav().contains(cancion)){
+
+        if ( ! (InicioSesion.getInstance().getUsuario().getCancionesFav().contains(cancion) ) ){
             usuario.getCancionesFav().insertar(cancion);
             return true;
         } else {
