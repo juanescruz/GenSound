@@ -228,6 +228,7 @@ public class Tienda {
      * @return true, si se pudo agregar la canción, false, si no se pudo agregar la canción
      */
     public boolean agregarCancion(Usuario usuario, Cancion cancion){
+
         if (!usuario.getCancionesFav().contains(cancion)){
             usuario.getCancionesFav().insertar(cancion);
             escribirUsuarios();

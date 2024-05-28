@@ -74,6 +74,14 @@ public class PopUpDeshacerController {
         stage.setScene(scene);
         stage.initStyle(StageStyle.UNDECORATED);
         scene.setFill(Color.TRANSPARENT);
+
+        Stage mainStage = (Stage) inicioUsuarioController.getBorderPane().getScene().getWindow();
+        double mainStageX = mainStage.getX();
+        double mainStageY = mainStage.getY();
+
+        stage.setX(mainStageX + 10);
+        stage.setY(mainStageY + 80);
+
         stage.show();
 
     }

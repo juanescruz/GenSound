@@ -11,7 +11,7 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
     @Getter
     private Nodo<T> cabeza;
     private Nodo<T> nodoPrimero;
-    private Nodo<T> nodoUltimo;
+    private Nodo<T> cola;
     @Getter
     private int tamanio;
     private final Stack<Deshacer<T>> pilaDeshacer;
@@ -20,7 +20,7 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
 
     public ListaCircular() {
         this.nodoPrimero = null;
-        this.nodoUltimo = null;
+        this.cola = null;
         this.cabeza = null;
         this.tamanio = 0;
         this.pilaDeshacer = new Stack<>();
@@ -52,17 +52,25 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
     // Método para insertar un elemento en la lista
     public void insertar(T dato) {
         Nodo<T> nuevoNodo = new Nodo<>(dato);
-        if (cabeza == null) {
+
+        if (cabeza == null) { // Lista vacía
             cabeza = nuevoNodo;
-            cabeza.setSiguienteNodo(cabeza);
+            cola = nuevoNodo;
+            nuevoNodo.setSiguienteNodo(cabeza); // Apunta a sí mismo
         } else {
-            Nodo<T> actual = cabeza;
-            while (actual.getSiguienteNodo() != cabeza) {
-                actual = actual.getSiguienteNodo();
-            }
-            actual.setSiguienteNodo(nuevoNodo);
+            cola.setSiguienteNodo(nuevoNodo);
             nuevoNodo.setSiguienteNodo(cabeza);
+            cola = nuevoNodo;
         }
+
+//        else {
+//            Nodo<T> actual = cabeza;
+//            while (actual.getSiguienteNodo() != cabeza) {
+//                actual = actual.getSiguienteNodo();
+//            }
+//            actual.setSiguienteNodo(nuevoNodo);
+//            nuevoNodo.setSiguienteNodo(cabeza);
+//        }
         tamanio++;
 
         pilaDeshacer.push(new Deshacer<>(null, nuevoNodo));
@@ -114,6 +122,11 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
     /*public void borrar(T dato) {
 
         if (cabeza == null) {
+            return;
+        }
+
+        if (dato.equals(cabeza.getValorNodo())){
+            cabeza = null;
             return;
         }
 
@@ -192,7 +205,7 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
 
     //Verificar si la lista esta vacia
     public boolean estaVacia() {
-        return nodoPrimero != null;
+        return cabeza == null;
     }
 
 

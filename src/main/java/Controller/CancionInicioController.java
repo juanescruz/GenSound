@@ -1,6 +1,7 @@
 package Controller;
 
 import App.MainApp;
+import Estructuras.ListaCircular.ListaCircular;
 import Model.Cancion;
 import Model.InicioSesion;
 import Model.Tienda;
@@ -117,7 +118,7 @@ public class CancionInicioController {
             }
 
             System.out.println();
-            System.out.println("Canciones actualizadas:");
+            System.out.println("Canciones actualizadas (despues de favorito):");
 
             int contador = 0;
 
@@ -137,7 +138,7 @@ public class CancionInicioController {
             inicioUsuarioController.pintarPlaylist();
 
             System.out.println();
-            System.out.println("Canciones actualizadas:");
+            System.out.println("Canciones actualizadas (despues de eliminar favorito):");
 
             int contador = 0;
 
@@ -171,6 +172,15 @@ public class CancionInicioController {
         popup.setScene(scene);
         popup.initStyle(StageStyle.UNDECORATED);
         scene.setFill(Color.TRANSPARENT);
+
+        Stage mainStage = (Stage) inicioUsuarioController.getBorderPane().getScene().getWindow();
+        double mainStageX = mainStage.getX();
+        double mainStageY = mainStage.getY();
+
+        // Posicionar el popup en la parte superior izquierda de la ventana principal
+        popup.setX(mainStageX + 10);
+        popup.setY(mainStageY + 80);
+
         inicioUsuarioController.showPopup(popup);
 
     }

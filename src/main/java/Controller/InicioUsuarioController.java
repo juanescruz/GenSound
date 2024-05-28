@@ -11,18 +11,19 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
+import lombok.Getter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
 public class InicioUsuarioController implements Initializable {
-    @FXML
+
+    @FXML @Getter
     public BorderPane BorderPane;
     @FXML
     private TextField txtBuscar;
@@ -91,8 +92,6 @@ public class InicioUsuarioController implements Initializable {
             List<Cancion> canciones= tienda.obtenerCanciones();
 
             for (Cancion cancion : canciones) {
-
-
 
                 vBoxCanciones.getChildren().add(cargarCancionInicio(cancion));
             }
@@ -246,6 +245,7 @@ public class InicioUsuarioController implements Initializable {
     }
 
     public void onPlayListClick(){
+
         mostrarInformacionDeLaLista();
         pintarPlaylist();
     }
@@ -256,6 +256,11 @@ public class InicioUsuarioController implements Initializable {
 
         vBoxCanciones.getChildren().clear();
 
+        System.out.println();
+        System.out.println("Tamano lista canciones: " + inicioSesion.getUsuario().getCancionesFav().getTamanio());
+        System.out.println();
+
+
         try {
 
             System.out.println(  inicioSesion.getUsuario().getCancionesFav().getTamanio() );
@@ -265,6 +270,7 @@ public class InicioUsuarioController implements Initializable {
                 Cancion cancion = it.next();
                 System.out.println(cancion);
                 vBoxCanciones.getChildren().add(cargarCancionPlayList(cancion));
+
             }
 
         }catch (Exception e){
