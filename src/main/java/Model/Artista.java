@@ -3,10 +3,12 @@ package Model;
 import Estructuras.Lista.ListaDoble;
 import lombok.*;
 
+import java.io.Serializable;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Artista {
+public class Artista implements Serializable{
 
     @Getter
     private int codigoArtista;

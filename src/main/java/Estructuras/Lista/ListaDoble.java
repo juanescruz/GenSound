@@ -1,9 +1,10 @@
 package Estructuras.Lista;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListaDoble<T> implements Iterable<T> {
+public class ListaDoble<T> implements Iterable<T>, Serializable{
     private NodoDoble<T> nodoPrimero;
     private NodoDoble<T> nodoUltimo;
     private int tamanio;

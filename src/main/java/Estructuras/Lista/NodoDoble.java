@@ -1,6 +1,8 @@
 package Estructuras.Lista;
 
-public class NodoDoble <T>{
+import java.io.Serializable;
+
+public class NodoDoble <T> implements Serializable {
     private NodoDoble<T> siguienteNodo;
     private NodoDoble<T> anteriorNodo;
 

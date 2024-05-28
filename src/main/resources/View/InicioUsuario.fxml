@@ -6,11 +6,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<<<<<<< HEAD
+
 <BorderPane fx:id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="742.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.InicioUsuarioController">
-=======
-<BorderPane fx:id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="742.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.InicioUsuarioController">
->>>>>>> master
    <left>
       <VBox alignment="CENTER" prefHeight="500.0" prefWidth="183.0" BorderPane.alignment="CENTER">
          <children>
@@ -22,11 +19,9 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-<<<<<<< HEAD
+
             <Button fx:id="btnPlaylist" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#pintarPlaylist" stylesheets="@../CSS/Boton.css" text="Playlist propia">
-=======
-            <Button fx:id="btnPlaylist" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onPlayListClick" text="Playlist propia">
->>>>>>> master
+
                <VBox.margin>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </VBox.margin>

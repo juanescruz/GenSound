@@ -35,6 +35,8 @@ public class AgregarArtistaController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
+
     public void agregarArtista() throws Exception {
         tienda.agregarArtista(new Artista(Integer.parseInt(codigoArtista.getText()),nombreArtista.getText(),
                 nacionalidad.getText(),esGrupo.isPressed(),new ListaDoble<>()));
@@ -45,7 +47,4 @@ public class AgregarArtistaController implements Initializable {
         alert.show();
     }
 
-    public String generoMasPopular(){
-        return "";
-    }
 }

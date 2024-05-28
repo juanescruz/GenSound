@@ -6,11 +6,12 @@ import Model.Artista;
 import Model.Cancion;
 import lombok.Getter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-public class ArbolBinario {
+public class ArbolBinario implements Serializable {
     private Nodo raiz;
     private int tamanio;
 

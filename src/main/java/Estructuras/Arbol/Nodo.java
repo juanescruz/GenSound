@@ -3,8 +3,10 @@ package Estructuras.Arbol;
 import Model.Artista;
 import lombok.Getter;
 
+import java.io.Serializable;
+
 @Getter
-public class Nodo {
+public class Nodo implements Serializable {
     Artista artista;
     Nodo izquierdo;
     Nodo derecho;
