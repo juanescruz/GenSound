@@ -58,13 +58,19 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
             cola = nuevoNodo;
             nuevoNodo.setSiguienteNodo(cabeza); // Apunta a sí mismo
         } else {
-            Nodo<T> actual = cabeza;
-            while (actual.getSiguienteNodo() != cabeza) {
-                actual = actual.getSiguienteNodo();
-            }
-            actual.setSiguienteNodo(nuevoNodo);
+            cola.setSiguienteNodo(nuevoNodo);
             nuevoNodo.setSiguienteNodo(cabeza);
+            cola = nuevoNodo;
         }
+
+//        else {
+//            Nodo<T> actual = cabeza;
+//            while (actual.getSiguienteNodo() != cabeza) {
+//                actual = actual.getSiguienteNodo();
+//            }
+//            actual.setSiguienteNodo(nuevoNodo);
+//            nuevoNodo.setSiguienteNodo(cabeza);
+//        }
         tamanio++;
 
         pilaDeshacer.push(new Deshacer<>(null, nuevoNodo));
@@ -74,6 +80,11 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
     public void borrar(T dato) {
 
         if (cabeza == null) {
+            return;
+        }
+
+        if (dato.equals(cabeza.getValorNodo())){
+            cabeza = null;
             return;
         }
 
@@ -152,7 +163,7 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
 
     //Verificar si la lista esta vacia
     public boolean estaVacia() {
-        return nodoPrimero == null;
+        return cabeza == null;
     }
 
 
