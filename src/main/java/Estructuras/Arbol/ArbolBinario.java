@@ -127,13 +127,16 @@ public class ArbolBinario {
         if (nombre.equals(nodo.artista.getNombreArtista())) {
             // Caso 1: El nodo a eliminar es una hoja (no tiene hijos)
             if (nodo.izquierdo == null && nodo.derecho == null) {
+                tamanio--;
                 return null;
             }
             // Caso 2: El nodo a eliminar tiene un solo hijo
             if (nodo.izquierdo == null) {
+                tamanio--;
                 return nodo.derecho;
             }
             if (nodo.derecho == null) {
+                tamanio--;
                 return nodo.izquierdo;
             }
             // Caso 3: El nodo a eliminar tiene dos hijos
@@ -145,9 +148,9 @@ public class ArbolBinario {
 
         if (nombre.compareTo(nodo.artista.getNombreArtista()) < 0) {
             nodo.izquierdo = eliminarArtistaRec(nodo.izquierdo, nombre);
-            return nodo;
+        } else {
+            nodo.derecho = eliminarArtistaRec(nodo.derecho, nombre);
         }
-        nodo.derecho = eliminarArtistaRec(nodo.derecho, nombre);
         return nodo;
     }
 
