@@ -36,6 +36,10 @@ public class LoginComponentController {
     private  Tienda tienda = Tienda.getInstance();
     private final InicioSesion inicioSesion= InicioSesion.getInstance();
 
+    /**
+     * Método para iniciar sesión en la tienda.
+     * @throws IOException Si ocurre un error durante la carga de la vista correspondiente.
+     */
     public void iniciarSesion() throws IOException {
         if(tienda.existeUsuario(usuarioField.getText())){
             if(tienda.contrasenaCorrecta(usuarioField.getText(), pwdField.getText())){
@@ -80,6 +84,9 @@ public class LoginComponentController {
         stage.show();
     }
 
+    /**
+     * Método para redirigir a la ventana de registro.
+     */
     public void irARegistro(){
         BorderPane stage = (BorderPane) usuarioError.getParent().getParent();
         try {

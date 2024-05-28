@@ -27,7 +27,9 @@ public class ListaDoble<T> implements Iterable<T>, Serializable{
     //Metodos basicos
 
 
-    //Agregar al inicio de la lista
+    /*
+     *Agregar al inicio de la lista
+     */
     public void agregarInicio(T valorNodo) {
 
         NodoDoble<T> nuevoNodo = new NodoDoble<>(valorNodo);
@@ -45,7 +47,9 @@ public class ListaDoble<T> implements Iterable<T>, Serializable{
     }
 
 
-    //Agregar al final de la lista
+    /*
+     *Agregar al final de la lista
+     */
     public void agregarfinal(T valorNodo) {
 
         NodoDoble<T> nuevoNodo = new NodoDoble<>(valorNodo);
@@ -64,7 +68,9 @@ public class ListaDoble<T> implements Iterable<T>, Serializable{
         tamanio++;
     }
 
-
+    /*
+    *Metodo para agregar un dato a la lista
+    */
     public void agregar(T dato, int indice) {
 
         if(indiceValido(indice)) {
@@ -85,7 +91,9 @@ public class ListaDoble<T> implements Iterable<T>, Serializable{
             }
         }
     }
-
+    /*
+     * Metodo para obtener todos los valores de la lista
+     */
     public List<T> obtenerTodosLosElementos() {
         List<T> elementos = new ArrayList<>();
         NodoDoble<T> actual = nodoPrimero;

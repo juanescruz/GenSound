@@ -1,6 +1,8 @@
 package Estructuras.ListaCircular;
 
-public class Rehacer<T> {
+import java.io.Serializable;
+
+public class Rehacer<T> implements Serializable {
     private final Nodo<T> nodoAnterior;
     private final Nodo<T> nodoBorrado;
 

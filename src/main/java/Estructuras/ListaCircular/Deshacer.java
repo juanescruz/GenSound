@@ -1,8 +1,9 @@
 package Estructuras.ListaCircular;
 
+import java.io.Serializable;
 import java.util.Stack;
 
-public class Deshacer<T> {
+public class Deshacer<T> implements Serializable {
     private final Nodo<T> nodoAnterior;
     private final Nodo<T> nodoBorrado;
 

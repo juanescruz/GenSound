@@ -59,7 +59,9 @@ public class AgregarCancionController implements Initializable {
         );
 
     }
-
+    /**
+     * Método público para agregar una canción a un artista en específico.
+     */
     public void agregarCancion(){
         try {
             tienda.agregarCancion(new Cancion(RandomGenerator.getDefault().nextInt(),nombreCancion.getText(),
@@ -75,7 +77,9 @@ public class AgregarCancionController implements Initializable {
         alert.setContentText("Canción agregada correctamente");
         alert.show();
     }
-
+    /**
+     * Método público para mostrar una imagen en el componente `previewCaratula`.
+     */
     public void mostrarImagen(){
         String imagePath = direccionCaratula.getText();
         Image image = null;

@@ -23,7 +23,7 @@ public class ArbolBinario implements Serializable {
         tamanio++;
     }
 
-    private Nodo agregarArtistaNodo(Nodo nodo, Artista artista) throws Exception {
+    private Nodo agregarArtistaNodo(Nodo nodo, Artista artista) {
         if (nodo == null) {
             return new Nodo(artista);
         }
@@ -32,8 +32,6 @@ public class ArbolBinario implements Serializable {
             nodo.izquierdo = agregarArtistaNodo(nodo.izquierdo, artista);
         } else if (artista.getCodigoArtista() > nodo.artista.getCodigoArtista()) {
             nodo.derecho = agregarArtistaNodo(nodo.derecho, artista);
-        } else {
-            throw new Exception("El artista con este ID ya existe");
         }
         return nodo;
     }

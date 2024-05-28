@@ -1,6 +1,8 @@
 package Estructuras.ListaCircular;
 
-public class Nodo<T> {
+import java.io.Serializable;
+
+public class Nodo<T> implements Serializable {
 
     private Nodo<T> siguienteNodo;
     private T valorNodo;
@@ -8,7 +10,7 @@ public class Nodo<T> {
 
     /**
      * Constructor de la clase Nodo
-     * @param dato Elemento que se guarda en el Nodo
+     * @param valorNodo Elemento que se guarda en el Nodo
      */
     public Nodo(T valorNodo) {
         this.valorNodo = valorNodo;

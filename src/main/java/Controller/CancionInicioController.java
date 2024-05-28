@@ -50,6 +50,10 @@ public class CancionInicioController {
     private boolean estaEnPlayList;
     private Cancion cancion = null;
 
+    /**
+     * Método para cargar los datos de una canción en los campos de la interfaz de usuario.
+     * @param cancion1 La canción de la cual se cargarán los datos.
+     */
     public void cargarDatos(Cancion cancion1){
         String imagePath = cancion1.getCaratula();
         Image image = null;
@@ -71,6 +75,9 @@ public class CancionInicioController {
     public void setInteraccionCancion(boolean interaccion){
         this.estaEnPlayList= interaccion;
     }
+    /**
+     * Método para cambiar el icono de interacción en función del estado de la canción en la playlist.
+     */
     public void setIconoInteraccion(){
         if(!estaEnPlayList){
             interaccionCancion.setContent("M33,7.64c-1.34-2.75-5.2-5-9.69-3.69A9.87,9.87,0,0,0,18,7.72a9.87,9.87,0,0,0-5.31-3.77C8.19,2.66,4.34,4.89,3,7.64c-1.88,3.85-1.1,8.18,2.32,12.87C8,24.18,11.83,27.9,17.39,32.22a1,1,0,0,0,1.23,0c5.55-4.31,9.39-8,12.07-11.71C34.1,15.82,34.88,11.49,33,7.64Z");
@@ -81,15 +88,26 @@ public class CancionInicioController {
             interaccionCancion.setScaleY(2);
         }
     }
+    /**
+     * Método público para reproducir la cancion escogida.
+     */
     public void reproducirCancion(){
         inicioUsuarioController.reproducirCancion(cancion);
     }
 
+    /**
+     * Establece el controlador de inicio de usuario para este controlador.
+     * @param inicioUsuarioController El controlador de inicio de usuario que se va a establecer.
+     */
     public void setInicioUsuarioController(InicioUsuarioController inicioUsuarioController) {
         this.inicioUsuarioController = inicioUsuarioController;
     }
 
-
+    /**
+     * Método público para agregar o eliminar una canción de la playlist del usuario.
+     *
+     * @throws IOException Si ocurre un error durante la ejecución del método `showPopUp`.
+     */
     public void agregarCancionPlaylist() throws IOException {
 
         if(!estaEnPlayList) {
@@ -138,7 +156,10 @@ public class CancionInicioController {
         }
 
     }
-
+    /**
+     * Método privado para mostrar un pop-up que permite deshacer una acción.
+     * @throws IOException Si ocurre un error durante la carga del archivo FXML.
+     */
     private void showPopUp() throws IOException {
 
         FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/View/PopUpDeshacer.fxml"));

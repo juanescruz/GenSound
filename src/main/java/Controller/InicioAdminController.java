@@ -29,6 +29,9 @@ public class InicioAdminController {
 
     private Tienda tienda= Tienda.getInstance();
 
+    /**
+     * Método para camciar ventanas.
+     */
     private void cambiarVentana(String fxmlname) {
         try {
             Node nodo = MainApp.loadFXML(fxmlname);
@@ -45,6 +48,10 @@ public class InicioAdminController {
 
     public void abrirAgregarAr(){ cambiarVentana("AgregarAr");}
     public void abrirAgregarCan(){ cambiarVentana("AgregarCan");}
+
+    /**
+     * Método para abrir la ventana de consultas de estadísticas.
+     */
     public void abrirConsultas() {
         try{
             FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/View/Estadisticas.fxml"));
@@ -60,6 +67,9 @@ public class InicioAdminController {
             JOptionPane.showMessageDialog(null,"No hay canciones likeadas");
         }
     }
+    /**
+     * Método para abrir la ventana de inicioSesion.
+     */
     public void volverInicioSesion() {
         try{
             FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/View/inicioSesion.fxml"));

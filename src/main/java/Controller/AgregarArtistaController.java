@@ -36,7 +36,10 @@ public class AgregarArtistaController implements Initializable {
 
     }
 
-
+    /**
+     * Método público para agregar un nuevo artista a la tienda.
+     * @throws Exception Si ocurre algún error durante la adición del artista a la tienda.
+     */
     public void agregarArtista() throws Exception {
         tienda.agregarArtista(new Artista(Integer.parseInt(codigoArtista.getText()),nombreArtista.getText(),
                 nacionalidad.getText(),esGrupo.isPressed(),new ListaDoble<>()));
