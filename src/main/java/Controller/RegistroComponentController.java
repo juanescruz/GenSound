@@ -27,6 +27,9 @@ public class RegistroComponentController {
     @FXML
     Label errorPass;
     private Tienda tienda = Tienda.getInstance();
+    /**
+     * Método para registrar un nuevo usuario en la tienda.
+     */
     public void registrar(){
         if(tienda.existeUsuario(userField.getText())){
             errorUserLabel.setText("Este usuario ya está registrado");

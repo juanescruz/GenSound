@@ -1,0 +1,61 @@
+.subtitulo1{
+    -fx-font-family: "Arial"; /* Fuente */
+    -fx-font-size: 16px; /* Tamaño de fuente */
+    -fx-text-fill: #9672cf; /* Color del texto */
+    -fx-padding: 5 10 5 10; /* Espaciado interior (arriba, derecha, abajo, izquierda) */
+    -fx-background-color: transparent;
+    -fx-alignment: CENTER_LEFT;
+    -fx-font-weight: bold;
+}
+.subtitulo2{
+    -fx-font-family: "Arial"; /* Fuente */
+    -fx-font-size: 12px; /* Tamaño de fuente */
+    -fx-text-fill: #9672cf; /* Color del texto */
+    -fx-padding: 5 10 5 10; /* Espaciado interior (arriba, derecha, abajo, izquierda) */
+    -fx-background-color: transparent;
+    -fx-alignment: CENTER_LEFT;
+    -fx-font-weight: bold;
+}
+.tiulo{
+    -fx-font-family: "Arial"; /* Fuente */
+    -fx-font-size: 30px; /* Tamaño de fuente */
+    -fx-text-fill: #9672cf; /* Color del texto */
+    -fx-padding: 5 10 5 10; /* Espaciado interior (arriba, derecha, abajo, izquierda) */
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+    -fx-font-weight: bold; /* Fuente negrita */
+}
+.tituloCalificar{
+    -fx-font-family: "Arial"; /* Fuente */
+    -fx-font-size: 15px; /* Tamaño de fuente */
+    -fx-text-fill: #9672cf; /* Color del texto */
+    -fx-padding: 5 10 5 10; /* Espaciado interior (arriba, derecha, abajo, izquierda) */
+    -fx-background-color: transparent;
+    -fx-font-weight: bold; /* Fuente negrita */
+
+}
+.tituloCerrarSesion{
+    -fx-font-family: "Arial"; /* Fuente */
+    -fx-text-fill: #9672cf; /* Color del texto */
+    -fx-padding: 5 10 5 10; /* Espaciado interior (arriba, derecha, abajo, izquierda) */
+    -fx-background-color: transparent;
+
+}
+.tituloRadioButton{
+    -fx-font-family: "Arial"; /* Fuente */
+    -fx-font-size: 12px; /* Tamaño de fuente */
+    -fx-text-fill: #382352; /* Color del texto */
+    -fx-padding: 5 10 5 10; /* Espaciado interior (arriba, derecha, abajo, izquierda) */
+    -fx-background-color: transparent;
+    -fx-font-weight: bold; /* Fuente negrita */
+
+}
+.tituloRadioButton2{
+    -fx-font-family: "Arial"; /* Fuente */
+    -fx-font-size: 11px; /* Tamaño de fuente */
+    -fx-text-fill: #382352; /* Color del texto */
+    -fx-padding: 5 10 5 10; /* Espaciado interior (arriba, derecha, abajo, izquierda) */
+    -fx-background-color: transparent;
+    -fx-font-weight: bold; /* Fuente negrita */
+
+}

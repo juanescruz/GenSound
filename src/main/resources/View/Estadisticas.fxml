@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="262.0" prefWidth="400.0" style="-fx-border-color: #9672cf; -fx-border-width: 15;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EstadisticasController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="80.0" prefWidth="400.0">
+         <children>
+            <Label styleClass="tiulo" stylesheets="@../CSS/label.css" text="Estadísticas" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="400.0">
+         <children>
+            <Label styleClass="subtitulo1" stylesheets="@../CSS/label.css" text="Género más utilizado:">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="generoMas" styleClass="subtitulo2" stylesheets="@../CSS/label.css" text="Label" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="400.0">
+         <children>
+            <Label styleClass="subtitulo1" stylesheets="@../CSS/label.css" text="Artista más popular:">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="artistaMas" styleClass="subtitulo2" stylesheets="@../CSS/label.css" text="Label" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

@@ -47,6 +47,11 @@ public class PopUpDeshacerController {
         }).start();
     }
 
+    /**
+     * Método invocado al hacer clic en el botón de "Deshacer"
+     * @param actionEvent El evento de acción que desencadenó este método.
+     * @throws IOException Si ocurre un error durante la carga del archivo FXML del popup.
+     */
     @FXML
     public void OnDeshacerClick(ActionEvent actionEvent) throws IOException {
 
@@ -80,7 +85,9 @@ public class PopUpDeshacerController {
         stage.show();
 
     }
-
+    /**
+     * Método estático para mostrar información sobre las canciones actualizadas después de la función deshacer.
+     */
     private static void mostrarInformacionDeLaLista() {
 
         System.out.println();

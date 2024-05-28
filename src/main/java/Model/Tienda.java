@@ -3,6 +3,7 @@ package Model;
 import Archivos.ArchivoUtils;
 import Estructuras.Arbol.ArbolBinario;
 import Estructuras.Lista.ListaIterador;
+import Estructuras.ListaCircular.IteradorCircular;
 import Estructuras.ListaCircular.ListaCircular;
 import lombok.Data;
 
@@ -30,6 +31,11 @@ public class Tienda {
     private static final Logger LOGGER = Logger.getLogger(Tienda.class.getName());
 
 
+    /**
+     * Método estático para obtener la instancia única de la clase Tienda (implementación del patrón Singleton).
+     *
+     * @return La instancia única de la clase Tienda.
+     */
     public static Tienda getInstance() {
         if(Tienda == null){
             try {
@@ -40,6 +46,10 @@ public class Tienda {
         }
         return Tienda;
     }
+    /**
+     * Constructor de la clase Tienda.
+     * @throws Exception Si ocurre algún error al leer los usuarios, artistas o canciones.
+     */
     private Tienda() throws Exception {
 
         try {
@@ -57,12 +67,18 @@ public class Tienda {
         leerUsuarios();
 
         this.artistas= new ArbolBinario();
+        leerArtistas();
 
         this.admin=new Administrador();
         leerArtistasCanciones();
 
-    }
 
+    }
+    /**
+     * Este método lee el usuarios de los artistas del archivo usuarios
+     * @param
+     * @return
+     */
     private void leerUsuarios() {
         try {
             Object objeto = ArchivoUtils.deserializarObjeto("src/main/resources/Archivos/usuarios.bin");
@@ -71,6 +87,11 @@ public class Tienda {
             e.printStackTrace();
         }
     }
+    /**
+     * Este método escribe el HashMap de los usuarios del archivo usuarios
+     * @param
+     * @return
+     */
     private void escribirUsuarios() {
         try {
             ArchivoUtils.serializarObjeto("src/main/resources/Archivos/usuarios.bin", usuarios);
@@ -78,6 +99,36 @@ public class Tienda {
             e.printStackTrace();
         }
     }
+    /**
+     * Método privado para leer los artistas desde un archivo binario y deserializarlos en el árbol binario de artistas.
+     * @param
+     * @return
+     */
+    private void leerArtistas() {
+        try {
+            Object objeto = ArchivoUtils.deserializarObjeto("src/main/resources/Archivos/artistas.bin");
+            this.artistas = (ArbolBinario) objeto;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    /**
+     * Método privado para serializar el árbol binario de artistas y escribirlo en un archivo binario.
+     * @param
+     * @return
+     */
+    private void escribirArtistas() {
+        try {
+            ArchivoUtils.serializarObjeto("src/main/resources/Archivos/artistas.bin", artistas);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    /**
+     * Este método agrega al usuario dado por parámetro al HashMap usuarios
+     * @param usuario objeto Usuario registrado
+     * @return
+     */
     public void agregarUsuarios(Usuario usuario){
         usuarios.put(usuario.getUsername(), usuario);
         escribirUsuarios();
@@ -105,12 +156,11 @@ public class Tienda {
 
                 if(esArtista){
                     String [] valores= linea.split(";");
-                    System.out.println(imprimirArreglo(valores));
-                    this.artistas.agregarArtista(new Artista(Integer.parseInt(valores[0]),valores[1],valores[2],Boolean.parseBoolean(valores[3]),new ListaDoble<>()));
-
+                    if( this.artistas.buscarArtistaPorId( Integer.parseInt(valores[0]) ) == null ) {
+                        this.artistas.agregarArtista(new Artista(Integer.parseInt(valores[0]), valores[1], valores[2], Boolean.parseBoolean(valores[3]), new ListaDoble<>()));
+                    }
                 }else if (esCancion){
                     String [] valores= linea.split(";");
-                    System.out.println(imprimirArreglo(valores));
                     guardarCancionArtista(valores);
                 }
 
@@ -121,63 +171,89 @@ public class Tienda {
         }
 
     }
+
+    /**
+     * Este método crea una canción con los valores dados por parametro, y se la agrega al artista dado el el arreglo[0]
+     * @param valores Arreglo con los parámetros para crear una cancion
+     * @return
+     */
     private void guardarCancionArtista(String[] valores) {
-        Cancion cancion= new Cancion((int) Math.random(), valores[1], valores[2], Integer.parseInt(valores[3]),Double.parseDouble(valores[4]),valores[5],valores[6]);
+        Cancion cancion= new Cancion((int) (Math.random()*100), valores[1], valores[2], Integer.parseInt(valores[3]),Double.parseDouble(valores[4]),valores[5],valores[6], valores[7]);
         artistas.buscarArtistaPorId(Integer.parseInt(valores[0])).getCanciones().agregarfinal(cancion);
 
-    }
-    public String imprimirArreglo(String [] array){
-        String aux="";
-        for(int i=0; i<array.length; i++){
-            aux +=""+array[i];
-        }
-        return aux;
-    }
 
+    }
+    /**
+     * Este método comprueba que exista el usuario dado su nombre de usuario
+     * @param username nombre de usuario del usuario
+     * @return false, si no existe, true, si existe
+     */
     public boolean existeUsuario(String username){
        return usuarios.containsKey(username);
     }
+
+    /**
+     * Este método retorna un usuario dado sus nombre de usuario
+     * @param username nombre de usuario del usuario
+     * @return usuario que le corresponde el username
+     */
     public Usuario getUser(String username){
         return usuarios.get(username);
     }
+
+    /**
+     * Este método comprueba que, dado un nombre de usuario, la contraseña dada
+     * corresponde con la del usuario
+     * @param username nombre de usuario del usuario, contrasena contraseña del usuario
+     * @return false, si no es correcta, true, si es correcta
+     */
     public boolean contrasenaCorrecta(String username, String contrasena){
         if(usuarios.get(username).getContrasenia().equals(contrasena)){
             return true;
         }
         return false;
     }
-    public boolean correoExiste(String correo){
-        boolean flag= false;
-        for(Map.Entry<String, Usuario>entry: usuarios.entrySet()){
-            if(usuarios.get(entry).getEmail().equals(correo)){
-                flag= true;
-            }
-        }
-        return flag;
-    }
+    /**
+     * Este método elimina la cancion dada de la lista de favoritos de un usuario
+     * @param usuario usuario de la tienda, cancion cancion del catalogo del usuario
+     * @return
+     */
     public void eliminarCancion(Usuario usuario, Cancion cancion){
         usuario.getCancionesFav().borrar(cancion);
-
+        escribirUsuarios();
     }
+    /**
+     * Este método agrega una cancion a la lista de canciones favoritas del usuario
+     * @param usuario usuario de la tienda, cancion cancion del catalogo de la tienda
+     * @return true, si se pudo agregar la canción, false, si no se pudo agregar la canción
+     */
     public boolean agregarCancion(Usuario usuario, Cancion cancion){
 
-        if ( ! (InicioSesion.getInstance().getUsuario().getCancionesFav().contains(cancion) ) ){
+        if (!usuario.getCancionesFav().contains(cancion)){
             usuario.getCancionesFav().insertar(cancion);
+            escribirUsuarios();
             return true;
         } else {
             JOptionPane.showMessageDialog(null, "La canción ya se encuentra en tu playlist.", "Información.", JOptionPane.INFORMATION_MESSAGE);
         }
         return false;
     }
-    public void ordenarCancionesAnio(Usuario usuario, Cancion cancion){
+    /**
+     * Este método devuelve las canciones de un artista, dado su nombre
+     * @param nombre nombre del artista
+     * @return cancionesArtista canciones del artista
 
-    }
+     */
     public List<Cancion> buscarArtista(String nombre) {
         List<Cancion> cancionesArtista = new ArrayList<>();
         buscarArtistaRec(artistas.getRaiz(), nombre, cancionesArtista);
         return cancionesArtista;
     }
-
+    /**
+     * Este método devuelve las canciones de un artista, dado su nombre
+     * @param nombre nombre del artista, nodo nodo del arbol,
+     * @return cancionesArtista canciones del artista
+     */
     private void buscarArtistaRec(Nodo nodo, String nombre, List<Cancion> cancionesArtista) {
         if (nodo != null) {
             Artista artista = nodo.getArtista();
@@ -196,21 +272,18 @@ public class Tienda {
         }
     }
 
-
     /**
-     * Este metodo busca canciones con dos atributos, si hay coincidencia en cualquier atributo, retornara la cancion
-     * implementa hilos para buscar en los subarboles
-     * @param atributo1
-     * @param atributo2
-     * @return
+     * Este metodo se encarga de buscar las canciones que coincidan con los atributos enviados, pueden coincidir con al menos uno
+     * @param atributos atributos para realizar filtrar
+     * @return canciones filtradas de tipo HashSet dado los atributos
      */
-    public List<Cancion> buscarCancionesO(String atributo1, String atributo2) {
-        List<Cancion> canciones = new ArrayList<>();
+    public List<Cancion> buscarCancionesO(String[] atributos) {
+        Set<Cancion> cancionesSet = new HashSet<>();
 
-        buscarCancionesORecursivo(artistas.getRaiz(), atributo1, atributo2, canciones);
+        buscarCancionesORecursivo(artistas.getRaiz(), atributos, cancionesSet);
 
-        Thread hiloIzquierdo = new Thread(() -> buscarCancionesORecursivo(artistas.getRaiz().getIzquierdo(), atributo1, atributo2, canciones));
-        Thread hiloDerecho = new Thread(() -> buscarCancionesORecursivo(artistas.getRaiz().getDerecho(), atributo1, atributo2, canciones));
+        Thread hiloIzquierdo = new Thread(() -> buscarCancionesORecursivo(artistas.getRaiz().getIzquierdo(), atributos, cancionesSet));
+        Thread hiloDerecho = new Thread(() -> buscarCancionesORecursivo(artistas.getRaiz().getDerecho(), atributos, cancionesSet));
 
         hiloIzquierdo.start();
         hiloDerecho.start();
@@ -222,67 +295,78 @@ public class Tienda {
             e.printStackTrace();
         }
 
-        return canciones;
+        return new ArrayList<>(cancionesSet);
     }
-
     /**
-     * Este método busca canciones que contienen al menos uno de los atributos en el nombre de la canción o el álbum,
-     * explorando de manera recursiva el árbol de artistas.
-     *
-     * @param nodo      El nodo desde el cual se inicia la búsqueda.
-     * @param atributo1 El primer atributo a buscar.
-     * @param atributo2 El segundo atributo a buscar.
-     * @param canciones La lista donde se agregan las canciones encontradas.
+     * Este metodo se encarga de buscar las canciones que coincidan con los atributos enviados, pueden coincidir con al menos uno
+     * @param atributos atributos para realizar filtrar
+     * @return canciones filtradas de tipo HashSet dado los atributos
      */
-    private void buscarCancionesORecursivo(Nodo nodo, String atributo1, String atributo2, List<Cancion> canciones) {
+    private void buscarCancionesORecursivo(Nodo nodo, String[] atributos, Set<Cancion> canciones) {
         if (nodo != null) {
             ListaDoble cancionesArtista = nodo.getArtista().getCanciones();
             NodoDoble<Cancion> current = cancionesArtista.getNodoPrimero();
             while (current != null) {
                 Cancion cancion = current.getValorNodo();
-                boolean contieneAtributo1 = cancion.getNombreCancion().contains(atributo1);
-                boolean contieneAtributo2 = cancion.getNombreCancion().contains(atributo2);
-                boolean contieneAtributoAlbum1 = cancion.getNombreAlbum().contains(atributo1);
-                boolean contieneAtributoAlbum2 = cancion.getNombreAlbum().contains(atributo2);
-                if ((contieneAtributo1 || contieneAtributo2) || (contieneAtributoAlbum1 || contieneAtributoAlbum2)) {
-                    canciones.add(cancion);
+                for (String atributo : atributos) {
+                    if (cancion.getNombreCancion().contains(atributo) || cancion.getNombreAlbum().contains(atributo) || cancion.getGenero().contains(atributo)) {
+                        canciones.add(cancion);
+                        break;
+                    }
                 }
                 current = current.getSiguienteNodo();
             }
-            buscarCancionesORecursivo(nodo.getIzquierdo(), atributo1, atributo2, canciones);
-            buscarCancionesORecursivo(nodo.getDerecho(), atributo1, atributo2, canciones);
-        }
-    }
-
-    public List<Cancion> buscarCancionesY(String atributo1, String atributo2) {
-        Set<Cancion> cancionesSet = new HashSet<>();
-        buscarCancionesYRecursivo(artistas.getRaiz(), atributo1, atributo2, cancionesSet);
-
-        List<Cancion> canciones = new ArrayList<>(cancionesSet);
-        return canciones;
-    }
-
-    private void buscarCancionesYRecursivo(Nodo nodo, String atributo1, String atributo2, Set<Cancion> canciones) {
-        if (nodo != null) {
-            ListaDoble cancionesArtista = nodo.getArtista().getCanciones();
-            NodoDoble<Cancion> current = cancionesArtista.getNodoPrimero();
-            while (current != null) {
-                Cancion cancion = current.getValorNodo();
-                // Verificar si la canción contiene ambos atributos en el nombre de la canción y el álbum
-                if (cancion.getNombreCancion().contains(atributo1) && cancion.getNombreAlbum().contains(atributo2)) {
-                    canciones.add(cancion);
-                }
-                current = current.getSiguienteNodo();
-            }
-            buscarCancionesYRecursivo(nodo.getIzquierdo(), atributo1, atributo2, canciones);
-            buscarCancionesYRecursivo(nodo.getDerecho(), atributo1, atributo2, canciones);
+            buscarCancionesORecursivo(nodo.getIzquierdo(), atributos, canciones);
+            buscarCancionesORecursivo(nodo.getDerecho(), atributos, canciones);
         }
     }
 
     /**
-     * este metodo busca el id del artista dado, y se agrega la cancion a su lista de canciones
-     * @param cancion
-     * @param codArtista
+     * Método para buscar canciones que coincidan con todos los atributos proporcionados.
+     * @param atributos Un arreglo de cadenas que representa los atributos de las canciones que se desean buscar.
+     * @return Una lista de canciones que coinciden con todos los atributos proporcionados.
+     */
+    public List<Cancion> buscarCancionesY(String[] atributos) {
+        Set<Cancion> cancionesSet = new HashSet<>();
+        buscarCancionesYRecursivo(artistas.getRaiz(), atributos, cancionesSet);
+
+        return new ArrayList<>(cancionesSet);
+    }
+    /**
+     * Método recursivo para buscar canciones que coincidan con todos los atributos proporcionados.
+     * @param nodo El nodo actual en el árbol de artistas.
+     * @param atributos Un arreglo de cadenas que representa los atributos de las canciones que se desean buscar.
+     * @param canciones El conjunto de canciones donde se almacenarán los resultados encontrados.
+     */
+    private void buscarCancionesYRecursivo(Nodo nodo, String[] atributos, Set<Cancion> canciones) {
+        if (nodo != null) {
+            ListaDoble cancionesArtista = nodo.getArtista().getCanciones();
+            NodoDoble<Cancion> current = cancionesArtista.getNodoPrimero();
+            while (current != null) {
+                Cancion cancion = current.getValorNodo();
+                boolean todosAtributosCoinciden = true;
+                for (String atributo : atributos) {
+                    if (!(cancion.getNombreCancion().contains(atributo) || cancion.getNombreAlbum().contains(atributo) || cancion.getGenero().contains(atributo))) {
+                        todosAtributosCoinciden = false;
+                        break;
+                    }
+                }
+                if (todosAtributosCoinciden) {
+                    canciones.add(cancion);
+                }
+                current = current.getSiguienteNodo();
+            }
+            buscarCancionesYRecursivo(nodo.getIzquierdo(), atributos, canciones);
+            buscarCancionesYRecursivo(nodo.getDerecho(), atributos, canciones);
+        }
+    }
+
+
+    /**
+     * Método para agregar una nueva canción a la lista de canciones de un artista específico.
+     * @param cancion El objeto de tipo Cancion que se desea agregar.
+     * @param codArtista El código único del artista al cual se desea agregar la canción.
+     * @throws Exception Si no se encuentra un artista con el código proporcionado, se lanza una excepción.
      */
     public void agregarCancion(Cancion cancion, int codArtista) throws Exception {
         Artista artista =artistas.buscarArtistaPorId(codArtista);
@@ -295,24 +379,33 @@ public class Tienda {
 
     }
     /**
-     * este metodo agrega un artista dado por parámetro al arbol binario de artistas que hay en la tienda
-     * @param artista
+     * Método para agregar un nuevo artista a la lista de artistas.
+     * @param artista El objeto de tipo Artista que se desea agregar.
+     * @throws Exception Si el artista ya está presente en la lista, se lanza una excepción.
      */
     public void agregarArtista(Artista artista) throws Exception {
         if(artistas.buscarArtistaPorId(artista.getCodigoArtista())!=null){
             throw new Exception("El artista ya se encuentra agregado");
         }
         artistas.agregarArtista(artista);
+        escribirArtistas();
         System.out.println(artistas.toString());
     }
 
+    /**
+     * Este metodo se encarga de obtener todas las canciones de todos los artistas de la tienda
+     * @param
+     * @return canciones Arraylist con todas las canciones favoritas de todos los usuarios de la tienda
+     */
     public List<Cancion> obtenerCanciones(){
         return artistas.obtenerTodasLasCanciones();
     }
-    public ArrayList<Artista> obtenerArtistas(){
-        return artistas.preorderAr();
-    }
 
+    /**
+     * Este metodo se encarga de encontrar el género más popular de la tienda
+     * @param
+     * @return generoMasRepetido genero más repetido de la tienda
+     */
     public String hallarGeneroMasRepetido() {
         List<Cancion> canciones = obtenerCanciones();
         Map<String, Integer> conteoGeneros = new HashMap<>();
@@ -329,5 +422,84 @@ public class Tienda {
             }
         }
         return generoMasRepetido;
+    }
+    /**
+     * Este metodo se encarga de encontrar el artista más popular de la tienda
+     * @param
+     * @return artistaMasRepetido artista más popular de la tienda
+     */
+    public Artista hallarArtistaMasPopular() throws NullPointerException{
+
+        Artista artistaAux= new Artista();
+        List<Cancion> canciones= obtenerCancionesUs();
+        if(canciones==null){
+            throw new NullPointerException("No hay ninguna canción likeada");
+        }
+
+        System.out.println("Canciones:");
+        System.out.println(canciones);
+
+        Map<Artista, Integer> conteoArtistas = new HashMap<>();
+        for (Cancion cancion : canciones) {
+            artistaAux = hallarArtistaCancion(cancion);
+
+            System.out.println("Artista Aux:");
+            System.out.println(artistaAux);
+            conteoArtistas.put(artistaAux, conteoArtistas.getOrDefault(artistaAux, 0) + 1);
+        }
+
+        System.out.println( conteoArtistas );
+        Artista artistaMasRepetido = null;
+        int maximoConteo = 0;
+        for (Map.Entry<Artista, Integer> entry : conteoArtistas.entrySet()) {
+            if (entry.getValue() > maximoConteo) {
+                artistaMasRepetido = entry.getKey();
+                maximoConteo = entry.getValue();
+            }
+        }
+        return artistaMasRepetido;
+    }
+    /**
+     * Este metodo se encarga de obtener todas las canciones de todos los artistas de la tienda
+     * @param
+     * @return canciones Arraylist con todas las canciones favoritas de todos los usuarios de la tienda
+     */
+    public List<Cancion> obtenerCancionesUs(){
+        List<Cancion> canciones= new ArrayList<>();
+        for(Usuario user: usuarios.values()){
+            int contador = 0;
+            for (Cancion cancion : user.getCancionesFav()) {
+                if(contador == user.getCancionesFav().getTamanio()){
+                    break;
+                }else{
+                    canciones.add(cancion);
+                }
+                contador++;
+            }
+        }
+        return canciones;
+    }
+    /**
+     * Este metodo halla el artista al que le corresponda la canción dada por parámetro
+     * @param cancion cancion a la que se le desea hallar el artista
+     * @return artista artsita al que le corresponda la canción
+     */
+    public Artista hallarArtistaCancion(Cancion cancion){
+        Artista artista= new Artista();
+        ArrayList<Artista> arts= artistas.preorderAr();
+
+        System.out.println("Artistas ArbolPre:");
+        System.out.println(arts);
+
+        for(Artista ar:arts){
+            ListaIterador<Cancion> iterador= ar.getCanciones().iterator();
+            while(iterador.hasNext()){
+                if(cancion.getNombreCancion().equals(iterador.next().getNombreCancion())){
+                    artista=ar;
+                    break;
+                }
+            }
+        }
+        return artista;
     }
 }

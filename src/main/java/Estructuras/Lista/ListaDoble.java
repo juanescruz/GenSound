@@ -1,9 +1,10 @@
 package Estructuras.Lista;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListaDoble<T> implements Iterable<T> {
+public class ListaDoble<T> implements Iterable<T>, Serializable{
     private NodoDoble<T> nodoPrimero;
     private NodoDoble<T> nodoUltimo;
     private int tamanio;
@@ -26,7 +27,9 @@ public class ListaDoble<T> implements Iterable<T> {
     //Metodos basicos
 
 
-    //Agregar al inicio de la lista
+    /*
+     *Agregar al inicio de la lista
+     */
     public void agregarInicio(T valorNodo) {
 
         NodoDoble<T> nuevoNodo = new NodoDoble<>(valorNodo);
@@ -44,7 +47,9 @@ public class ListaDoble<T> implements Iterable<T> {
     }
 
 
-    //Agregar al final de la lista
+    /*
+     *Agregar al final de la lista
+     */
     public void agregarfinal(T valorNodo) {
 
         NodoDoble<T> nuevoNodo = new NodoDoble<>(valorNodo);
@@ -63,7 +68,9 @@ public class ListaDoble<T> implements Iterable<T> {
         tamanio++;
     }
 
-
+    /*
+    *Metodo para agregar un dato a la lista
+    */
     public void agregar(T dato, int indice) {
 
         if(indiceValido(indice)) {
@@ -84,7 +91,9 @@ public class ListaDoble<T> implements Iterable<T> {
             }
         }
     }
-
+    /*
+     * Metodo para obtener todos los valores de la lista
+     */
     public List<T> obtenerTodosLosElementos() {
         List<T> elementos = new ArrayList<>();
         NodoDoble<T> actual = nodoPrimero;

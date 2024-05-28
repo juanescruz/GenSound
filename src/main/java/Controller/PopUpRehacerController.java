@@ -36,7 +36,9 @@ public class PopUpRehacerController {
             });
         }).start();
     }
-
+    /**
+     * Método invocado al hacer clic en el botón de "Rehacer".
+     */
     public void OnRehacerClick(ActionEvent actionEvent) {
 
         Stage stage = (Stage) MensajeLabel.getScene().getWindow();
@@ -50,7 +52,9 @@ public class PopUpRehacerController {
         mostrarInformacionDeLaLista();
 
     }
-
+    /**
+     * Método estático para mostrar información sobre las canciones actualizadas después de la función rehacer.
+     */
     private static void mostrarInformacionDeLaLista() {
 
         System.out.println();

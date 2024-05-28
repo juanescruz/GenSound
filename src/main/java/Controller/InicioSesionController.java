@@ -3,6 +3,7 @@ package Controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
@@ -12,7 +13,8 @@ import java.util.ResourceBundle;
 public class InicioSesionController implements Initializable {
     @FXML
     HBox HBoxMain;
-
+    @FXML
+    BorderPane borderInicio;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -21,7 +23,7 @@ public class InicioSesionController implements Initializable {
             Pane inicioSesion = loader.load();
 
             // Agregar el componente al HBox
-            HBoxMain.getChildren().add(inicioSesion);
+            borderInicio.setCenter(inicioSesion);
         } catch (Exception e) {
             e.printStackTrace();
         }

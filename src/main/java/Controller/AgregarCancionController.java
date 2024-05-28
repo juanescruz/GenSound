@@ -8,6 +8,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,6 +22,8 @@ public class AgregarCancionController implements Initializable {
     @FXML
     private TextField anioCancion;
 
+    @FXML
+    private Button btnMostrar;
     @FXML
     private Button btnAgregar;
 
@@ -41,22 +45,29 @@ public class AgregarCancionController implements Initializable {
     @FXML
     private TextField urlCancion;
 
+    @FXML
+    private ImageView previewCaratula;
+
 
     private Tienda tienda = Tienda.getInstance();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         generoCancion.getItems().addAll(
                 "Rock", "Pop", "Punk", "Reggaeton","Electrónica"
         );
-    }
 
+    }
+    /**
+     * Método público para agregar una canción a un artista en específico.
+     */
     public void agregarCancion(){
         try {
             tienda.agregarCancion(new Cancion(RandomGenerator.getDefault().nextInt(),nombreCancion.getText(),
                     nombreAlbum.getText(),Integer.parseInt(anioCancion.getText()),
-                    Double.parseDouble(duracionCancion.getText()), generoCancion.getItems().toString(),
-                    urlCancion.toString()), Integer.parseInt(codArtista.getText()));
+                    Double.parseDouble(duracionCancion.getText()), generoCancion.getValue(),
+                    urlCancion.getText(), direccionCaratula.getText()), Integer.parseInt(codArtista.getText()));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -65,5 +76,19 @@ public class AgregarCancionController implements Initializable {
         alert.setTitle("Info");
         alert.setContentText("Canción agregada correctamente");
         alert.show();
+    }
+    /**
+     * Método público para mostrar una imagen en el componente `previewCaratula`.
+     */
+    public void mostrarImagen(){
+        String imagePath = direccionCaratula.getText();
+        Image image = null;
+        try {
+            image = new Image(getClass().getClassLoader().getResourceAsStream(imagePath));
+            previewCaratula.setImage(image);
+        } catch (NullPointerException e) {
+            System.err.println("No se pudo cargar la imagen en la ruta: " + imagePath);
+            e.printStackTrace();
+        }
     }
 }
