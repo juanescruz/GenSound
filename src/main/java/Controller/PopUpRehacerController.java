@@ -18,7 +18,8 @@ public class PopUpRehacerController {
     @FXML
     public Label MensajeLabel;
     @FXML
-    public Button BotonDeshacer;
+    public Button BotonReshacer;
+
     private InicioUsuarioController inicioUsuarioController;
     public void initialize() {
 

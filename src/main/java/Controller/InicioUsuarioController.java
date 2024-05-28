@@ -1,7 +1,6 @@
 package Controller;
 
 import App.MainApp;
-import Estructuras.ListaCircular.ListaCircular;
 import Model.Cancion;
 import Model.InicioSesion;
 import Model.Tienda;
@@ -11,10 +10,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import lombok.Getter;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,7 +23,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class InicioUsuarioController implements Initializable {
-    @FXML
+
+    @FXML @Getter
     public BorderPane BorderPane;
     @FXML
     private TextField txtBuscar;
@@ -199,18 +199,6 @@ public class InicioUsuarioController implements Initializable {
     }
 
     public void onPlayListClick(){
-
-        //------Ejemplo------
-        System.out.println("----------------------");
-        System.out.println("Ejemplo");
-
-        ListaCircular<Integer> integers = new ListaCircular<>();
-        integers.insertar(1);
-        integers.insertar(2);
-        integers.insertar(3);
-        System.out.println("Esta? " + integers.contains(4));
-        System.out.println("----------------------");
-        //------Ejemplo------
 
         mostrarInformacionDeLaLista();
         pintarPlaylist();
