@@ -8,6 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
@@ -56,14 +57,14 @@ public class RegistroComponentController {
         errorUserLabel.setText("");
     }
     public void cambiarComponente(){
-        HBox stage = (HBox) mainPane.getParent();
+        BorderPane stage = (BorderPane) mainPane.getParent();
         try {
             // Cargar el FXML del componente
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/loginComponent.fxml"));
             Pane registro = loader.load();
 
             // Agregar el componente al HBox
-            stage.getChildren().set(1,registro );
+            stage.setCenter(registro );
         } catch (Exception e) {
             e.printStackTrace();
         }

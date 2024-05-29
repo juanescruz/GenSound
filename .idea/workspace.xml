@@ -7,12 +7,16 @@
     <list default="true" id="e0733166-e11a-48ce-9994-7685f220df1d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioUsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioUsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/PopUpDeshacerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/PopUpDeshacerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/PopUpRehacerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/PopUpRehacerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/RegistroComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/RegistroComponentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Deshacer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Deshacer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/ListaCircular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/ListaCircular.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Rehacer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Rehacer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Rehacer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Archivos/artistas" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Archivos/artistas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Archivos/artistas.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Archivos/artistas.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/View/PopUpDeshacer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/PopUpDeshacer.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/View/PopUpRehacer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/PopUpRehacer.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Estructuras/ListaCircular/ListaCircularTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Estructuras/ListaCircular/ListaCircularTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -163,8 +167,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ListaCircularTest.rehacerInsercion" />
-        <item itemvalue="JUnit.ListaCircularTest.rehacerEliminacion" />
         <item itemvalue="JUnit.ListaCircularTest" />
+        <item itemvalue="JUnit.ListaCircularTest.rehacerEliminacion" />
         <item itemvalue="JUnit.ListaCircularTest.deshacerEliminacion" />
         <item itemvalue="JUnit.ListaCircularTest.deshacerInsercion" />
       </list>

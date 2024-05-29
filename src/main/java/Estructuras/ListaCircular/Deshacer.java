@@ -12,13 +12,7 @@ public class Deshacer<T> implements Serializable {
         this.nodoBorrado = nodoBorrado;
     }
 
-    public void deshacer(ListaCircular<T> listaCircular, Stack<Rehacer<T>> pilaRehacer){
-
-//        System.out.println("Se hace push a la pila rehacer");
-//
-//        pilaRehacer.push(new Rehacer<>(nodoAnterior, nodoBorrado));
-//
-//        System.out.println("Se terminó se pushear.");
+    public void deshacer(ListaCircular<T> listaCircular){
 
         if (nodoAnterior == null){
             listaCircular.borrar(nodoBorrado.getValorNodo());
@@ -31,6 +25,7 @@ public class Deshacer<T> implements Serializable {
             }
 
             deshacerEliminacion(listaCircular);
+
         }
     }
 
@@ -50,11 +45,15 @@ public class Deshacer<T> implements Serializable {
             }
             ultimoNodo.setSiguienteNodo(listaCircular.getCabeza());
 
+            listaCircular.setTamanio(listaCircular.getTamanio() + 1);
+
         } else {
             // Si el nodo eliminado no era el primer nodo
             nodoAnterior.setSiguienteNodo(nodoBorrado);
+            nodoBorrado.setSiguienteNodo(nodoAnterior.getSiguienteNodo().getSiguienteNodo());
+
+            listaCircular.setTamanio(listaCircular.getTamanio() - 1);
         }
 
-        listaCircular.setTamanio(listaCircular.getTamanio() + 1);
     }
 }

@@ -68,16 +68,28 @@ class ListaCircularTest {
         ListaCircular<Integer> listaCircular = new ListaCircular<>();
         // Inicializamos la lista e insertamos un elemento, luego deshacemos la inserción
         listaCircular.insertar(1); // Método ficticio para agregar
-        //listaCircular.insertar(2);
+        listaCircular.insertar(2);
+        listaCircular.insertar(3);
 
         listaCircular.deshacer(); // Deshacemos la inserción
 
         // Se asume que deshacer mueve la operación a pilaRehacer
-        assertFalse(listaCircular.contains(1)); // La lista no debería contener el elemento 1 después de deshacer
+        assertFalse(listaCircular.contains(3)); // La lista no debería contener el elemento 1 después de deshacer
 
         listaCircular.deshacer(); // Llamamos al método rehacer
 
-        assertTrue(listaCircular.contains(1)); // La lista debería contener el elemento 1 después de rehacer
+        assertTrue(listaCircular.contains(3)); // La lista debería contener el elemento 1 después de rehacer
+
+        listaCircular.imprimirLista();
+
+        listaCircular.deshacer(); // Deshacemos la inserción
+
+        // Se asume que deshacer mueve la operación a pilaRehacer
+        assertFalse(listaCircular.contains(3)); // La lista no debería contener el elemento 1 después de deshacer
+
+        listaCircular.deshacer(); // Llamamos al método rehacer
+
+        assertTrue(listaCircular.contains(3)); // La lista debería contener el elemento 1 después de rehacer
 
     }
 }

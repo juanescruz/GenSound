@@ -37,7 +37,7 @@ public class PopUpRehacerController {
         }).start();
     }
     /**
-     * Método invocado al hacer clic en el botón de "Rehacer".
+     * Método invocado al hacer clic en el botón de "rehacer".
      */
     public void OnRehacerClick(ActionEvent actionEvent) {
 
@@ -47,9 +47,11 @@ public class PopUpRehacerController {
         Usuario usuario = InicioSesion.getInstance().getUsuario();
         usuario.getCancionesFav().deshacer();
 
+        usuario.getCancionesFav().getPilaDeshacer().clear();
+
         inicioUsuarioController.pintarPlaylist();
 
-        mostrarInformacionDeLaLista();
+//        mostrarInformacionDeLaLista();
 
     }
     /**

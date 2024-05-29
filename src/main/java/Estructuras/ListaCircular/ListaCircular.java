@@ -15,8 +15,8 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
     private Nodo<T> cola;
     @Getter
     private int tamanio;
+    @Getter
     private final Stack<Deshacer<T>> pilaDeshacer;
-    private final Stack<Rehacer<T>> pilaRehacer;
 
 
     public ListaCircular() {
@@ -25,7 +25,6 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
         this.cabeza = null;
         this.tamanio = 0;
         this.pilaDeshacer = new Stack<>();
-        this.pilaRehacer = new Stack<>();
     }
 
     public void setTamanio(int tamanio){
@@ -35,21 +34,9 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
     public void deshacer() {
         if (!pilaDeshacer.isEmpty()) {
             Deshacer<T> operacionDeshacer = pilaDeshacer.pop();
-            operacionDeshacer.deshacer(this, this.pilaRehacer);
+            operacionDeshacer.deshacer(this);
         }
     }
-
-//    public void rehacer(){
-//
-//        if (!pilaRehacer.isEmpty()){
-//            System.out.println("Sirvió");
-//            Rehacer<T> operacionRehacer = pilaRehacer.pop();
-//            operacionRehacer.rehacer(this);
-//        } else {
-//            System.out.println("La pila está vacía.");
-//        }
-//
-//    }
 
     // Método para insertar un elemento en la lista
     public void insertar(T dato) {
@@ -68,7 +55,6 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
         tamanio++;
 
         pilaDeshacer.push(new Deshacer<>(null, nuevoNodo));
-        pilaRehacer.clear();
     }
 
     public void borrar(T dato){
@@ -103,7 +89,6 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
             }
 
             pilaDeshacer.push(new Deshacer<>(previo, actual));
-            pilaRehacer.clear();
 
             tamanio--;
 

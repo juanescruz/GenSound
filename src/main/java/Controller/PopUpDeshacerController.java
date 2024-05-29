@@ -63,7 +63,7 @@ public class PopUpDeshacerController {
 
         inicioUsuarioController.pintarPlaylist();
 
-        mostrarInformacionDeLaLista();
+//        mostrarInformacionDeLaLista();
 
         FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/PopUpRehacer.fxml") );
         Parent parent = loader.load();

@@ -245,8 +245,7 @@ public class InicioUsuarioController implements Initializable {
     }
 
     public void onPlayListClick(){
-
-        mostrarInformacionDeLaLista();
+//        mostrarInformacionDeLaLista();
         pintarPlaylist();
     }
     /**
@@ -255,11 +254,6 @@ public class InicioUsuarioController implements Initializable {
     public void pintarPlaylist(){
 
         vBoxCanciones.getChildren().clear();
-
-        System.out.println();
-        System.out.println("Tamano lista canciones: " + inicioSesion.getUsuario().getCancionesFav().getTamanio());
-        System.out.println();
-
 
         try {
 
