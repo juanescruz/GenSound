@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
 <Pane fx:id="mainPane" prefHeight="768.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RegistroComponentController">
@@ -59,6 +60,7 @@
             </Label>
             <PasswordField fx:id="pwdField" layoutX="108.0" layoutY="429.0" onMouseClicked="#cambiarEstadoPwd" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 65;" />
             <PasswordField fx:id="pwdConField" layoutX="108.0" layoutY="530.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 65;" />
+            <SVGPath content="M374.212,182.3H39.432l100.152-99.767c4.704-4.704,4.704-12.319,0-17.011c-4.704-4.704-12.319-4.704-17.011,0L3.474,184.61c-4.632,4.632-4.632,12.379,0,17.011l119.1,119.1c4.704,4.704,12.319,4.704,17.011,0c4.704-4.704,4.704-12.319,0-17.011L39.432,206.36h334.779c6.641,0,12.03-5.39,12.03-12.03S380.852,182.3,374.212,182.3z" fill="#dbb6f2" layoutX="-136.50360107421875" layoutY="-155.0979995727539" onMouseClicked="#volverInicioSesion" scaleX="0.2" scaleY="0.2" scaleZ="0.5" />
          </children></Pane>
    </children>
 </Pane>
