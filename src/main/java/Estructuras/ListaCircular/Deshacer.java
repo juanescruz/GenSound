@@ -18,6 +18,7 @@ public class Deshacer<T> implements Serializable {
             listaCircular.borrar(nodoBorrado.getValorNodo());
         } else {
 
+            //Verificacion de que sea la cabeza
             if (listaCircular.getCabeza() == null){
                 listaCircular.setCabeza(nodoBorrado);
                 listaCircular.getCabeza().setSiguienteNodo(listaCircular.getCabeza());
