@@ -35,13 +35,18 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
         this.tamanio = tamanio;
     }
 
+    /**
+     * Deshace la última operación realizada en la lista, si hay alguna disponible en la pila de deshacer.
+     */
     public void deshacer() {
         if (!pilaDeshacer.isEmpty()) {
             Deshacer<T> operacionDeshacer = pilaDeshacer.pop();
             operacionDeshacer.deshacer(this, pilaRehacer);
         }
     }
-
+    /**
+     * Rehace la última operación deshecha en la lista, si hay alguna disponible en la pila de rehacer.
+     */
     public void rehacer(){
         if (!pilaRehacer.isEmpty()){
             Rehacer<T> operacionRehacer = pilaRehacer.pop();
@@ -49,7 +54,10 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
         }
     }
 
-    // Método para insertar un elemento en la lista
+    /**
+     * Inserta un nuevo nodo con el dato especificado al final de la lista circular.
+     * @param dato El dato que se va a insertar en el nuevo nodo.
+     */
     public void insertar(T dato) {
         Nodo<T> nuevoNodo = new Nodo<>(dato);
         if (cabeza == null) {
@@ -68,7 +76,10 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
         pilaDeshacer.push(new Deshacer<>(null, nuevoNodo));
         pilaRehacer.clear();
     }
-
+    /**
+     * Elimina el nodo que contiene el dato especificado de la lista circular.
+     * @param dato El dato que se va a eliminar de la lista.
+     */
     public void borrar(T dato){
 
         Nodo<T> previo = cabeza;
@@ -140,7 +151,12 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
 
         } while (actual != cabeza);
     }*/
-
+    /**
+     * Comprueba si la lista circular contiene el valor especificado.
+     *
+     * @param value El valor que se va a buscar en la lista.
+     * @return true si la lista contiene el valor especificado, false en caso contrario.
+     */
     public boolean contains(T value) {
         if (cabeza == null) {
             return false;  // La lista está vacía
@@ -181,7 +197,13 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
     }
 
 
-    //Verificar si indice es valido
+    /**
+     * Verifica si el índice especificado es válido dentro de la lista.
+     *
+     * @param indice El índice a verificar.
+     * @return true si el índice es válido, false en caso contrario.
+     * @throws RuntimeException Si el índice no es válido.
+     */
     private boolean indiceValido(int indice) {
         if( indice>=0 && indice<tamanio ) {
             return true;
@@ -209,6 +231,12 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
         System.out.println();
     }
 
+    /**
+     * Obtiene el nodo en la posición especificada dentro de la lista.
+     *
+     * @param indice El índice del nodo a obtener.
+     * @return El nodo en la posición especificada, o null si el índice está fuera del rango válido.
+     */
     private Nodo<T> obtenerNodo(int indice) {
 
         if(indice>=0 && indice<tamanio) {

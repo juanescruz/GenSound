@@ -24,11 +24,11 @@ public class ListaDoble<T> implements Iterable<T>, Serializable{
             return false;
         }
     }
-    //Metodos basicos
 
-
-    /*
-     *Agregar al inicio de la lista
+    /**
+     * Agrega un nuevo nodo al inicio de la lista doblemente enlazada.
+     *
+     * @param valorNodo El valor del nodo a agregar.
      */
     public void agregarInicio(T valorNodo) {
 
@@ -46,9 +46,9 @@ public class ListaDoble<T> implements Iterable<T>, Serializable{
         tamanio++;
     }
 
-
-    /*
-     *Agregar al final de la lista
+    /**
+     * Agrega un nuevo nodo al final de la lista doblemente enlazada.
+     * @param valorNodo El valor del nodo a agregar.
      */
     public void agregarfinal(T valorNodo) {
 
@@ -68,7 +68,7 @@ public class ListaDoble<T> implements Iterable<T>, Serializable{
         tamanio++;
     }
 
-    /*
+    /**
     *Metodo para agregar un dato a la lista
     */
     public void agregar(T dato, int indice) {
@@ -91,8 +91,9 @@ public class ListaDoble<T> implements Iterable<T>, Serializable{
             }
         }
     }
-    /*
-     * Metodo para obtener todos los valores de la lista
+    /**
+     * Obtiene todos los elementos almacenados en la lista y los devuelve como una lista.
+     * @return Una lista que contiene todos los elementos almacenados en la lista doblemente enlazada.
      */
     public List<T> obtenerTodosLosElementos() {
         List<T> elementos = new ArrayList<>();
@@ -136,8 +137,12 @@ public class ListaDoble<T> implements Iterable<T>, Serializable{
     }
 
 
-    //Verificar si indice es valido
-    private boolean indiceValido(int indice) {
+    /**
+     * Verifica si el índice proporcionado es válido para acceder a un elemento en la lista.
+     * @param indice El índice a verificar.
+     * @return true si el índice es válido, false de lo contrario.
+     * @throws RuntimeException si el índice no es válido.
+     */    private boolean indiceValido(int indice) {
         if( indice>=0 && indice<tamanio ) {
             return true;
         }
