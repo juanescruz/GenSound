@@ -108,14 +108,15 @@ public class InicioUsuarioController implements Initializable {
         buscandoEnPlaylist = false;
         try {
             List<Cancion> canciones = tienda.obtenerCanciones();
-            for (int i = 0; i < canciones.size(); i++) {
-                vBoxCanciones.getChildren().add(cargarCancionInicio(canciones.get(i)));
+            for (Cancion cancion : canciones) {
+
+                vBoxCanciones.getChildren().add(cargarCancionInicio(cancion));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-  
+
     /**
      * Método para cargar y configurar un nodo de canción en la interfaz de inicio.
      * @param cancion La canción para la cual se cargará el nodo en la interfaz.
