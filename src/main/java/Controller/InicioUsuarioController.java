@@ -299,18 +299,17 @@ public class InicioUsuarioController implements Initializable {
      * Ordena las canciones según el atributo seleccionado de manera ascendente o descendente y actualiza la lista de canciones en la interfaz de usuario.
      * @param ascendente Un booleano que indica si las canciones deben ser ordenadas de manera ascendente (true) o descendente (false).
      */
-  
     private void ordenarCanciones(boolean ascendente) {
         List<Cancion> cancionesAOrdenar;
 
-        if (!cancionesBuscadas.isEmpty()) {
-            cancionesAOrdenar = new ArrayList<>(cancionesBuscadas);
-        } else if (buscandoEnPlaylist && !cancionesPlaylist.isEmpty()) {
+        // Determinar el conjunto de canciones a ordenar basado en el contexto
+        if (buscandoEnPlaylist && !cancionesPlaylist.isEmpty()) {
             cancionesAOrdenar = new ArrayList<>(cancionesPlaylist);
         } else {
-            cancionesAOrdenar = tienda.obtenerCanciones();
+            cancionesAOrdenar = new ArrayList<>(tienda.obtenerCanciones());
         }
 
+        // Ordenar las canciones solo si la lista no está vacía
         if (cancionesAOrdenar != null && !cancionesAOrdenar.isEmpty()) {
             String atributo = comboBoxAtributos.getValue();
             if (atributo != null && !atributo.isEmpty()) {
@@ -338,6 +337,8 @@ public class InicioUsuarioController implements Initializable {
                     comparator = comparator.reversed();
                 }
                 cancionesAOrdenar.sort(comparator);
+
+                // Actualizar la lista de canciones mostrada en la interfaz
                 actualizarListaCanciones(cancionesAOrdenar);
             }
         }
@@ -358,15 +359,21 @@ public class InicioUsuarioController implements Initializable {
         }
     }
 
-
+    /**
+     * Busca los artistas en la Playlist del usuario
+     * @param artistaBuscado
+     * @return
+     */
     private List<Cancion> buscarArtistaEnPlaylist(String artistaBuscado) {
-        List<Cancion> resultado = new ArrayList<>();
+
         List<Artista> artistas = Tienda.getInstance().obtenerTodosLosArtistas();
+        List<Cancion> resultado = new ArrayList<>();
+
         for (Artista artista : artistas) {
             if (artista.getNombreArtista().equalsIgnoreCase(artistaBuscado)) {
                 for (Cancion cancionDelArtista : artista.getCanciones()) {
                     for (Cancion cancionPlaylist : cancionesPlaylist) {
-                        if (cancionDelArtista.equals(cancionPlaylist)) {
+                        if (cancionDelArtista.getNombreCancion().equals(cancionPlaylist.getNombreCancion())) {
                             resultado.add(cancionDelArtista);
                             break;
                         }
@@ -377,66 +384,100 @@ public class InicioUsuarioController implements Initializable {
         }
         return resultado;
     }
-
-
-
     /**
      * Redirige a la ventana de inicio de sesión.
      */
     public void volverInicioSesion() {
         try{
-        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/View/inicioSesion.fxml"));
-        Parent parent = loader.load();
-        Stage stage = new Stage();
-        Scene scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.setTitle("GenSound");
-        Stage scene1 = (Stage) txtBuscar.getParent().getScene().getWindow();
-        scene1.close();
-        stage.show();
-    } catch (IOException ioException) {
-        ioException.printStackTrace();
+            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/View/inicioSesion.fxml"));
+            Parent parent = loader.load();
+            Stage stage = new Stage();
+            Scene scene = new Scene(parent);
+            stage.setScene(scene);
+            stage.setTitle("GenSound");
+            Stage scene1 = (Stage) txtBuscar.getParent().getScene().getWindow();
+            scene1.close();
+            stage.show();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
     }
-    }
-
-}
 
 
-    private List<Cancion> buscarCancionesOEnPlaylist(String[] atributos) {
+    public List<Cancion> buscarCancionesOEnPlaylist(String[] atributos) {
+        // Lista para almacenar el resultado de la búsqueda
         List<Cancion> resultado = new ArrayList<>();
-        for (Cancion cancion : cancionesPlaylist) {
-            for (String atributo : atributos) {
-                if (cancion.getNombreCancion().equalsIgnoreCase(atributo) ||
-                        cancion.getNombreAlbum().equalsIgnoreCase(atributo) ||
-                        cancion.getGenero().equalsIgnoreCase(atributo) ||
-                        String.valueOf(cancion.getAnio()).equals(atributo) ||
-                        String.valueOf(cancion.getDuracion()).equals(atributo)) {
+
+        // Crear hilos para la búsqueda en paralelo
+        List<Thread> threads = new ArrayList<>();
+        for (Cancion cancion : InicioSesion.getInstance().getUsuario().getCancionesFav()) {
+            Thread hilo = new Thread(() -> {
+                // Verificar si al menos un atributo coincide
+                for (String atributo : atributos) {
+                    if (coincideConAtributo(cancion, atributo)) {
+                        resultado.add(cancion);
+                        break;
+                    }
+                }
+            });
+            threads.add(hilo);
+            hilo.start();
+        }
+
+        // Esperar a que todos los hilos terminen su ejecución
+        for (Thread thread : threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return resultado;
+    }
+
+    public List<Cancion> buscarCancionesYEnPlaylist(String[] atributos) {
+        // Lista para almacenar el resultado de la búsqueda
+        List<Cancion> resultado = new ArrayList<>();
+
+        // Crear hilos para la búsqueda en paralelo
+        List<Thread> threads = new ArrayList<>();
+        for (Cancion cancion : InicioSesion.getInstance().getUsuario().getCancionesFav()) {
+            Thread hilo = new Thread(() -> {
+                // Verificar si todos los atributos coinciden
+                boolean coincide = true;
+                for (String atributo : atributos) {
+                    if (!coincideConAtributo(cancion, atributo)) {
+                        coincide = false;
+                        break;
+                    }
+                }
+                if (coincide) {
                     resultado.add(cancion);
-                    break;
                 }
+            });
+            threads.add(hilo);
+            hilo.start();
+        }
+
+        // Esperar a que todos los hilos terminen su ejecución
+        for (Thread thread : threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
+
         return resultado;
     }
 
-    private List<Cancion> buscarCancionesYEnPlaylist(String[] atributos) {
-        List<Cancion> resultado = new ArrayList<>();
-        for (Cancion cancion : cancionesPlaylist) {
-            boolean coincide = true;
-            for (String atributo : atributos) {
-                if (!(cancion.getNombreCancion().equalsIgnoreCase(atributo) ||
-                        cancion.getNombreAlbum().equalsIgnoreCase(atributo) ||
-                        cancion.getGenero().equalsIgnoreCase(atributo) ||
-                        String.valueOf(cancion.getAnio()).equals(atributo) ||
-                        String.valueOf(cancion.getDuracion()).equals(atributo))) {
-                    coincide = false;
-                    break;
-                }
-            }
-            if (coincide) {
-                resultado.add(cancion);
-            }
-        }
-        return resultado;
+    private boolean coincideConAtributo(Cancion cancion, String atributo) {
+        // Verificar si el atributo coincide con algún atributo de la canción
+        return cancion.getNombreCancion().equalsIgnoreCase(atributo) ||
+                cancion.getNombreAlbum().equalsIgnoreCase(atributo) ||
+                cancion.getGenero().equalsIgnoreCase(atributo) ||
+                String.valueOf(cancion.getAnio()).equals(atributo) ||
+                String.valueOf(cancion.getDuracion()).equals(atributo);
     }
 }
