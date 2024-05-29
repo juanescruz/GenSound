@@ -1,6 +1,7 @@
 package Controller;
 
 import App.MainApp;
+import Model.Artista;
 import Model.Cancion;
 import Model.InicioSesion;
 import Model.Tienda;
@@ -10,7 +11,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
@@ -33,10 +33,13 @@ public class InicioUsuarioController implements Initializable {
 
     @FXML
     private RadioButton radioButtonY;
+
     @FXML
     private VBox vBoxCanciones;
+
     @FXML
     private VBox vboxLista;
+
     @FXML
     private ComboBox<String> comboBoxAtributos;
 
@@ -45,53 +48,63 @@ public class InicioUsuarioController implements Initializable {
 
     @FXML
     private Button btnOrdenarDescendente;
+
     private ReproductorController reproductorController;
     private CancionInicioController cancionInicioController;
-    private final InicioSesion inicioSesion= InicioSesion.getInstance();
+    private final InicioSesion inicioSesion = InicioSesion.getInstance();
+    private final Tienda tienda = Tienda.getInstance();
 
-    private Tienda tienda= Tienda.getInstance();
+    // Lista para almacenar las canciones buscadas temporalmente
+    private List<Cancion> cancionesBuscadas = new ArrayList<>();
+
+    // Lista para almacenar las canciones de la playlist temporalmente
+    private List<Cancion> cancionesPlaylist = new ArrayList<>();
+
+    private boolean buscandoEnPlaylist = false; // Para saber si se está buscando en la playlist
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ToggleGroup toggleGroup = new ToggleGroup();
+        radioButtonArtista.setToggleGroup(toggleGroup);
+        radioButtonO.setToggleGroup(toggleGroup);
+        radioButtonY.setToggleGroup(toggleGroup);
 
         txtBuscar.setPromptText("Ingresa Albúm,Nombre de la canción para busqueda Y/O");
         cargarComboBoxAtributos();
         pintarCancionesInicio();
-        FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/Reproductor.fxml") );
+        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/View/Reproductor.fxml"));
         try {
             Parent parent = loader.load();
             reproductorController = loader.getController();
             reproductorController.setInicioUsuarioController(this);
             vboxLista.getChildren().add(1, parent);
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         btnOrdenarAscendente.setOnAction(event -> ordenarCanciones(true));
         btnOrdenarDescendente.setOnAction(event -> ordenarCanciones(false));
-
     }
+
     private void cargarComboBoxAtributos() {
         comboBoxAtributos.getItems().addAll("Nombre", "Album", "Año", "Duración", "Género");
         comboBoxAtributos.setOnAction(event -> ordenarCanciones(true));
     }
 
-
     public void pintarCancionesInicio() {
         vBoxCanciones.getChildren().clear();
+        buscandoEnPlaylist = false;
         try {
-            List<Cancion> canciones= tienda.obtenerCanciones();
-            for (int i = 0; i<canciones.size(); i++) {
+            List<Cancion> canciones = tienda.obtenerCanciones();
+            for (int i = 0; i < canciones.size(); i++) {
                 vBoxCanciones.getChildren().add(cargarCancionInicio(canciones.get(i)));
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
-    public Parent cargarCancionInicio(Cancion cancion) throws Exception{
 
-        FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/CancionInicio.fxml") );
+    public Parent cargarCancionInicio(Cancion cancion) throws Exception {
+        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/View/CancionInicio.fxml"));
         Parent parent = loader.load();
 
         cancionInicioController = loader.getController();
@@ -100,8 +113,8 @@ public class InicioUsuarioController implements Initializable {
         cancionInicioController.setIconoInteraccion();
         cancionInicioController.cargarDatos(cancion);
         return parent;
-
     }
+
     public void reproducirCancion(Cancion cancion) {
         reproductorController.setURLCancion(cancion.getUrl());
     }
@@ -113,14 +126,19 @@ public class InicioUsuarioController implements Initializable {
         String[] atributos = parametros.split(",");
 
         if (radioButtonArtista.isSelected()) {
-            if(atributos.length>1){
+            if (atributos.length > 1) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Información");
                 alert.setContentText("Ingrese solo el nombre del artista.");
                 alert.show();
-            }else{
+            } else {
                 System.out.println("Parametro: " + parametros);
-                cancionesSet.addAll(tienda.buscarArtista(atributos[0]));
+                System.out.println("Está buscando en playlist: "+buscandoEnPlaylist);
+                if (buscandoEnPlaylist) {
+                    cancionesSet.addAll(buscarArtistaEnPlaylist(atributos[0]));
+                } else {
+                    cancionesSet.addAll(tienda.buscarArtista(atributos[0]));
+                }
             }
         } else if (radioButtonO.isSelected()) {
             if (atributos.length < 2) {
@@ -130,7 +148,11 @@ public class InicioUsuarioController implements Initializable {
                 alert.show();
                 throw new Exception("Ingrese al menos dos parámetros separados por comas para hacer la búsqueda O.");
             }
-            cancionesSet.addAll(tienda.buscarCancionesO(atributos));
+            if (buscandoEnPlaylist) {
+                cancionesSet.addAll(buscarCancionesOEnPlaylist(atributos));
+            } else {
+                cancionesSet.addAll(tienda.buscarCancionesO(atributos));
+            }
         } else if (radioButtonY.isSelected()) {
             if (atributos.length < 2) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -139,33 +161,28 @@ public class InicioUsuarioController implements Initializable {
                 alert.show();
                 throw new Exception("Ingrese al menos dos parámetros separados por comas para hacer la búsqueda Y.");
             }
-            cancionesSet.addAll(tienda.buscarCancionesY(atributos));
+            if (buscandoEnPlaylist) {
+                cancionesSet.addAll(buscarCancionesYEnPlaylist(atributos));
+            } else {
+                cancionesSet.addAll(tienda.buscarCancionesY(atributos));
+            }
         }
 
-        List<Cancion> canciones = new ArrayList<>(cancionesSet);
-        System.out.println("Canciones en controller: " + canciones);
+        cancionesBuscadas = new ArrayList<>(cancionesSet); // Almacenar las canciones buscadas
+        System.out.println("Canciones en controller: " + cancionesBuscadas);
         Label label = new Label();
         label.setText("No se encontró ninguna coincidencia");
 
-        if (canciones.isEmpty()) {
+        if (cancionesBuscadas.isEmpty()) {
             vBoxCanciones.getChildren().clear();
             vBoxCanciones.getChildren().add(label);
         } else {
-            vBoxCanciones.getChildren().clear();
-            for (Cancion cancion : canciones) {
-                try {
-                    vBoxCanciones.getChildren().add(cargarCancionInicio(cancion));
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
-            }
+            actualizarListaCanciones(cancionesBuscadas);
         }
     }
 
-
-    public Parent cargarCancionPlayList(Cancion cancion) throws Exception{
-
-        FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/CancionInicio.fxml") );
+    public Parent cargarCancionPlayList(Cancion cancion) throws Exception {
+        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/View/CancionInicio.fxml"));
         Parent parent = loader.load();
 
         cancionInicioController = loader.getController();
@@ -177,29 +194,42 @@ public class InicioUsuarioController implements Initializable {
         cancionInicioController.cargarDatos(cancion);
 
         return parent;
-
     }
-    public void pintarPlaylist(){
-        vBoxCanciones.getChildren().clear();
-        try {
-            int contador=0;
-            for (Cancion cancion : inicioSesion.getUsuario().getCancionesFav()) {
 
-                if(contador==inicioSesion.getUsuario().getCancionesFav().getTamanio()){
+    public void pintarPlaylist() {
+        vBoxCanciones.getChildren().clear();
+        cancionesPlaylist.clear(); // Limpiar la lista de canciones de la playlist
+        try {
+            int contador = 0;
+            for (Cancion cancion : inicioSesion.getUsuario().getCancionesFav()) {
+                if (contador == inicioSesion.getUsuario().getCancionesFav().getTamanio()) {
                     break;
-                }else{
+                } else {
                     vBoxCanciones.getChildren().add(cargarCancionPlayList(cancion));
+                    cancionesPlaylist.add(cancion); // Añadir la canción a la lista de canciones de la playlist
                 }
                 contador++;
             }
-        }catch (Exception e){
+            // Actualizar el estado de buscandoEnPlaylist
+            buscandoEnPlaylist = true;
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+
     private void ordenarCanciones(boolean ascendente) {
-        List<Cancion> canciones = tienda.obtenerCanciones();
-        if (canciones != null && !canciones.isEmpty()) {
+        List<Cancion> cancionesAOrdenar;
+
+        if (!cancionesBuscadas.isEmpty()) {
+            cancionesAOrdenar = new ArrayList<>(cancionesBuscadas);
+        } else if (buscandoEnPlaylist && !cancionesPlaylist.isEmpty()) {
+            cancionesAOrdenar = new ArrayList<>(cancionesPlaylist);
+        } else {
+            cancionesAOrdenar = tienda.obtenerCanciones();
+        }
+
+        if (cancionesAOrdenar != null && !cancionesAOrdenar.isEmpty()) {
             String atributo = comboBoxAtributos.getValue();
             if (atributo != null && !atributo.isEmpty()) {
                 Comparator<Cancion> comparator;
@@ -225,8 +255,8 @@ public class InicioUsuarioController implements Initializable {
                 if (!ascendente) {
                     comparator = comparator.reversed();
                 }
-                canciones.sort(comparator);
-                actualizarListaCanciones(canciones);
+                cancionesAOrdenar.sort(comparator);
+                actualizarListaCanciones(cancionesAOrdenar);
             }
         }
     }
@@ -242,6 +272,57 @@ public class InicioUsuarioController implements Initializable {
         }
     }
 
+    private List<Cancion> buscarArtistaEnPlaylist(String artistaBuscado) {
+        List<Cancion> resultado = new ArrayList<>();
+        List<Artista> artistas = Tienda.getInstance().obtenerArtistas();
+
+        for (Artista artista : artistas) {
+            if (artista.getNombreArtista().equalsIgnoreCase(artistaBuscado)) {
+                for (Cancion cancion : artista.getCanciones()) {
+                    if (cancionesPlaylist.contains(cancion)) {
+                        resultado.add(cancion);
+                    }
+                }
+                break; // Si se encuentra el artista, no es necesario seguir buscando
+            }
+        }
+        return resultado;
+    }
+    private List<Cancion> buscarCancionesOEnPlaylist(String[] atributos) {
+        List<Cancion> resultado = new ArrayList<>();
+        for (Cancion cancion : cancionesPlaylist) {
+            for (String atributo : atributos) {
+                if (cancion.getNombreCancion().equalsIgnoreCase(atributo) ||
+                        cancion.getNombreAlbum().equalsIgnoreCase(atributo) ||
+                        cancion.getGenero().equalsIgnoreCase(atributo) ||
+                        String.valueOf(cancion.getAnio()).equals(atributo) ||
+                        String.valueOf(cancion.getDuracion()).equals(atributo)) {
+                    resultado.add(cancion);
+                    break;
+                }
+            }
+        }
+        return resultado;
+    }
+
+    private List<Cancion> buscarCancionesYEnPlaylist(String[] atributos) {
+        List<Cancion> resultado = new ArrayList<>();
+        for (Cancion cancion : cancionesPlaylist) {
+            boolean coincide = true;
+            for (String atributo : atributos) {
+                if (!(cancion.getNombreCancion().equalsIgnoreCase(atributo) ||
+                        cancion.getNombreAlbum().equalsIgnoreCase(atributo) ||
+                        cancion.getGenero().equalsIgnoreCase(atributo) ||
+                        String.valueOf(cancion.getAnio()).equals(atributo) ||
+                        String.valueOf(cancion.getDuracion()).equals(atributo))) {
+                    coincide = false;
+                    break;
+                }
+            }
+            if (coincide) {
+                resultado.add(cancion);
+            }
+        }
+        return resultado;
+    }
 }
-
-

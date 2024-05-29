@@ -9,6 +9,7 @@ import lombok.*;
 @Setter
 @Getter
 @AllArgsConstructor
+@EqualsAndHashCode
 public class Cancion  {
 
     private int codigoCancion;
