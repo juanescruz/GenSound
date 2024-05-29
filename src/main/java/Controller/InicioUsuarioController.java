@@ -274,20 +274,25 @@ public class InicioUsuarioController implements Initializable {
 
     private List<Cancion> buscarArtistaEnPlaylist(String artistaBuscado) {
         List<Cancion> resultado = new ArrayList<>();
-        List<Artista> artistas = Tienda.getInstance().obtenerArtistas();
-
+        List<Artista> artistas = Tienda.getInstance().obtenerTodosLosArtistas();
         for (Artista artista : artistas) {
             if (artista.getNombreArtista().equalsIgnoreCase(artistaBuscado)) {
-                for (Cancion cancion : artista.getCanciones()) {
-                    if (cancionesPlaylist.contains(cancion)) {
-                        resultado.add(cancion);
+                for (Cancion cancionDelArtista : artista.getCanciones()) {
+                    for (Cancion cancionPlaylist : cancionesPlaylist) {
+                        if (cancionDelArtista.equals(cancionPlaylist)) {
+                            resultado.add(cancionDelArtista);
+                            break;
+                        }
                     }
                 }
-                break; // Si se encuentra el artista, no es necesario seguir buscando
+                break;
             }
         }
         return resultado;
     }
+
+
+
     private List<Cancion> buscarCancionesOEnPlaylist(String[] atributos) {
         List<Cancion> resultado = new ArrayList<>();
         for (Cancion cancion : cancionesPlaylist) {

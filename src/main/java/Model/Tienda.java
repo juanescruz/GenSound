@@ -324,9 +324,20 @@ public class Tienda {
     public List<Cancion> obtenerCanciones(){
         return artistas.obtenerTodasLasCanciones();
     }
-    public ArrayList<Artista> obtenerArtistas(){
-        return artistas.preorderAr();
+    public List<Artista> obtenerTodosLosArtistas() {
+        List<Artista> listaArtistas = new ArrayList<>();
+        obtenerArtistasRecursivo(artistas.getRaiz(), listaArtistas);
+        return listaArtistas;
     }
+
+    private void obtenerArtistasRecursivo(Nodo nodo, List<Artista> listaArtistas) {
+        if (nodo != null) {
+            obtenerArtistasRecursivo(nodo.getIzquierdo(), listaArtistas);
+            listaArtistas.add(nodo.getArtista());
+            obtenerArtistasRecursivo(nodo.getDerecho(), listaArtistas);
+        }
+    }
+
 
     public String hallarGeneroMasRepetido() {
         List<Cancion> canciones = obtenerCanciones();
