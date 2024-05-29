@@ -82,6 +82,7 @@ public class InicioUsuarioController implements Initializable {
         comboBoxAtributos.getItems().addAll("Nombre", "Album", "Año", "Duración", "Género");
         comboBoxAtributos.setOnAction(event -> ordenarCanciones(true));
     }
+
     /**
      * Método para pintar las canciones en la interfaz de inicio.
      */
@@ -89,7 +90,7 @@ public class InicioUsuarioController implements Initializable {
 
         vBoxCanciones.getChildren().clear();
         try {
-            List<Cancion> canciones= tienda.obtenerCanciones();
+            List<Cancion> canciones = tienda.obtenerCanciones();
 
             for (Cancion cancion : canciones) {
 
@@ -100,6 +101,7 @@ public class InicioUsuarioController implements Initializable {
         }
 
     }
+
     /**
      * Método para cargar y configurar un nodo de canción en la interfaz de inicio.
      * @param cancion La canción para la cual se cargará el nodo en la interfaz.
