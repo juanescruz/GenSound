@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioUsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioUsuarioController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/PopUpDeshacerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/PopUpDeshacerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/PopUpRehacerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/PopUpRehacerController.java" afterDir="false" />
@@ -19,6 +20,12 @@
       <change beforePath="$PROJECT_DIR$/src/main/resources/Archivos/artistas.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Archivos/artistas.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Estructuras/ListaCircular/ListaCircularTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Estructuras/ListaCircular/ListaCircularTest.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/logs.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AgregarCancionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AgregarCancionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/InicioAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/InicioAdmin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/InicioUsuario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/InicioUsuario.fxml" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,6 +226,7 @@
       <workItem from="1716836874405" duration="7215000" />
       <workItem from="1716934518329" duration="3066000" />
       <workItem from="1716945063763" duration="5221000" />
+      <workItem from="1716985330940" duration="678000" />
     </task>
     <servers />
   </component>

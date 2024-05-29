@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-
 <BorderPane fx:id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="742.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.InicioUsuarioController">
    <left>
       <VBox alignment="CENTER" prefHeight="500.0" prefWidth="183.0" BorderPane.alignment="CENTER">
