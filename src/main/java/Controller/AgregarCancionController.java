@@ -69,6 +69,10 @@ public class AgregarCancionController implements Initializable {
                     Double.parseDouble(duracionCancion.getText()), generoCancion.getValue(),
                     urlCancion.getText(), direccionCaratula.getText()), Integer.parseInt(codArtista.getText()));
         } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Cuidado");
+            alert.setContentText("Ingrese un artista existente");
+            alert.show();
             throw new RuntimeException(e);
         }
 

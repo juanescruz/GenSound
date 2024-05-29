@@ -35,7 +35,7 @@ public class PopUpDeshacerController {
 
         new Thread(() -> {
             try {
-                Thread.sleep(4000);
+                Thread.sleep(7000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
