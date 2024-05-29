@@ -23,6 +23,14 @@ public class ArbolBinario implements Serializable {
         tamanio++;
     }
 
+
+    /**
+     * Agrega un nuevo artista en el árbol binario de búsqueda.
+     *
+     * @param nodo    El nodo raíz del subárbol donde se agregará el nuevo artista.
+     * @param artista El artista que se va a agregar al árbol.
+     * @return El nodo raíz del subárbol actualizado con el nuevo artista agregado.
+     */
     private Nodo agregarArtistaNodo(Nodo nodo, Artista artista) {
         if (nodo == null) {
             return new Nodo(artista);
@@ -42,7 +50,11 @@ public class ArbolBinario implements Serializable {
     public ArrayList<Artista>  preorderAr() {
         return preorderRecAr(raiz, new ArrayList<>());
     }
-
+    /**
+     * Convierte una lista doblemente enlazada de canciones en un ArrayList de canciones.
+     * @param canciones La lista doblemente enlazada de canciones que se va a convertir.
+     * @return Un ArrayList que contiene todas las canciones de la lista doblemente enlazada.
+     */
     public ArrayList<Cancion> obtenerCanciones(ListaDoble<Cancion> canciones){
         ArrayList<Cancion> songs= new ArrayList<>();
         ListaIterador<Cancion> iterador= canciones.iterator();
@@ -51,6 +63,12 @@ public class ArbolBinario implements Serializable {
         }
         return songs;
     }
+    /**
+     * Realiza un recorrido en preorden de un árbol binario de artistas, recopilando
+     * las canciones de cada artista en una lista.
+     * @param nodo El nodo raíz del árbol binario de artistas desde el cual comenzar el recorrido.
+     * @return Un ArrayList que contiene todas las canciones recopiladas durante el recorrido en preorden.
+     */
     public ArrayList<Cancion> preorderRecCan(Nodo nodo) {
         ArrayList<Cancion> canciones = new ArrayList<>();
         if (nodo != null) {
@@ -60,13 +78,20 @@ public class ArbolBinario implements Serializable {
         }
         return canciones;
     }
-
+    /**
+     * Obtiene una lista con todas las canciones almacenadas en el árbol binario de artistas.
+     * @return Una lista de canciones que contiene todas las canciones del árbol.
+     */
     public List<Cancion> obtenerTodasLasCanciones() {
         List<Cancion> canciones = new ArrayList<>();
         obtenerTodasLasCancionesRec(raiz, canciones);
         return canciones;
     }
-
+    /**
+     * Método recursivo para obtener todas las canciones en el árbol binario de artistas.
+     * @param nodo El nodo actual del árbol binario que se está procesando.
+     * @param canciones La lista de canciones en la que se agregarán las canciones de los artistas.
+     */
     private void obtenerTodasLasCancionesRec(Nodo nodo, List<Cancion> canciones) {
         if (nodo != null) {
             obtenerTodasLasCancionesRec(nodo.getIzquierdo(), canciones);
@@ -80,6 +105,12 @@ public class ArbolBinario implements Serializable {
 
         }
     }
+    /**
+     * Método recursivo para obtener todos los artistas en el árbol binario en orden preorden (pre-order).
+     * @param nodo El nodo actual del árbol binario que se está procesando.
+     * @param artistas La lista de artistas en la que se agregarán los artistas del árbol.
+     * @return La lista de artistas con los artistas agregados en orden preorden.
+     */
     public ArrayList<Artista> preorderRecAr(Nodo nodo, ArrayList<Artista> artistas) {
         if (nodo == null) {
             return artistas;
@@ -100,7 +131,13 @@ public class ArbolBinario implements Serializable {
         return buscarArtistaPorIdRec(raiz, id);
 
     }
-
+    /**
+     * Busca un artista por su identificador en el árbol binario de búsqueda recursivamente.
+     *
+     * @param nodo El nodo actual en la búsqueda.
+     * @param id   El identificador del artista a buscar.
+     * @return El objeto Artista si se encuentra, o null si no se encuentra.
+     */
     private Artista buscarArtistaPorIdRec(Nodo nodo, int id) {
         if (nodo == null || nodo.artista.getCodigoArtista() == id) {
             return nodo != null ? nodo.artista : null;
@@ -117,7 +154,13 @@ public class ArbolBinario implements Serializable {
     public void eliminarArtista(String nombre) {
         raiz = eliminarArtistaRec(raiz, nombre);
     }
-
+    /**
+     * Elimina un artista del árbol binario de búsqueda recursivamente.
+     *
+     * @param nodo El nodo actual en el proceso de eliminación.
+     * @param nombre El nombre del artista a eliminar.
+     * @return El nodo resultante después de eliminar el artista.
+     */
     private Nodo eliminarArtistaRec(Nodo nodo, String nombre) {
         if (nodo == null) {
             return null;
@@ -152,7 +195,11 @@ public class ArbolBinario implements Serializable {
         }
         return nodo;
     }
-
+    /**
+     * Encuentra el sucesor en el árbol binario de búsqueda.
+     * @param nodo El nodo para el cual se desea encontrar el sucesor.
+     * @return El nodo sucesor con el valor más pequeño en el subárbol derecho.
+     */
     private Nodo encontrarSucesor(Nodo nodo) {
         Nodo actual = nodo;
         while (actual.izquierdo != null) {
