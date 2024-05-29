@@ -69,4 +69,7 @@ public class RegistroComponentController {
             e.printStackTrace();
         }
     }
+    public void volverInicioSesion(){
+        cambiarComponente();
+    }
 }

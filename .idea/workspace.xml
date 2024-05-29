@@ -4,225 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0733166-e11a-48ce-9994-7685f220df1d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="0c5b87fd-f6dc-4ab4-b38a-0ed96a8b2975" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.log.1.lck" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.log.lck" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/RegistroComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/RegistroComponentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Deshacer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Deshacer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/registroComponent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/registroComponent.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="CSS File" />
-        <option value="FxmlFile" />
-        <option value="Class" />
-        <option value="JUnit5 Test Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/Estructuras/Arbol/ArbolBinario.java" root0="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
-}</component>
-  <component name="ProjectId" id="2dsp9WZhmj7m3g7ydJhG8a0cLtH" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2h803VopHsPJKMaOgB3qdr3wfnX" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Julian&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="Model" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\ANAMARIA\OneDrive\Documentos\GitHub\GenSound\src\main\resources\View" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="Estructuras.ListaCircular" />
-    </key>
-  </component>
-  <component name="RunManager" selected="JUnit.ListaCircularTest.rehacerInsercion">
-    <configuration name="ListaCircularTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="GenSound" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Estructuras.ListaCircular.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Estructuras.ListaCircular" />
-      <option name="MAIN_CLASS_NAME" value="Estructuras.ListaCircular.ListaCircularTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ListaCircularTest.deshacerEliminacion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="GenSound" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Estructuras.ListaCircular.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Estructuras.ListaCircular" />
-      <option name="MAIN_CLASS_NAME" value="Estructuras.ListaCircular.ListaCircularTest" />
-      <option name="METHOD_NAME" value="deshacerEliminacion" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ListaCircularTest.deshacerInsercion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="GenSound" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Estructuras.ListaCircular.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Estructuras.ListaCircular" />
-      <option name="MAIN_CLASS_NAME" value="Estructuras.ListaCircular.ListaCircularTest" />
-      <option name="METHOD_NAME" value="deshacerInsercion" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ListaCircularTest.rehacerEliminacion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="GenSound" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Estructuras.ListaCircular.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Estructuras.ListaCircular" />
-      <option name="MAIN_CLASS_NAME" value="Estructuras.ListaCircular.ListaCircularTest" />
-      <option name="METHOD_NAME" value="rehacerEliminacion" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ListaCircularTest.rehacerInsercion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="GenSound" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Estructuras.ListaCircular.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Estructuras.ListaCircular" />
-      <option name="MAIN_CLASS_NAME" value="Estructuras.ListaCircular.ListaCircularTest" />
-      <option name="METHOD_NAME" value="rehacerInsercion" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.ListaCircularTest.rehacerInsercion" />
-        <item itemvalue="JUnit.ListaCircularTest" />
-        <item itemvalue="JUnit.ListaCircularTest.rehacerEliminacion" />
-        <item itemvalue="JUnit.ListaCircularTest.deshacerEliminacion" />
-        <item itemvalue="JUnit.ListaCircularTest.deshacerInsercion" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e0733166-e11a-48ce-9994-7685f220df1d" name="Changes" comment="" />
-      <created>1710806491612</created>
+      <changelist id="0c5b87fd-f6dc-4ab4-b38a-0ed96a8b2975" name="Changes" comment="" />
+      <created>1716960198509</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1710806491612</updated>
-      <workItem from="1710806492770" duration="17000" />
-      <workItem from="1710806546791" duration="20000" />
-      <workItem from="1710806570655" duration="21000" />
-      <workItem from="1710806733968" duration="235000" />
-      <workItem from="1710807021859" duration="42000" />
-      <workItem from="1710807099949" duration="44000" />
-      <workItem from="1710807161273" duration="39000" />
-      <workItem from="1710807212339" duration="84000" />
-      <workItem from="1710807297741" duration="18000" />
-      <workItem from="1710807321325" duration="451000" />
-      <workItem from="1711391054023" duration="617000" />
-      <workItem from="1712082376228" duration="3643000" />
-      <workItem from="1712086573744" duration="4596000" />
-      <workItem from="1714424880019" duration="6135000" />
-      <workItem from="1714442891372" duration="1072000" />
-      <workItem from="1714527485827" duration="3663000" />
-      <workItem from="1714763025212" duration="78000" />
-      <workItem from="1714856859777" duration="37000" />
-      <workItem from="1714856957733" duration="67000" />
-      <workItem from="1714858129901" duration="3805000" />
-      <workItem from="1715093387218" duration="322000" />
-      <workItem from="1715490816839" duration="1248000" />
-      <workItem from="1715529066058" duration="559000" />
-      <workItem from="1715564001559" duration="3704000" />
-      <workItem from="1715712717032" duration="7747000" />
-      <workItem from="1715908649729" duration="1662000" />
-      <workItem from="1716155878042" duration="3985000" />
-      <workItem from="1716236473396" duration="5178000" />
-      <workItem from="1716321743309" duration="4791000" />
-      <workItem from="1716581933029" duration="7000" />
-      <workItem from="1716581962679" duration="918000" />
-      <workItem from="1716648613688" duration="9964000" />
-      <workItem from="1716757387795" duration="803000" />
-      <workItem from="1716836874405" duration="7215000" />
-      <workItem from="1716934518329" duration="3066000" />
-      <workItem from="1716945063763" duration="5221000" />
+      <updated>1716960198509</updated>
     </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
