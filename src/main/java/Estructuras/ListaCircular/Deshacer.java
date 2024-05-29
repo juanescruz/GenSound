@@ -1,8 +1,9 @@
 package Estructuras.ListaCircular;
 
+import java.io.Serializable;
 import java.util.Stack;
 
-public class Deshacer<T> {
+public class Deshacer<T> implements Serializable {
     private final Nodo<T> nodoAnterior;
     private final Nodo<T> nodoBorrado;
 
@@ -11,14 +12,21 @@ public class Deshacer<T> {
         this.nodoBorrado = nodoBorrado;
     }
 
-    public void deshacer(ListaCircular<T> listaCircular, Stack<Rehacer<T>> pilaRehacer){
+    public void deshacer(ListaCircular<T> listaCircular){
+
         if (nodoAnterior == null){
             listaCircular.borrar(nodoBorrado.getValorNodo());
         } else {
-            deshacerEliminacion(listaCircular);
-        }
 
-        pilaRehacer.push(new Rehacer<>(nodoAnterior, nodoBorrado));
+            if (listaCircular.getCabeza() == null){
+                listaCircular.setCabeza(nodoBorrado);
+                listaCircular.getCabeza().setSiguienteNodo(listaCircular.getCabeza());
+                return;
+            }
+
+            deshacerEliminacion(listaCircular);
+
+        }
     }
 
     public void deshacerEliminacion(ListaCircular<T> listaCircular) {
@@ -31,16 +39,21 @@ public class Deshacer<T> {
 
             //Reconectar la lista circular
             Nodo<T> ultimoNodo = listaCircular.getCabeza();
+
             while (ultimoNodo.getSiguienteNodo() != null) {
                 ultimoNodo = ultimoNodo.getSiguienteNodo();
             }
             ultimoNodo.setSiguienteNodo(listaCircular.getCabeza());
 
+            listaCircular.setTamanio(listaCircular.getTamanio() + 1);
+
         } else {
             // Si el nodo eliminado no era el primer nodo
             nodoAnterior.setSiguienteNodo(nodoBorrado);
+            nodoBorrado.setSiguienteNodo(nodoAnterior.getSiguienteNodo().getSiguienteNodo());
+
+            listaCircular.setTamanio(listaCircular.getTamanio() - 1);
         }
 
-        listaCircular.setTamanio(listaCircular.getTamanio() + 1);
     }
 }

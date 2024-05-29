@@ -8,6 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -34,6 +36,10 @@ public class LoginComponentController {
     private  Tienda tienda = Tienda.getInstance();
     private final InicioSesion inicioSesion= InicioSesion.getInstance();
 
+    /**
+     * Método para iniciar sesión en la tienda.
+     * @throws IOException Si ocurre un error durante la carga de la vista correspondiente.
+     */
     public void iniciarSesion() throws IOException {
         if(tienda.existeUsuario(usuarioField.getText())){
             if(tienda.contrasenaCorrecta(usuarioField.getText(), pwdField.getText())){
@@ -41,6 +47,8 @@ public class LoginComponentController {
                 System.out.println(inicioSesion.getUsuario());
                 FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/View/InicioUsuario.fxml"));
                 extracted(loader);
+                Stage anterior = (Stage) usuarioError.getParent().getParent().getScene().getWindow();
+                anterior.close();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Info");
                 alert.setContentText("Inicio de sesión correcto");
@@ -57,6 +65,8 @@ public class LoginComponentController {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Info");
                 alert.setContentText("Sesión de administrador iniciada");
+                Stage anterior = (Stage) usuarioError.getParent().getParent().getScene().getWindow();
+                anterior.close();
                 alert.show();
             }else {
                 usuarioError.setText("Usuario no está registrado");
@@ -74,15 +84,18 @@ public class LoginComponentController {
         stage.show();
     }
 
+    /**
+     * Método para redirigir a la ventana de registro.
+     */
     public void irARegistro(){
-        HBox stage = (HBox) PaneMain.getParent();
+        BorderPane stage = (BorderPane) usuarioError.getParent().getParent();
         try {
             // Cargar el FXML del componente
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/registroComponent.fxml"));
             Pane registro = loader.load();
 
             // Agregar el componente al HBox
-            stage.getChildren().set(1,registro );
+            stage.setCenter(registro);
         } catch (Exception e) {
             e.printStackTrace();
         }

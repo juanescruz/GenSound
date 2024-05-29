@@ -1,6 +1,7 @@
 package Estructuras.ListaCircular;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Iterator;
@@ -8,33 +9,22 @@ import java.util.Stack;
 
 public class ListaCircular<T> implements Iterable<T>, Serializable {
 
+    @Getter @Setter
     private Nodo<T> cabeza;
     private Nodo<T> nodoPrimero;
-    private Nodo<T> nodoUltimo;
+    private Nodo<T> cola;
+    @Getter
     private int tamanio;
+    @Getter
     private final Stack<Deshacer<T>> pilaDeshacer;
-    private final Stack<Rehacer<T>> pilaRehacer;
 
 
     public ListaCircular() {
         this.nodoPrimero = null;
-        this.nodoUltimo = null;
+        this.cola = null;
         this.cabeza = null;
         this.tamanio = 0;
         this.pilaDeshacer = new Stack<>();
-        this.pilaRehacer = new Stack<>();
-    }
-
-    public Nodo<T> getCabeza(){
-        return cabeza;
-    }
-
-    public void setCabeza(Nodo<T> nuevaCabeza){
-        this.cabeza = nuevaCabeza;
-    }
-
-    public int getTamanio(){
-        return tamanio;
     }
 
     public void setTamanio(int tamanio){
@@ -44,58 +34,78 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
     public void deshacer() {
         if (!pilaDeshacer.isEmpty()) {
             Deshacer<T> operacionDeshacer = pilaDeshacer.pop();
-            operacionDeshacer.deshacer(this, pilaRehacer);
-        }
-    }
-
-    public void rehacer(){
-        if (!pilaRehacer.isEmpty()){
-            Rehacer<T> operacionRehacer = pilaRehacer.pop();
-            operacionRehacer.rehacer(this);
+            operacionDeshacer.deshacer(this);
         }
     }
 
     // Método para insertar un elemento en la lista
     public void insertar(T dato) {
         Nodo<T> nuevoNodo = new Nodo<>(dato);
-        if (cabeza == null) {
+
+        if (cabeza == null) { // Lista vacía
             cabeza = nuevoNodo;
-            cabeza.setSiguienteNodo(cabeza);
+            cola = nuevoNodo;
+            nuevoNodo.setSiguienteNodo(cabeza); // Apunta a sí mismo
         } else {
-            Nodo<T> actual = cabeza;
-            while (actual.getSiguienteNodo() != cabeza) {
-                actual = actual.getSiguienteNodo();
-            }
-            actual.setSiguienteNodo(nuevoNodo);
+            cola.setSiguienteNodo(nuevoNodo);
             nuevoNodo.setSiguienteNodo(cabeza);
+            cola = nuevoNodo;
         }
+
         tamanio++;
 
         pilaDeshacer.push(new Deshacer<>(null, nuevoNodo));
-        pilaRehacer.clear();
     }
 
-    /*public void insertar(T dato) {
+    public void borrar(T dato){
 
-        Nodo<T> nuevoNodo = new Nodo<>(dato);
-        if (cabeza == null) {
-            cabeza = nuevoNodo;
-            cabeza.setSiguienteNodo(cabeza);
-        } else {
-            Nodo<T> actual = cabeza;
-            while (actual.getSiguienteNodo() != cabeza) {
-                actual = actual.getSiguienteNodo();
+        Nodo<T> previo = cabeza;
+        boolean encontrado = false;
+
+        //buscar el nodo previo
+        do{
+
+            if( previo.getSiguienteNodo().getValorNodo().equals(dato)){
+                encontrado = true;
+                break;
             }
-            actual.setSiguienteNodo(nuevoNodo);
-            nuevoNodo.setSiguienteNodo(cabeza);
+            previo = previo.getSiguienteNodo();
+
+        } while(previo!=cabeza);
+
+        if(encontrado){
+
+            Nodo<T> actual = previo.getSiguienteNodo();
+
+            if(cabeza == cabeza.getSiguienteNodo()){
+                cabeza = null;
+            }else{
+                previo.setSiguienteNodo(actual.getSiguienteNodo());
+
+                if(actual==cabeza) {
+                    cabeza = previo.getSiguienteNodo();
+                }
+
+            }
+
+            pilaDeshacer.push(new Deshacer<>(previo, actual));
+
+            tamanio--;
+
+            actual = null;
+
         }
-        tamanio++;
 
-    }*/
+    }
 
-    public void borrar(T dato) {
+    /*public void borrar(T dato) {
 
         if (cabeza == null) {
+            return;
+        }
+
+        if (dato.equals(cabeza.getValorNodo())){
+            cabeza = null;
             return;
         }
 
@@ -121,6 +131,22 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
             actual = actual.getSiguienteNodo();
 
         } while (actual != cabeza);
+    }*/
+
+    public boolean contains(T value) {
+        if (cabeza == null) {
+            return false;  // La lista está vacía
+        }
+
+        Nodo<T> actual = cabeza;
+        do {
+            if (actual.getValorNodo() == value) {
+                return true;
+            }
+            actual = actual.getSiguienteNodo();
+        } while (actual != cabeza);
+
+        return false;
     }
 
     //Obtener Nodo el valor de un Nodo
@@ -158,7 +184,7 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
 
     //Verificar si la lista esta vacia
     public boolean estaVacia() {
-        return nodoPrimero != null;
+        return cabeza == null;
     }
 
 
@@ -223,41 +249,50 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
     @Override
     public Iterator<T> iterator() {
 
-        return new IteradorListaSimple(cabeza);
+        return new IteradorListaCircular(cabeza);
     }
 
-    protected class IteradorListaSimple implements Iterator<T>{
+    protected class IteradorListaCircular implements Iterator<T>{
 
-        private Nodo<T> nodo;
-        /**
-         * -- GETTER --
-         *  Posici�n actual de la lista
-         *
-         * @return posici�n
-         */
-        @Getter
-        private int posicion;
+        private Nodo<T> referencia;
+        private Nodo<T> actual;
+        private int posicion = 0;
 
         /**
-         * Constructor de la clase Iterador
-         * @param nodo Primer Nodo de la lista
+         * Constructor de la clase IteradorListaCircular
+         * @param referencia
          */
-        public IteradorListaSimple(Nodo<T> nodo) {
-            this.nodo = nodo;
+        public IteradorListaCircular(Nodo<T> referencia) {
+            this.referencia = referencia;
+            this.actual = referencia;
             this.posicion = 0;
         }
 
         @Override
         public boolean hasNext() {
-            return nodo!=null;
+            return actual!=null;
         }
 
         @Override
         public T next() {
-            T valor = nodo.getValorNodo();
-            nodo = nodo.getSiguienteNodo();
+            T aux = actual.getValorNodo();
+
+            if(actual.getSiguienteNodo() == referencia){
+                actual = null;
+            }else{
+                actual = actual.getSiguienteNodo();
+            }
             posicion++;
-            return valor;
+
+            return aux;
+        }
+
+        /**
+         * Posici�n actual de la lista
+         * @return
+         */
+        public int getPosicion() {
+            return posicion;
         }
 
     }

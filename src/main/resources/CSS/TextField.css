@@ -1,0 +1,10 @@
+.textoField{
+    -fx-font-family: "Arial"; /* Fuente */
+    -fx-font-size: 14px; /* Tamaño de fuente */
+    -fx-text-fill: #000000; /* Color del texto */
+    -fx-background-color: #ffffff; /* Color de fondo */
+    /*-fx-border-color: #9672cf;*/ /* Color del borde */
+    -fx-padding: 5 5 5 5; /* Espaciado interior (arriba, derecha, abajo, izquierda) */
+    -fx-effect: dropshadow(gaussian, #888888, 5, 0, 5, 5);
+    -fx-background-radius: 5;
+}

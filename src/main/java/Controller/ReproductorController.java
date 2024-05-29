@@ -19,6 +19,9 @@ public class ReproductorController {
     private boolean pausado=true;
     private InicioUsuarioController inicioUsuarioController;
 
+    /**
+     * Método para reproducir el video.
+     */
     public void reproducir(){
         if (reproduciendo|| pausado){
         cargarVideo();
@@ -36,6 +39,9 @@ public class ReproductorController {
         reproduciendo = true;
     }
 }
+    /**
+     * Método privado para cargar un video en el reproductor.
+     */
     private void cargarVideo() {
         WebEngine webEngine = reproductor.getEngine();
         lblCargando.setText("Cargando...");
@@ -51,6 +57,9 @@ public class ReproductorController {
         // Cargar la página de YouTube
         webEngine.load(urlCancion);
     }
+    /**
+     * Método para pausar la reproducción del video.
+     */
     public void pausar() {
         if (!reproduciendo) {
             // Si ya estaba pausado, no hacemos nada
@@ -62,6 +71,10 @@ public class ReproductorController {
         reproduciendo = false;
         pausado=true;
     }
+    /**
+     * Método para establecer la URL de la canción y reproducir el video correspondiente.
+     * @param url La URL de la canción a establecer.
+     */
     public void setURLCancion(String url){
         this.urlCancion= url;
         reproducir();

@@ -1,5 +1,7 @@
 package Controller;
 
+import App.MainApp;
+import Model.Cancion;
 import Model.InicioSesion;
 import Model.Usuario;
 import javafx.application.Platform;
@@ -13,16 +15,21 @@ import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.File;
 import java.io.IOException;
-
-
+@Setter
+@Getter
 public class PopUpDeshacerController {
 
     @FXML
     public Label MensajeLabel;
     @FXML
     private Button BotonDeshacer;
+    private InicioUsuarioController inicioUsuarioController;
+    private PopUpRehacerController rehacerController;
 
     public void initialize() {
 
@@ -40,18 +47,13 @@ public class PopUpDeshacerController {
         }).start();
     }
 
+    /**
+     * Método invocado al hacer clic en el botón de "Deshacer"
+     * @param actionEvent El evento de acción que desencadenó este método.
+     * @throws IOException Si ocurre un error durante la carga del archivo FXML del popup.
+     */
     @FXML
     public void OnDeshacerClick(ActionEvent actionEvent) throws IOException {
-
-        File url = new File("src/main/resources/View/PopUpRehacer.fxml");
-        FXMLLoader loader = new FXMLLoader(url.toURL());
-        Parent parent = loader.load();
-        Scene scene = new Scene(parent);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.initStyle(StageStyle.UNDECORATED);
-        scene.setFill(Color.TRANSPARENT);
-        stage.show();
 
         Stage stage1 = (Stage) MensajeLabel.getScene().getWindow();
         stage1.close();
@@ -59,6 +61,49 @@ public class PopUpDeshacerController {
         Usuario usuario = InicioSesion.getInstance().getUsuario();
         usuario.getCancionesFav().deshacer();
 
+        inicioUsuarioController.pintarPlaylist();
+
+//        mostrarInformacionDeLaLista();
+
+        FXMLLoader loader = new FXMLLoader( MainApp.class.getResource("/View/PopUpRehacer.fxml") );
+        Parent parent = loader.load();
+        rehacerController = loader.getController();
+        rehacerController.setInicioUsuarioController(inicioUsuarioController);
+        Scene scene = new Scene(parent);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.initStyle(StageStyle.UNDECORATED);
+        scene.setFill(Color.TRANSPARENT);
+
+        Stage mainStage = (Stage) inicioUsuarioController.getBorderPane().getScene().getWindow();
+        double mainStageX = mainStage.getX();
+        double mainStageY = mainStage.getY();
+
+        stage.setX(mainStageX + 10);
+        stage.setY(mainStageY + 80);
+
+        stage.show();
+
+    }
+    /**
+     * Método estático para mostrar información sobre las canciones actualizadas después de la función deshacer.
+     */
+    private static void mostrarInformacionDeLaLista() {
+
+        System.out.println();
+        System.out.println("Canciones actualizadas despues de la funcion deshacer: ");
+
+        int contador = 0;
+
+        for (Cancion cancion : InicioSesion.getInstance().getUsuario().getCancionesFav()) {
+
+            if(contador == InicioSesion.getInstance().getUsuario().getCancionesFav().getTamanio()){
+                break;
+            } else {
+                System.out.println(cancion.getNombreCancion());
+            }
+            contador++;
+        }
     }
 
 }

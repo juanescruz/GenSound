@@ -1,0 +1,14 @@
+.button {
+    -fx-background-color: #9672cf; /* Color de fondo */
+    -fx-font-family: "Arial"; /* Fuente */
+    -fx-font-size: 14px; /* Tamaño de fuente */
+    -fx-text-fill: #ffffff; /* Color del texto (opcional, pero recomendado para asegurarse de que el texto sea legible) */
+    -fx-effect: dropshadow(gaussian, #888888, 5, 0, 5, 5); /* Sombra con valores apropiados */
+    -fx-background-radius: 5;
+    -fx-font-weight: bold;
+}
+.buttonConImagen{
+    -fx-background-color: transparent;
+    -fx-alignment: top-left;
+    -fx-effect: dropshadow(gaussian, #888888, 5, 0, 5, 5); /* Sombra con valores apropiados */
+}
