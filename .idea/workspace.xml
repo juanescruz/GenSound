@@ -7,28 +7,13 @@
     <list default="true" id="e0733166-e11a-48ce-9994-7685f220df1d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AgregarArtistaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AgregarArtistaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AgregarCancionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AgregarCancionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ArtistaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CancionInicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/CancionInicioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InicioUsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/InicioUsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/LoginComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LoginComponentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/PopUpDeshacerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/PopUpDeshacerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/PopUpRehacerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/PopUpRehacerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/RegistroComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/RegistroComponentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ReproductorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ReproductorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/Arbol/ArbolBinario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/Arbol/ArbolBinario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/Lista/ListaDoble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/Lista/ListaDoble.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Deshacer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Deshacer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/ListaCircular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/ListaCircular.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Nodo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Nodo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Rehacer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Rehacer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tienda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Archivos/artistas.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Archivos/artistas.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/View/Artista.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/PopUpDeshacer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/PopUpDeshacer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/View/PopUpRehacer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/PopUpRehacer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Estructuras/ListaCircular/ListaCircularTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Estructuras/ListaCircular/ListaCircularTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,25 +47,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Ana&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Model" />
@@ -95,7 +80,7 @@
       <recent name="Estructuras.ListaCircular" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ListaCircularTest">
+  <component name="RunManager" selected="JUnit.ListaCircularTest.rehacerInsercion">
     <configuration name="ListaCircularTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="GenSound" />
       <extension name="coverage">
@@ -177,10 +162,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ListaCircularTest" />
         <item itemvalue="JUnit.ListaCircularTest.rehacerInsercion" />
-        <item itemvalue="JUnit.ListaCircularTest.deshacerEliminacion" />
         <item itemvalue="JUnit.ListaCircularTest.rehacerEliminacion" />
+        <item itemvalue="JUnit.ListaCircularTest" />
+        <item itemvalue="JUnit.ListaCircularTest.deshacerEliminacion" />
         <item itemvalue="JUnit.ListaCircularTest.deshacerInsercion" />
       </list>
     </recent_temporary>

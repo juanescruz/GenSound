@@ -1,6 +1,7 @@
 package Estructuras.ListaCircular;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Iterator;
@@ -8,7 +9,7 @@ import java.util.Stack;
 
 public class ListaCircular<T> implements Iterable<T>, Serializable {
 
-    @Getter
+    @Getter @Setter
     private Nodo<T> cabeza;
     private Nodo<T> nodoPrimero;
     private Nodo<T> cola;
@@ -27,10 +28,6 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
         this.pilaRehacer = new Stack<>();
     }
 
-    public void setCabeza(Nodo<T> nuevaCabeza){
-        this.cabeza = nuevaCabeza;
-    }
-
     public void setTamanio(int tamanio){
         this.tamanio = tamanio;
     }
@@ -38,16 +35,21 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
     public void deshacer() {
         if (!pilaDeshacer.isEmpty()) {
             Deshacer<T> operacionDeshacer = pilaDeshacer.pop();
-            operacionDeshacer.deshacer(this, pilaRehacer);
+            operacionDeshacer.deshacer(this, this.pilaRehacer);
         }
     }
 
-    public void rehacer(){
-        if (!pilaRehacer.isEmpty()){
-            Rehacer<T> operacionRehacer = pilaRehacer.pop();
-            operacionRehacer.rehacer(this);
-        }
-    }
+//    public void rehacer(){
+//
+//        if (!pilaRehacer.isEmpty()){
+//            System.out.println("Sirvió");
+//            Rehacer<T> operacionRehacer = pilaRehacer.pop();
+//            operacionRehacer.rehacer(this);
+//        } else {
+//            System.out.println("La pila está vacía.");
+//        }
+//
+//    }
 
     // Método para insertar un elemento en la lista
     public void insertar(T dato) {
@@ -63,14 +65,6 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
             cola = nuevoNodo;
         }
 
-//        else {
-//            Nodo<T> actual = cabeza;
-//            while (actual.getSiguienteNodo() != cabeza) {
-//                actual = actual.getSiguienteNodo();
-//            }
-//            actual.setSiguienteNodo(nuevoNodo);
-//            nuevoNodo.setSiguienteNodo(cabeza);
-//        }
         tamanio++;
 
         pilaDeshacer.push(new Deshacer<>(null, nuevoNodo));
@@ -108,10 +102,10 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
 
             }
 
-            tamanio--;
-
             pilaDeshacer.push(new Deshacer<>(previo, actual));
             pilaRehacer.clear();
+
+            tamanio--;
 
             actual = null;
 

@@ -45,7 +45,7 @@ public class PopUpRehacerController {
         stage.close();
 
         Usuario usuario = InicioSesion.getInstance().getUsuario();
-        usuario.getCancionesFav().rehacer();
+        usuario.getCancionesFav().deshacer();
 
         inicioUsuarioController.pintarPlaylist();
 

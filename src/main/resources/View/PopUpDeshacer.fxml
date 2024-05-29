@@ -4,13 +4,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="45.0" prefWidth="221.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #ddb7ff; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PopUpDeshacerController">
+<AnchorPane prefHeight="65.0" prefWidth="170.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #ddb7ff; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PopUpDeshacerController">
 
-   <Label fx:id="MensajeLabel" layoutX="14.0" layoutY="12.0" prefHeight="20.0" prefWidth="161.0" text="¿Desea deshacer los cambios?">
+   <Label fx:id="MensajeLabel" layoutX="27.0" layoutY="14.0" prefHeight="20.0" prefWidth="129.0" text="¿Desea deshacer los cambios?">
       <font>
          <Font size="9.0" />
       </font></Label>
-   <Button fx:id="BotonDeshacer" layoutX="150.0" layoutY="12.0" mnemonicParsing="false" onAction="#OnDeshacerClick" style="-fx-border-color: transparent" text="Deshacer">
+   <Button fx:id="BotonDeshacer" layoutX="60.0" layoutY="34.0" mnemonicParsing="false" onAction="#OnDeshacerClick" style="-fx-border-color: transparent" text="Deshacer">
       <font>
          <Font size="9.0" />
       </font></Button>

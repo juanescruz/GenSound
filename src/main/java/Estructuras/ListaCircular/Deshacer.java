@@ -13,12 +13,25 @@ public class Deshacer<T> implements Serializable {
     }
 
     public void deshacer(ListaCircular<T> listaCircular, Stack<Rehacer<T>> pilaRehacer){
+
+//        System.out.println("Se hace push a la pila rehacer");
+//
+//        pilaRehacer.push(new Rehacer<>(nodoAnterior, nodoBorrado));
+//
+//        System.out.println("Se terminó se pushear.");
+
         if (nodoAnterior == null){
             listaCircular.borrar(nodoBorrado.getValorNodo());
         } else {
+
+            if (listaCircular.getCabeza() == null){
+                listaCircular.setCabeza(nodoBorrado);
+                listaCircular.getCabeza().setSiguienteNodo(listaCircular.getCabeza());
+                return;
+            }
+
             deshacerEliminacion(listaCircular);
         }
-        pilaRehacer.push(new Rehacer<>(nodoAnterior, nodoBorrado));
     }
 
     public void deshacerEliminacion(ListaCircular<T> listaCircular) {
@@ -31,6 +44,7 @@ public class Deshacer<T> implements Serializable {
 
             //Reconectar la lista circular
             Nodo<T> ultimoNodo = listaCircular.getCabeza();
+
             while (ultimoNodo.getSiguienteNodo() != null) {
                 ultimoNodo = ultimoNodo.getSiguienteNodo();
             }
