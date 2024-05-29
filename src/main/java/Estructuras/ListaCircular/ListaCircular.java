@@ -17,6 +17,7 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
     private int tamanio;
     @Getter
     private final Stack<Deshacer<T>> pilaDeshacer;
+    private final Stack<Rehacer<T>> pilaRehacer;
 
 
     public ListaCircular() {
@@ -25,6 +26,7 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
         this.cabeza = null;
         this.tamanio = 0;
         this.pilaDeshacer = new Stack<>();
+        this.pilaRehacer = new Stack<>();
     }
 
     public void setTamanio(int tamanio){
@@ -37,7 +39,14 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
     public void deshacer() {
         if (!pilaDeshacer.isEmpty()) {
             Deshacer<T> operacionDeshacer = pilaDeshacer.pop();
-            operacionDeshacer.deshacer(this);
+            operacionDeshacer.deshacer(this, this.pilaRehacer);
+        }
+    }
+
+    public void rehacer(){
+        if (!pilaRehacer.isEmpty()){
+            Rehacer<T> operacionRehacer = pilaRehacer.pop();
+            operacionRehacer.rehacer(this);
         }
     }
 
@@ -60,12 +69,8 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
 
         tamanio++;
 
-        if (pilaDeshacer.isEmpty()){
-            pilaDeshacer.push(new Deshacer<>(null, nuevoNodo));
-        } else {
-            pilaDeshacer.clear();
-        }
         pilaDeshacer.push(new Deshacer<>(null, nuevoNodo));
+        pilaRehacer.clear();
 
 
     }
@@ -104,11 +109,8 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
 
             }
 
-            if (pilaDeshacer.isEmpty()){
-                pilaDeshacer.push(new Deshacer<>(previo, actual));
-            } else {
-                pilaDeshacer.clear();
-            }
+            pilaDeshacer.push(new Deshacer<>(previo, actual));
+            pilaRehacer.clear();
 
             tamanio--;
 

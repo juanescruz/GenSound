@@ -4,16 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c5b87fd-f6dc-4ab4-b38a-0ed96a8b2975" name="Changes" comment="" />
+    <list default="true" id="0c5b87fd-f6dc-4ab4-b38a-0ed96a8b2975" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Rehacer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.log.2" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log.2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/PopUpRehacerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/PopUpRehacerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Deshacer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Deshacer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/ListaCircular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/ListaCircular.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Estructuras/ListaCircular/ListaCircularTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Estructuras/ListaCircular/ListaCircularTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2h803VopHsPJKMaOgB3qdr3wfnX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -24,6 +45,96 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RunManager" selected="JUnit.ListaCircularTest">
+    <configuration name="ListaCircularTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GenSound" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Estructuras.ListaCircular.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Estructuras.ListaCircular" />
+      <option name="MAIN_CLASS_NAME" value="Estructuras.ListaCircular.ListaCircularTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ListaCircularTest.deshacerEliminacion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GenSound" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Estructuras.ListaCircular.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Estructuras.ListaCircular" />
+      <option name="MAIN_CLASS_NAME" value="Estructuras.ListaCircular.ListaCircularTest" />
+      <option name="METHOD_NAME" value="deshacerEliminacion" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ListaCircularTest.deshacerInsercion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GenSound" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Estructuras.ListaCircular.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Estructuras.ListaCircular" />
+      <option name="MAIN_CLASS_NAME" value="Estructuras.ListaCircular.ListaCircularTest" />
+      <option name="METHOD_NAME" value="deshacerInsercion" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ListaCircularTest.rehacerEliminacion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GenSound" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Estructuras.ListaCircular.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Estructuras.ListaCircular" />
+      <option name="MAIN_CLASS_NAME" value="Estructuras.ListaCircular.ListaCircularTest" />
+      <option name="METHOD_NAME" value="rehacerEliminacion" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ListaCircularTest.rehacerInsercion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GenSound" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Estructuras.ListaCircular.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Estructuras.ListaCircular" />
+      <option name="MAIN_CLASS_NAME" value="Estructuras.ListaCircular.ListaCircularTest" />
+      <option name="METHOD_NAME" value="rehacerInsercion" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ListaCircularTest" />
+        <item itemvalue="JUnit.ListaCircularTest.rehacerInsercion" />
+        <item itemvalue="JUnit.ListaCircularTest.rehacerEliminacion" />
+        <item itemvalue="JUnit.ListaCircularTest.deshacerInsercion" />
+        <item itemvalue="JUnit.ListaCircularTest.deshacerEliminacion" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
