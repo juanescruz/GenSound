@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c5b87fd-f6dc-4ab4-b38a-0ed96a8b2975" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Rehacer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs.log.2" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log.2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/PopUpRehacerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/PopUpRehacerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Deshacer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Deshacer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/ListaCircular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/ListaCircular.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Archivos/usuarios.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Estructuras/ListaCircular/ListaCircularTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Estructuras/ListaCircular/ListaCircularTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Rehacer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaCircular/Rehacer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

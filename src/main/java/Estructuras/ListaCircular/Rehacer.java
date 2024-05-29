@@ -15,13 +15,6 @@ public class Rehacer<T> {
 
         //Verifica si se ha deshecho una inserción para volver a insertar el dato
         if (nodoAnterior == null) {
-
-            if (listaCircular.getCabeza() == null){
-                listaCircular.setCabeza(nodoBorrado);
-                listaCircular.getCabeza().setSiguienteNodo(listaCircular.getCabeza());
-                return;
-            }
-
             while (actual.getSiguienteNodo() != listaCircular.getCabeza()) {
                 actual = actual.getSiguienteNodo();
             }
@@ -29,7 +22,6 @@ public class Rehacer<T> {
             listaCircular.setTamanio(listaCircular.getTamanio() + 1);
 
         } else { //Si no se deshizo una eliminación para volver a eliminar el dato
-
             while (actual.getSiguienteNodo() != nodoBorrado) {
                 actual = actual.getSiguienteNodo();
             }
@@ -37,5 +29,6 @@ public class Rehacer<T> {
             listaCircular.setTamanio(listaCircular.getTamanio() - 1);
         }
     }
+
 
 }
