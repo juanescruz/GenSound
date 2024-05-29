@@ -401,11 +401,27 @@ public class Tienda {
         return artistas.obtenerTodasLasCanciones();
     }
 
+    public List<Artista> obtenerTodosLosArtistas() {
+        List<Artista> listaArtistas = new ArrayList<>();
+        obtenerArtistasRecursivo(artistas.getRaiz(), listaArtistas);
+        return listaArtistas;
+    }
+
+    private void obtenerArtistasRecursivo(Nodo nodo, List<Artista> listaArtistas) {
+        if (nodo != null) {
+            obtenerArtistasRecursivo(nodo.getIzquierdo(), listaArtistas);
+            listaArtistas.add(nodo.getArtista());
+            obtenerArtistasRecursivo(nodo.getDerecho(), listaArtistas);
+        }
+    }
+
+
     /**
      * Este metodo se encarga de encontrar el género más popular de la tienda
      * @param
      * @return generoMasRepetido genero más repetido de la tienda
      */
+
     public String hallarGeneroMasRepetido() {
         List<Cancion> canciones = obtenerCanciones();
         Map<String, Integer> conteoGeneros = new HashMap<>();

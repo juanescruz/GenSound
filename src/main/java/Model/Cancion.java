@@ -11,7 +11,9 @@ import java.io.Serializable;
 @Setter
 @Getter
 @AllArgsConstructor
+@EqualsAndHashCode
 public class Cancion implements Serializable {
+
 
     private int codigoCancion;
     private String nombreCancion;
