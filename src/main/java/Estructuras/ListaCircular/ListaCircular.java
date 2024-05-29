@@ -60,7 +60,14 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
 
         tamanio++;
 
+        if (pilaDeshacer.isEmpty()){
+            pilaDeshacer.push(new Deshacer<>(null, nuevoNodo));
+        } else {
+            pilaDeshacer.clear();
+        }
         pilaDeshacer.push(new Deshacer<>(null, nuevoNodo));
+
+
     }
     /**
      * Elimina el nodo que contiene el dato especificado de la lista circular.
@@ -97,7 +104,11 @@ public class ListaCircular<T> implements Iterable<T>, Serializable {
 
             }
 
-            pilaDeshacer.push(new Deshacer<>(previo, actual));
+            if (pilaDeshacer.isEmpty()){
+                pilaDeshacer.push(new Deshacer<>(previo, actual));
+            } else {
+                pilaDeshacer.clear();
+            }
 
             tamanio--;
 
